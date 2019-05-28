@@ -1,12 +1,17 @@
-.navbar-lewagon {
+.navbar-eloquent {
   justify-content: space-between;
   background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-eloquent .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-eloquent a {
   width: 40px;
+  text-decoration: none;
+  color: #4a194b;
+  font-size: 25px;
+  font-weight: bold;
+  font-style: oblique;
 }
