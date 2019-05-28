@@ -114,7 +114,6 @@ ActiveRecord::Schema.define(version: 2019_05_28_103707) do
     t.text "biography"
     t.string "native_language"
     t.string "photo"
-    t.string "password"
     t.string "nationality"
     t.float "teacher_rating"
     t.index ["email"], name: "index_users_on_email", unique: true
