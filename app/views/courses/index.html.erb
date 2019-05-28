@@ -1,0 +1,12 @@
+<h1>Courses#index</h1>
+<p>Find me in app/views/courses/index.html.erb</p>
+
+<% @courses.each do |course| %>
+<%= link_to "view course", course_path(course) %>
+<h2><%= course.title %></h2>
+<h2><%= course.user.name %></h2>
+<p>$<%= course.price %>/price person</p>
+
+
+<% end %>
+
