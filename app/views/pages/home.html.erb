@@ -1,9 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'shared/banner' %>
+<div class="content-container">
+  <form  action="/courses" method="get"/>
 
-<form  action="/courses" method="get"/>
+  <input  type="text" name="language"   placeholder="Language"/>
 
-<input  type="text" name="language"   placeholder="Language"/>
+  <input type="text" name="location" placeholder="City" />
+  <input type="submit" value="Search" >
 
-<input type="text" name="location" placeholder="City" />
-<input type="submit" value="Search" >
+</div>
