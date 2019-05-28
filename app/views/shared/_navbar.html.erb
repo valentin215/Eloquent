@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand navbar-light navbar-eloquent shadow-sm rounded">
+<div class="navbar navbar-expand navbar-light navbar-eloquent rounded">
  <div class="navbar-logo">
   <%= link_to "Eloquent" %>
  </div>
@@ -24,14 +24,11 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
-      </ul>
         <% else %>
-        <div class="nav-login">
-          <%= link_to  new_user_session_path do %>
-            <p class="login-button">Login</p>
-          <% end %>
-        <% end %>
+        <div class="login">
+          <%= link_to 'Login', new_user_session_path, class: "login-button" %>
         </div>
+        <% end %>
     </ul>
   </div>
 </div>

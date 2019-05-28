@@ -1,6 +1,7 @@
 .navbar-eloquent {
   justify-content: space-between;
   background: white;
+  box-shadow: 0px 2px 5px -1px rgba(186,186,186,0.74);
 }
 
 .navbar-eloquent .navbar-collapse {
@@ -25,16 +26,17 @@
   border: solid 2px;
   border-color: #4a194b;
   width: 66px;
-  height: 40px;
   border-radius: 4px;
   text-align: center;
+  color: #4a194b;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
   opacity: 0.8;
+  height:  33px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
-.nav-login a {
- font-size: 15px;
-  text-decoration: none;
-  color: #4a194b;
-  opacity: 0.8;
-  text-align: center;
-}
