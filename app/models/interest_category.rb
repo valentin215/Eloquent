@@ -1,0 +1,2 @@
+class InterestCategory < ApplicationRecord
+end
