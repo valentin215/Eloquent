@@ -1,9 +1,10 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-eloquent shadow-sm p-3 mb-5 bg-white rounded">
-  <%= link_to "ELoquent", class: "navbar-logo"%>
+<div class="navbar navbar-expand navbar-light navbar-eloquent shadow-sm rounded">
+ <div class="navbar-logo">
+  <%= link_to "Eloquent" %>
+ </div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+ <!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  </button> -->
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -23,11 +24,14 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
+      </ul>
+        <% else %>
+        <div class="nav-login">
+          <%= link_to  new_user_session_path do %>
+            <p class="login-button">Login</p>
+          <% end %>
+        <% end %>
+        </div>
     </ul>
   </div>
 </div>

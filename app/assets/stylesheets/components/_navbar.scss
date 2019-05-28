@@ -7,11 +7,34 @@
   flex-grow: 0;
 }
 
-.navbar-eloquent a {
-  width: 40px;
+.navbar-logo a {
   text-decoration: none;
   color: #4a194b;
   font-size: 25px;
   font-weight: bold;
   font-style: oblique;
+  opacity: 0.8;
+}
+
+// .nav-login p {
+//   font-size: 20px;
+//   text-decoration: none;
+// }
+
+.login-button {
+  border: solid 2px;
+  border-color: #4a194b;
+  width: 66px;
+  height: 40px;
+  border-radius: 4px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.nav-login a {
+ font-size: 15px;
+  text-decoration: none;
+  color: #4a194b;
+  opacity: 0.8;
+  text-align: center;
 }
