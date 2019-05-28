@@ -16,11 +16,11 @@
 
 .navbar-logo a {
   text-decoration: none;
-  color: #4a194b;
+  color: $purple;
   font-size: 25px;
   font-weight: bold;
   font-style: oblique;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 .navbar-logo:hover {
@@ -29,15 +29,15 @@
 
 .login-button {
   border: solid 2px;
-  border-color: #4a194b;
+  border-color: $purple;
   width: 66px;
   border-radius: 4px;
   text-align: center;
-  color: #4a194b;
+  color: $purple;
   text-decoration: none;
   font-size: 12px;
   font-weight: bold;
-  opacity: 0.8;
+  opacity: 0.75;
   height:  33px;
   padding-right: 1rem;
   padding-left: 1rem;
@@ -47,6 +47,6 @@
 
 .login-button:hover {
   text-decoration: none;
-  color: #4a194b;
+  color: $purple;
   opacity: 0.6;
 }
