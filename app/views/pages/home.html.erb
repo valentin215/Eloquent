@@ -1,10 +1,23 @@
 <%= render 'shared/banner' %>
 <div class="content-container">
-  <form  action="/courses" method="get"/>
-
-  <input  type="text" name="language"   placeholder="Language"/>
-
-  <input type="text" name="location" placeholder="City" />
-  <input type="submit" value="Search" >
-
+  <div class="search-form">
+    <%= form_tag(courses_index_path, method: :get) do |f| %>
+      <div class="flag">
+        <%= text_field_tag :language, params[:language], class: 'form-control', placeholder: "Spanish" %>
+        <div class="icon-flag">
+          <%= icon('far', 'flag') %>
+        </div>
+      </div>
+          <div class="location">
+            <%= text_field_tag :city, params[:city], class: 'form-control', placeholder: "Barcelona" %>
+            <div class="icon-location">
+              <%= icon('fas', 'map-marker-alt') %>
+            </div>
+          </div>
+      <%= submit_tag 'Search', class: "button-search" %>
+    <% end %>
+  </div>
 </div>
+
+
+
