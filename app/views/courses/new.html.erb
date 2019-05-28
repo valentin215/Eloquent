@@ -1,2 +1,33 @@
-<h1>Courses#new</h1>
+<h2>Let's create a new course</h2>
 <p>Find me in app/views/courses/new.html.erb</p>
+
+<%= simple_form_for [@courses] do |f| %>
+  <h3>What language would you like to teach?</h3>
+  <%= f.input :title %>
+  <h3>What’s the level you will teach in this course?</h3>
+  <%= f.input :language %>
+  <h3>What’s the level of this course?</h3>
+  <%= f.input :level %>
+  <h3>In which city you will provide this course?</h3>
+  <%= f.input :city %>
+  <h3>create a title for your announcement</h3>
+  <%= f.input :title %>
+  <h3>Take your time and write a complete description of your course</h3>
+  <%= f.input :description %>
+  <h3>What's the maximum capacity for this course (6 max)</h3>
+  <h3>Take your time and write a complete description of your course</h3>
+  <%= f.input :description %>
+  <h3>Start date</h3>
+  <%= f.input :start_date %>
+  <h3>End date</h3>
+  <%= f.input :end_date %>
+  <h3>Start time</h3>
+  <%#= f.input :start_time %>
+  <h3>End Time</h3>
+  <%#= f.input :end_time %>
+  <%= f.submit "create course", class: "btn btn-primary" %>
+<% end %>
+
+
+
+<%= link_to "Back", :back %>
