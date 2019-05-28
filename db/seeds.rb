@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 puts 'Cleaning database...'
 
 InterestTag.destroy_all
@@ -90,12 +84,4 @@ rock_interest_tag = InterestTag.create!(content: 'rock', interest_category:music
 tennis_interest_tag = InterestTag.create!(content: 'tennis', interest_category: sport_interest_category)
 
 puts 'Finished!'
-
-
-
-
-
-
-
-
 
