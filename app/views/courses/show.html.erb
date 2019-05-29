@@ -18,6 +18,9 @@
       <p><%#= @course.user.user_interest.interest_tag.content %></p>
       <p>          </p>
     </div>
+  </div>
+
+<!-- Dates Section -->
     <div class="dates">
       <h4>Dates</h4>
       <p>Start: <%= @course.start_date %></p>
@@ -27,9 +30,88 @@
       <h4>per week</h4>
       <p><%= @course.start_date %></p>
       <p><%= @course.total_week_hours %></p>
-      <p>End: <% @course.course_days.each do |x| %></p>
-      <p> <%= x.start_time %></p>
+    </div>
+    <div class="times"></div>
+      <% @course.course_days.each do |x| %>
+        <p> <%= x.start_time %>:00</p>
+      <% end %>
+      <% @course.course_days.each do |x| %>
+        <p> <%= x.end_time %>:00</p>
       <% end %>
     </div>
+    <div class="days">
+      <% @course.course_days.each do |x| %>
+        <p> <%= x.working_day %></p>
+      <% end %>
+    </div>
+    <div class="Price-student">
+      <p>Price per student</p>
+      <p>€ <%= @course.price %> </p>
+    </div>
+    <div class="meeting-point">
+      <p>Meeting point</p>
+      <%= @course.address %>
+    </div>
+
+<!-- Course description -->
+    <div class="description-course">
+      <h3>Course Description</h3>
+      <%= @course.description %>
+    </div>
+
+
+<!-- Meet classmates -->
+    <div class="meet-classmates">
+      <h3>Meet your classmates</h3>
+      <div class="classmates">
+        <% @course.bookings.each do |x| %>
+          <div>
+            <p> <%= x.user.name %></p>
+            <p> <%#= x.user.photo %></p>
+          </div>
+        <% end %>
+      </div>
+      <p>¡Hurry up! Just XXX spots left</p>
+    </div>
+
+<!-- Teacher reviews -->
+    <div class="teacher-reviews">
+      <h3>Teacher reviews</h3>
+      <div class="review-info">
+
+        <%#= @course.user.photo %>
+        <% @course.user.teacher_reviews.each do |review| %>
+          <div class="review-info">
+            <%#= review.bookings.user.name %>
+            <%= review.content %>
+          </div>
+        <% end %>
+        <!-- stars of the review -->
+      </div>
+      <p>Read all reviews</p>
+      <%#= @course.user.name %>
+    </div>
+
+<!-- Map -->
+
+  <div class="">
+    <h3>Location</h3>
+    <div class="map">
+
+    </div>
   </div>
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
