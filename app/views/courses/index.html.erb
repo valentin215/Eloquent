@@ -1,7 +1,5 @@
 <div class="content-container">
-  <h1><%=@courses.count%> courses in availables</h1>
-
-
+  <h1 id="search-result"><%=@courses.count%> courses available</h1>
   <div class="cards">
     <% @courses.each do |course| %>
       <div class="card-course">
@@ -31,16 +29,27 @@
             <div class="course-level">
               <%= course.language.name.upcase %><span>, </span><%= course.level.upcase %>
             </div>
-            <div class="course-title"><%= course.title %></div>
-            <div>Price: <%= course.price %> € per student</div>
-            <div>Dates: <%= course.start_date %> <%= course.end_date %></div>
-            <div><% course.course_days.each do |day| %></div>
-              <%= day.working_day %>
+              <div class="course-title"><%= course.title %></div>
+              <div><span>Price: </span><%= course.price.to_i %>€ per student</div>
+              <div><span>Dates: </span><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B") %></div>
+              <% course.course_days.each do |day| %>
+              <div><span>Days: </span><%= day.working_day %></div>
             <% end %>
           </div>
 
-          <div class="course-area">
-              <%= course.area %>
+          <div class="course-area-spots">
+              <div class="course-area">
+                <%= image_tag "marker2.jpeg"%>
+                <p><%= course.area %></p>
+              </div>
+              <div class="course-spots">
+                 <span>5 spots left</span>
+                <i class="far fa-user-circle"></i>
+                <i class="far fa-user-circle"></i>
+                <i class="far fa-user-circle"></i>
+                <i class="far fa-user-circle"></i>
+                <i class="far fa-user-circle"></i>
+              </div>
           </div>
         </div>
         </div>

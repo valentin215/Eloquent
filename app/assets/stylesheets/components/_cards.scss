@@ -1,3 +1,7 @@
+.card-course {
+  margin-bottom: 36px;
+}
+
 .teacher-content {
   display: flex;
 }
@@ -28,7 +32,7 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 .course-info {
@@ -46,6 +50,61 @@
 .course-title {
   font-weight: bold;
   font-size: 18px;
-  opacity: 0.8;
+  opacity: 0.9;
   margin-bottom: 6px;
 }
+
+#search-result {
+  margin-top: 20px;
+  margin-bottom: 26px;
+  font-family: Open Sans, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  opacity: 0.75;
+}
+
+.course-info span {
+  opacity: 0.8;
+  font-weight: bold;
+}
+
+.course-area-spots {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// .course-area-spots {
+//  margin: 0
+// }
+
+
+
+.course-spots span {
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+.course-area {
+  font-weight: bold;
+  opacity: 0.75;
+  display: flex;
+  align-items: center;
+}
+
+.course-area img {
+  width: 34px;
+  height: 34px;
+}
+
+.fa-user-circle {
+  opacity: 0.6;
+}
+
+.course-area p {
+  margin: 0;
+}
+
+
+
