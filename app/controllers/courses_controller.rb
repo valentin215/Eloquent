@@ -14,6 +14,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @booking = Booking.new
     @user = @course.user
+    @reviews_teacher_for_course = @course.user.teacher_reviews_for_show
   end
 
   def new
