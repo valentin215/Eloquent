@@ -80,7 +80,7 @@
       <div class="review-info">
 
         <%#= @course.user.photo %>
-        <% @course.user.teacher_reviews.each do |review| %>
+        <% @course.user.teacher_reviews_for_show.each do |review| %>
           <div class="review-info">
             <%#= review.bookings.user.name %>
             <%= review.content %>
