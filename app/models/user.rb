@@ -21,6 +21,9 @@ class User < ApplicationRecord
   has_many :courses # FOR TEACHERS
   has_many :reviews, through: :bookings # Student review a course
   has_many :interest_tags, through: :user_interests
+
+  has_many :teacher_reviews, through: :courses, source: :reviews
+
   # current_user.teacher_reviews
 
   def teacher_reviews
@@ -32,6 +35,7 @@ class User < ApplicationRecord
     end
     reviews
   end
+
 
 end
 
