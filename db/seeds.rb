@@ -83,6 +83,15 @@ curso_spanish_days = CourseDay.create!(start_time: 19,
 
 
 
+carlitos_student_spanish_review = Review.create!(content: 'Juanito is so bad teacher, I wont come back', rating: 1)
+carlitos_student_english_review = Review.create!(content: 'Juanito is amaaazing!', rating: 5)
+valentin_student_spanish_review = Review.create!(content: 'Juanito is a good teacher, takes the time explain and correct my grammar', rating: 4)
+
+carlitos_student_booking = Booking.create!(total_price: 100, course: curso_spanish, review: carlitos_student_spanish_review, user: carlitos_student)
+carlitos_student_booking2 = Booking.create!(total_price: 200, course: curso_english, review: carlitos_student_english_review, user: carlitos_student)
+valentin_student_booking = Booking.create!(total_price: 100, course: curso_spanish, review: valentin_student_spanish_review, user: valentin_student)
+
+
 carlitos_student_booking = Booking.create!(total_price: 100, course: curso_spanish, user: carlitos_student)
 
 carlitos_student_booking2 = Booking.create!(total_price: 200, course: curso_english, user: carlitos_student)
@@ -97,29 +106,16 @@ carlitos_student_english_review = Review.create!(content: 'Juanito is amaaazing!
 
 valentin_student_spanish_review = Review.create!(content: 'Juanito is a good teacher, takes the time explain and correct my grammar', rating: 4, booking: valentin_student_booking)
 
-
-
-
 music_interest_category = InterestCategory.create!(content: 'music')
 sport_interest_category = InterestCategory.create!(content: 'sport')
 movies_interest_category = InterestCategory.create!(content: 'movies')
 
 rock_interest_tag = InterestTag.create!(content: 'K-pop', interest_category:music_interest_category)
-
 tennis_interest_tag = InterestTag.create!(content: 'tennis', interest_category: sport_interest_category)
-
-
 movies_interest_tag = InterestTag.create!(content: 'Romantic', interest_category: movies_interest_category)
-
-
-
 juan_interest_link1 = UserInterest.create!(interest_tag: rock_interest_tag, user: juanito_teacher)
-
 juan_interest_link2 = UserInterest.create!(interest_tag: tennis_interest_tag, user: juanito_teacher)
-
-
 juan_interest_link3 = UserInterest.create!(interest_tag: movies_interest_tag, user: juanito_teacher)
-
 
 puts 'Finished!'
 

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def edit
-    @tags_by_category = InterestCategory.includes(:interest_tags).all.map { |c|  [c, c.interest_tags] }.to_h
+    @tags_by_category = InterestCategory.includes(:interest_tags).all.map { |c| [c, c.interest_tags] }.to_h
   end
 
   def update
@@ -10,6 +10,22 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+
+    @interests = @user.user_interests
+    @tags = []
+    @interests.each do |interest|
+      @tags << interest.interest_tag
+    end
+
+    @categories = []
+    @tags.each do |tag|
+      @categories << tag.interest_category
+    end
+
+    @categories = @categories.uniq
+
+    # @category = current_user.interest_tags.map { |it| it.interest_category }.uniq
   end
 
   private
@@ -19,18 +35,19 @@ class UsersController < ApplicationController
     interest_tag_ids = user_params[:interest_tag_ids].reject { |it| it == "" }
 
     interest_tag_ids.each do |interest_tag_id|
-     UserInterest.create(user_id: current_user.id, interest_tag_id: interest_tag_id)
+      UserInterest.create(user_id: current_user.id, interest_tag_id: interest_tag_id)
     end
   end
 
   def user_params
-    params.require(:user).permit(:email,
+    params.require(:user).permit(
+      :email,
       :name,
       :biography,
       :native_language,
       :photo,
       :nationality,
-      interest_tag_ids: [])
+      interest_tag_ids: []
+    )
   end
-
 end
