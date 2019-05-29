@@ -80,14 +80,19 @@
       <div class="review-info">
 
         <%#= @course.user.photo %>
-        <% @course.user.teacher_reviews_for_show.each do |review| %>
+
+<% if @reviews_teacher_for_course.nil? %>
+  <p>no review yet</p>
+<% else %>
+    <% @reviews_teacher_for_course.each do |review|  %>
           <div class="review-info">
-            <%#= review.bookings.user.name %>
-            <%= review.content %>
+            <%= review.try(:content) %>
+<!-- IMPORTANT METHOD TRY: it iterates and if there is an object without content it doesnt raise an error, it moves to the next one -->
           </div>
-        <% end %>
+       <% end %>
         <!-- stars of the review -->
       </div>
+      <% end %>
       <p>Read all reviews</p>
       <%#= @course.user.name %>
     </div>
