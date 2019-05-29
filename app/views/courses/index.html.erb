@@ -7,6 +7,10 @@
       <br> <%= interest.content %> <br>
     <% end %>
   <br><%= course.title %><br>
+
+    <% course.bookings.each do |booking| %>
+      <br><%#= booking.review.rating %> <br>
+    <% end%>
     <br><%= course.level %><br>
   <br><%= course.description %><br>
    <p>Average: <%= course.user.teacher_rating %></p>
