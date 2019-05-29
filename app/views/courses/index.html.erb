@@ -7,16 +7,21 @@
       <br> <%= interest.content %> <br>
     <% end %>
   <br><%= course.title %><br>
+
     <% course.bookings.each do |booking| %>
-      <br><%= booking.review.rating %> <br>
+      <br><%#= booking.review.rating %> <br>
     <% end%>
     <br><%= course.level %><br>
   <br><%= course.description %><br>
+   <p>Average: <%= course.user.teacher_rating %></p>
 
   <br><%= course.start_date %> <br>
   <br><%= course.end_date %> <br>
   <br><%= course.price %><br>
   <br><%= course.area %><br>
   <%= link_to "view course", course_path(course) %>
+
+
+
 <% end %>
 
