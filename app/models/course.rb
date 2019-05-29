@@ -7,7 +7,7 @@ class Course < ApplicationRecord
   def total_week_hours
     total = 0
     course_days.each do |course_day|
-      total += course_day.end_time.hour - course_day.start_time.hour
+      total += course_day.end_time - course_day.start_time
     end
     return total
   end

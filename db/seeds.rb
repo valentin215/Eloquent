@@ -63,8 +63,8 @@ curso_english = Course.create!(user: juanito_teacher,
     price: 200,
     video_url: "video_url2",
     )
-curso_spanish_days = CourseDay.create!(start_time: Time.new,
-  end_time: Time.new,
+curso_spanish_days = CourseDay.create!(start_time: 19,
+  end_time: 21,
   working_day: "Wed",
   course: curso_spanish
   )
