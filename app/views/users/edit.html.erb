@@ -17,11 +17,16 @@
   <h3>Pick your interest</h2>
 
   <% @tags_by_category.each do |category, taglist| %>
-    <h1><%= category.content %></h1>
-    <% taglist.each do  |tag|  %>
-      <p><%= tag.content %></p>
-      <% end %>
+    <h3><%= category.content %></h3>
+
+        <%= f.association :interest_tags, collection: taglist, as: :check_boxes, label_method: :content, input_html: { class: 'ck-button' } %>
+
+
   <% end %>
 
+
   <%= f.submit %>
+
 <% end %>
+
+
