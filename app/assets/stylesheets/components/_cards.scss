@@ -1,5 +1,5 @@
 .card-course {
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 
 .teacher-content {
@@ -66,24 +66,25 @@
 .course-info span {
   opacity: 0.8;
   font-weight: bold;
+  font-size: 14px;
+}
+
+.course-info p {
+  display: inline;
+  font-size: 14px;
 }
 
 .course-area-spots {
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-// .course-area-spots {
-//  margin: 0
-// }
-
-
-
 .course-spots span {
   font-weight: bold;
   opacity: 0.9;
+  padding-right: 6px;
 }
 
 .course-area {
@@ -93,9 +94,8 @@
   align-items: center;
 }
 
-.course-area img {
-  width: 34px;
-  height: 34px;
+.course-area i {
+  padding-right: 10px;
 }
 
 .fa-user-circle {
