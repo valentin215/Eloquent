@@ -30,6 +30,7 @@
               <%= course.language.name.upcase %><span>, </span><%= course.level.upcase %>
             </div>
               <div class="course-title"><%= course.title %></div>
+<<<<<<< HEAD
                 <div>
                   <span>Price: </span><p><%= course.price.to_i %>€ per student</p>
                 </div>
@@ -56,6 +57,28 @@
                   <i class="far fa-user-circle"></i>
                 </div>
             </div>
+=======
+              <div><span>Price: </span><%= course.price.to_i %>€ per student</div>
+              <div><span>Dates: </span><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B") %></div>
+              <% course.course_days.each do |day| %>
+              <div><span>Days: </span><%= day.working_day %></div>
+            <% end %>
+          </div>
+          
+          <div class="course-area-spots">
+              <div class="course-area">
+                <%= image_tag "marker2.jpeg"%>
+                <p><%= course.area %></p>
+              </div>
+              <div class="course-spots">
+                 <span>5 spots left</span>
+                <i class="far fa-user-circle"></i>
+                <i class="far fa-user-circle"></i>
+                <i class="far fa-user-circle"></i>
+                <i class="far fa-user-circle"></i>
+                <i class="far fa-user-circle"></i>
+              </div>
+>>>>>>> 67c7f00381e20e27bb894fd266044ea563bb3932
           </div>
         </div>
         <hr>
@@ -63,3 +86,9 @@
   </div>
 </div>
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 67c7f00381e20e27bb894fd266044ea563bb3932

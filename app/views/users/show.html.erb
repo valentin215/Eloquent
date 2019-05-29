@@ -1,0 +1,27 @@
+
+
+<h1><%= @user.name %></h1>
+<h3>Student</h3>
+<%= @user.nationality%>
+
+<h2>About me</h2>
+<%= @user.biography%>
+
+<h2>categories</h2>
+
+<% @categories.each do |cat| %>
+  <h2><%= cat.content %></h2>
+  <% @tags.each do |tag| %>
+    <%= tag.content %>
+  <% end %>
+<% end %>
+
+
+
+<h2>Native Language</h2>
+<%= @user.native_language%>
+
+<h2>Next courses</h2>
+<%#= @user.course.title %>
+
+
