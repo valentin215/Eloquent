@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :name, presence: true
+ # validates :name, presence: true
  # validates :biography, presence: true
  # validates :native_language, presence: true
  # validates :photo, presence: true

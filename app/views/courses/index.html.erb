@@ -1,2 +1,22 @@
 <h1>Courses#index</h1>
 <p>Find me in app/views/courses/index.html.erb</p>
+
+<% @courses.each do |course| %>
+  <br><%= course.user.name %> <br>
+    <% course.user.interest_tags.each do |interest| %>
+      <br> <%= interest.content %> <br>
+    <% end %>
+  <br><%= course.title %><br>
+    <% course.bookings.each do |booking| %>
+      <br><%= booking.review.rating %> <br>
+    <% end%>
+    <br><%= course.level %><br>
+  <br><%= course.description %><br>
+
+  <br><%= course.start_date %> <br>
+  <br><%= course.end_date %> <br>
+  <br><%= course.price %><br>
+  <br><%= course.area %><br>
+  <%= link_to "view course", course_path(course) %>
+<% end %>
+

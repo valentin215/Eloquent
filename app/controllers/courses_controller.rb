@@ -1,8 +1,8 @@
 class CoursesController < ApplicationController
  def index
     @courses = Course.all
-    if params[:location].present?
-      @courses = @courses.where("address ILIKE ?", "%#{params[:location]}%")
+    if params[:city].present?
+      @courses = @courses.where("address ILIKE ?", "%#{params[:city]}%")
     end
     if params[:language].present?
       @courses = @courses.where("language = ?", params[:language]) ## we may have to change the argument of language
@@ -63,6 +63,6 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :end_date,:start_date, :level, :address, :area, :city, :latitude )
+    params.require(:course).permit(:title, :description, :end_date,:start_date, :level, :address, :area, :city, :latitude, :longitude )
   end
 end

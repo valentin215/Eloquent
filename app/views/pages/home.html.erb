@@ -1,2 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'shared/banner' %>
+<div class="content-container">
+  <div class="search-form">
+    <%= form_tag(courses_index_path, method: :get) do |f| %>
+      <div class="flag">
+        <%= text_field_tag :language, params[:language], class: 'form-control', placeholder: "Spanish" %>
+        <div class="icon-flag">
+          <%= icon('fas', 'language') %>
+        </div>
+      </div>
+          <div class="location">
+            <%= text_field_tag :city, params[:city], class: 'form-control', placeholder: "Barcelona" %>
+            <div class="icon-location">
+              <%= icon('fas', 'map-marker-alt') %>
+            </div>
+          </div>
+      <%= submit_tag 'Search', class: "button-search" %>
+    <% end %>
+  </div>
+</div>
+

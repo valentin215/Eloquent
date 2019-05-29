@@ -2,9 +2,25 @@ body {
   background-color: white;
 }
 
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), asset-url('background-2.jpeg');
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
 .content-container {
-  border: solid 1px lightgrey;
   width: 90%;
   margin: 0 auto;
-  margin-top: 30px;
+}
+
+.content-title {
+  padding-top: 100px;
+}
+
+.content-title p {
+  padding-top: 20px;
+  font-weight: normal
 }
