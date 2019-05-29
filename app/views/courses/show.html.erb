@@ -26,7 +26,10 @@
     <div class="hours-per-week">
       <h4>per week</h4>
       <p><%= @course.start_date %></p>
-      <p>End: <%= @course.course_days.start_time %></p>
+      <p><%= @course.total_week_hours %></p>
+      <p>End: <% @course.course_days.each do |x| %></p>
+      <p> <%= x.start_time %></p>
+      <% end %>
     </div>
   </div>
 </div>
