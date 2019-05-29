@@ -1,0 +1,31 @@
+.teacher-content {
+  display: flex;
+}
+
+.interest-content {
+  display: inline-block;
+  border: solid 1px $purple;
+  color: $purple;
+  opacity: 0.75;
+  border-radius: 4px;
+  padding: 0px 6px;
+  margin-top: 4px;
+  font-size: smaller;
+}
+
+.teacher-info {
+  margin-left: 10px;
+  display: block;
+}
+
+.fa-star {
+ opacity: 0.50;
+ margin-top: 6px;
+ font-size: 0.7rem;
+}
+
+.teacher-info a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
