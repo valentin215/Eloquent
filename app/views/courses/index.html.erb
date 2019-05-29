@@ -30,28 +30,33 @@
               <%= course.language.name.upcase %><span>, </span><%= course.level.upcase %>
             </div>
               <div class="course-title"><%= course.title %></div>
-              <div><span>Price: </span><%= course.price.to_i %>€ per student</div>
-              <div><span>Dates: </span><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B") %></div>
-              <% course.course_days.each do |day| %>
-              <div><span>Days: </span><%= day.working_day %></div>
-            <% end %>
+                <div>
+                  <span>Price: </span><p><%= course.price.to_i %>€ per student</p>
+                </div>
+                <div>
+                  <span>Dates: </span><p><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B") %></p>
+                </div>
+                  <% course.course_days.each do |day| %>
+                <div>
+                  <span>Days: </span><p><%= day.working_day %></p>
+                </div>
+                <% end %>
+            </div>
+            <div class="course-area-spots">
+                <div class="course-area">
+                  <%= icon('fas', 'map-marker-alt') %>
+                  <p><%= course.area %></p>
+                </div>
+                <div class="course-spots">
+                  <span>5 spots left </span>
+                  <i class="far fa-user-circle"></i>
+                  <i class="far fa-user-circle"></i>
+                  <i class="far fa-user-circle"></i>
+                  <i class="far fa-user-circle"></i>
+                  <i class="far fa-user-circle"></i>
+                </div>
+            </div>
           </div>
-
-          <div class="course-area-spots">
-              <div class="course-area">
-                <%= icon('fas', 'map-marker-alt') %>
-                <p><%= course.area %></p>
-              </div>
-              <div class="course-spots">
-                <span>5 spots left </span>
-                <i class="far fa-user-circle"></i>
-                <i class="far fa-user-circle"></i>
-                <i class="far fa-user-circle"></i>
-                <i class="far fa-user-circle"></i>
-                <i class="far fa-user-circle"></i>
-              </div>
-          </div>
-        </div>
         </div>
         <hr>
       <% end %>
