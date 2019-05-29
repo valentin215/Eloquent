@@ -17,10 +17,10 @@
               </div>
               <% end %>
               <div>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <% rating = course.user.teacher_rating %>
+                  <% rating.times do %>
+                    <i class="fa fa-star"></i>
+                  <% end %>
               </div>
             </div>
         </div>
@@ -62,5 +62,4 @@
       <% end %>
   </div>
 </div>
-
 
