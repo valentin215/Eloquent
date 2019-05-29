@@ -28,4 +28,24 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
+  opacity: 0.8;
+}
+
+.course-info {
+  display: block;
+}
+
+.course-level {
+  padding-bottom: 4px;
+  margin-top: 14px;
+  color: black;
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+.course-title {
+  font-weight: bold;
+  font-size: 18px;
+  opacity: 0.8;
+  margin-bottom: 6px;
 }

@@ -28,23 +28,25 @@
         </div>
         <div class="course-content">
           <div class="course-info">
-            <%= course.title %>
-            <% course.bookings.each do |booking| %>
-              <%= booking.review.rating %>
+            <div class="course-level">
+              <%= course.language.name.upcase %><span>, </span><%= course.level.upcase %>
+            </div>
+            <div class="course-title"><%= course.title %></div>
+            <div>Price: <%= course.price %> € per student</div>
+            <div>Dates: <%= course.start_date %> <%= course.end_date %></div>
+            <div><% course.course_days.each do |day| %></div>
+              <%= day.working_day %>
             <% end %>
-            <%= course.level %>
-            <%= course.description %>
+          </div>
 
-            <br><%= course.start_date %> <br>
-            <br><%= course.end_date %> <br>
-            <br><%= course.price %><br>
-          </div>
           <div class="course-area">
-              <%= course.area %><br>
+              <%= course.area %>
           </div>
         </div>
         </div>
+        <hr>
       <% end %>
   </div>
 </div>
+
 
