@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   # current_user.teacher_reviews
 
-  def teacher_reviews
+  def teacher_reviews_for_show
     reviews = []
     courses.each do |course|
       course.bookings.each do |booking|
