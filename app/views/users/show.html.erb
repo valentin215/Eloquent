@@ -26,19 +26,29 @@
 
 <h2>My bookings</h2>
 
-<% if current_user.student? %>
+  <% if current_user.student? %>
  <% @bookings.each do |booking| %>
  <%= booking.course.level %>
  <%= booking.course.language.name %>
  <%= booking.course.title %>
  <%= booking.course.title %>
- <%= booking.course.start_date.strftime("%-d %B") %> - <%= booking.course.end_date.strftime("%-d %B") %>
+ <%= booking.course.start_date.strftime("%-d %B") %> - <%#= booking.course.end_date.strftime("%-d %B") %>
  <% end %>
-<% else %>
+<% if current_user.student? == false %>
  <% @bookings.each do |booking| %>
  <%= booking.level %>
  <%= booking.language.name %>
  <%= booking.title %>
  <%= booking.start_date.strftime("%-d %B") %> - <%= booking.end_date.strftime("%-d %B")%>
+ <% else %>
+ <p>You have no reservations</p>
  <% end %>
-<% end %>
+<%# end %>
+
+
+
+
+<p>edit your profile</p>
+
+
+<%= link_to "Edit my profile", edit_user_path(current_user) %>
