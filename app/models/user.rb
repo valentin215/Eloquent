@@ -37,6 +37,9 @@ class User < ApplicationRecord
     reviews
   end
 
+def student?
+  return true if courses.empty?
+end
 
 end
 

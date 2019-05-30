@@ -6,6 +6,7 @@ class Course < ApplicationRecord
   has_many :reviews, through: :bookings
   mount_uploader :picture, PhotoUploader
 
+
   def total_week_hours
     total = 0
     course_days.each do |course_day|
