@@ -22,17 +22,17 @@
   display: block;
 }
 
+.teacher-info #name-teacher {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
 .fa-star {
  opacity: 0.50;
  margin-top: 6px;
  font-size: 0.7rem;
-}
-
-.teacher-info a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  opacity: 0.75;
 }
 
 .course-info {
@@ -40,7 +40,7 @@
 }
 
 .course-level {
-  padding-bottom: 4px;
+  padding-bottom: 0px;
   margin-top: 14px;
   color: black;
   opacity: 0.5;
@@ -52,6 +52,13 @@
   font-size: 18px;
   opacity: 0.9;
   margin-bottom: 6px;
+}
+
+.course-info a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  opacity: 0.7;
 }
 
 #search-result {
@@ -91,7 +98,6 @@
   font-weight: bold;
   opacity: 0.75;
   display: flex;
-  align-items: center;
 }
 
 .course-area i {

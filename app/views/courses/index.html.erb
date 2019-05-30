@@ -8,9 +8,7 @@
               <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
             </div>
             <div class="teacher-info">
-              <%= link_to course_path(course) do %>
-              <div><%= course.user.name %></div>
-              <% end %>
+              <div id="name-teacher"><%= course.user.name %></div>
               <% course.user.interest_tags.each do |interest| %>
               <div class="interest-content">
                 <%= interest.content %>
@@ -29,8 +27,9 @@
             <div class="course-level">
               <%= course.language.name.upcase %><span>, </span><%= course.level.upcase %>
             </div>
+              <%= link_to course_path(course) do %>
               <div class="course-title"><%= course.title %></div>
-
+              <% end %>
                 <div>
                   <span>Price: </span><p><%= course.price.to_i %>€ per student</p>
                 </div>
@@ -57,7 +56,7 @@
                   <i class="far fa-user-circle"></i>
                 </div>
             </div>
-        </div>
+          </div>
         <hr>
       <% end %>
   </div>
