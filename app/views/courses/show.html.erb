@@ -1,6 +1,10 @@
 
 <div class="video-container">
-  <img src="https://www.animaker.com/blog/wp-content/uploads/2015/07/teacher-01.png" alt="" class="">
+  <% if @course.picture.present? %>
+    <%= cl_image_tag @course.picture %>
+  <% else %>
+    <img src="https://www.animaker.com/blog/wp-content/uploads/2015/07/teacher-01.png" alt="" class="">
+  <% end %>
 </div>
 
 
@@ -15,7 +19,9 @@
 
   <div class="teacher-content">
     <div class="teacher-photo">
-      <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+      <div class="avatar-large">
+      <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill %>
+      </div>
     </div>
     <div class="teacher-info">
       <div id="name-teacher"><%= @course.user.name %>
@@ -106,7 +112,7 @@
         <% @course.bookings.each do |x| %>
           <div>
             <div class="classmate-photo">
-              <img class="avatar" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+              <%= cl_image_tag x.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
              <p> <%= x.user.name %></p>
             </div>
           </div>
@@ -128,7 +134,7 @@
         <% @reviews_teacher_for_course.each do |review|  %>
           <div class="review-detail">
             <div class="">
-              <img class="avatar" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+              <%= cl_image_tag review.booking.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
             </div>
             <div class="review-comment">
               <i class="far fa-comment"></i>
@@ -173,15 +179,6 @@
     <button class="btn btn-primary">Book now</button>
   </div>
 </div>
-
-<h1></h1>
-<h1></h1>
-<h1></h1>
-<h1></h1>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
 
 
 

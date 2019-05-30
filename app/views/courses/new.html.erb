@@ -1,11 +1,11 @@
 <h2>Let's create a new course</h2>
 <p>Find me in app/views/courses/new.html.erb</p>
 
-<%= simple_form_for [@courses] do |f| %>
+<%= simple_form_for [@course] do |f| %>
   <h3>What language would you like to teach?</h3>
   <%= f.input :title %>
   <h3>What’s the level you will teach in this course?</h3>
-  <%= f.input :language %>
+  <%# f.input :language %>
   <h3>What’s the level of this course?</h3>
   <%= f.input :level %>
   <h3>In which city you will provide this course?</h3>
@@ -15,6 +15,7 @@
   <h3>Take your time and write a complete description of your course</h3>
   <%= f.input :description %>
   <h3>What's the maximum capacity for this course (6 max)</h3>
+  <%= f.input :capacity %>
   <h3>Take your time and write a complete description of your course</h3>
   <%= f.input :description %>
   <h3>Start date</h3>
@@ -25,6 +26,10 @@
   <%#= f.input :start_time %>
   <h3>End Time</h3>
   <%#= f.input :end_time %>
+  <h3>Upload a photo or video of the class!</h3>
+  <%= f.input :video_url %>
+  <%= f.input :picture %>
+  <%= f.input :picture_cache, as: :hidden %>
   <%= f.submit "create course", class: "btn btn-primary" %>
 <% end %>
 

@@ -20,12 +20,13 @@ end
   end
 
   def new
-    @courses = Course.new
+    @course = Course.new
   end
 
   def create
     @course = Course.new(course_params)
     @course.user = current_user
+    @course.language = Language.first
     if @course.save
       redirect_to course_path(@course)
     else
@@ -65,6 +66,17 @@ end
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :end_date, :start_date, :level, :address, :area, :city, :latitude, :longitude )
+    params.require(:course).permit(:title,
+      :language,
+      :video_url,
+      :description,
+      :end_date,
+      :start_date,
+      :level,
+      :address,
+      :area,
+      :city,
+      :picture,
+      :picture_cache)
   end
 end
