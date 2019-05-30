@@ -14,3 +14,34 @@
 .button-search:hover {
   opacity: 0.7;
 }
+
+.btn-show-course {
+  display: flex;
+  justify-content: space-between;
+  background-color: #EAEAEA;
+  padding: 16px 16px;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.price{
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  align-items: center;
+  p {
+    margin: 0px;
+    font-size: 10px;
+    margin-left: 4px;
+  }
+}
+
+.btn-book {
+  .btn-primary {
+  width: 120px;
+  height: 50px;
+  border-radius: 5px;
+  }
+}

@@ -1,16 +1,23 @@
-.video-container {
-  width: 100%;
-  height: 500px;
-}
+// .video-container {
+//   width: 100%;
+//   height: 500px;
+// }
 
-.video-container img {
-  object-fit: cover;
-  width:100%;
-  height: 100%;
-}
+// .video-container img {
+//   object-fit: cover;
+//   width:100%;
+//   height: 100%;
+// }
 
 .sections-course {
   font-size: 14px;
+  margin-top: 24px;
+}
+
+.sections-course {
+  h4 {
+  margin-bottom: 24px;
+  }
 }
 
 .classmates {
@@ -23,8 +30,8 @@
 }
 
 .review-detail {
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 8px;
+  margin-top: 8px;
   display: flex;
 }
 
@@ -32,6 +39,18 @@
   margin-left: 14px;
 }
 
-.all-reviews > p {
+.all-reviews {
+   p {
   text-decoration: underline;
+  margin-top: 16px;
+  }
 }
+
+// .teacher-reviews > h4 {
+//   margin-bottom: 16px;
+// }
+
+.course-level {
+  margin-bottom: 12px;
+}
+
