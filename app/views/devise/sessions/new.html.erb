@@ -1,28 +1,28 @@
 <div class="content-container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="form-login">
-
-         <img class="col offset-xs-4" style="opacity: 0.9; width: 170px; margin-bottom: 30px; margin-top: 10px;" src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png">
-
+    <div class="search-form">
+        <div class="text-center">
+          <img class="text-center" style="opacity: 0.55; width: 130px; margin-bottom: 40px; margin-top: 0px;" src="https://image.flaticon.com/icons/svg/78/78373.svg">
+          </div>
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
               <%= f.input :email,
                           required: false,
                           autofocus: true,
-                          input_html: { autocomplete: "email" } %>
+                          input_html: { autocomplete: "email" },
+                          class: 'form-control'
+                           %>
               <%= f.input :password,
                           required: false,
-                          input_html: { autocomplete: "current-password" } %>
+                          input_html: { autocomplete: "current-password" },
+                          class: 'form-control' %>
 
 
-              <%= f.button :submit, "Login", class: "btn btn-danger rounded"%>
+              <%= f.button :submit, "Login", class: "button-search"%>
 
           <% end %>
          <br>
       <%= render "devise/shared/links" %>
-     </div>
     </div>
   </div>
-</div>
+
 

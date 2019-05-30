@@ -1,38 +1,37 @@
 <div class="content-container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="form-registration">
-
-        <img class="col offset-sm-4" style="opacity: 0.9; width: 170px; margin-bottom: 30px; margin-top: 10px;" src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png">
-
+    <div class="search-form">
+         <div class="text-center">
+          <img class="text-center" style="opacity: 0.55; width: 130px; margin-bottom: 40px;" src="https://image.flaticon.com/icons/svg/78/78373.svg">
+          </div>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
 
           <div class="text-left">
             <%= f.input :email,
-                        required: true,
+                        required: false,
                         autofocus: true,
-                        input_html: { autocomplete: "email" }%>
+                        input_html: { autocomplete: "email"},
+                        class: 'form-control' %>
             <%= f.input :name,
-                        required: true,
+                        required: false,
                         autofocus: true,
-                        input_html: { autocomplete: "name" }%>
+                        input_html: { autocomplete: "name" },
+                        class: 'form-control'%>
             <%= f.input :password,
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
+                        required: false,
+                        input_html: { autocomplete: "new-password" },
+                        class: 'form-control' %>
             <%= f.input :password_confirmation,
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
+                        required: false,
+                        input_html: { autocomplete: "new-password" },
+                        class: 'form-control' %>
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Sign up", class: "btn btn-danger rounder"%>
+            <%= f.button :submit, "Sign up", class: "button-search"%>
           </div>
         <% end %>
 
         <%= render "devise/shared/links" %>
       </div>
     </div>
-  </div>
-</div>
