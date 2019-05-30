@@ -1,0 +1,32 @@
+<div class="content-container">
+  <div class="course-info">
+    <div class="course-level">
+      <%= @course.language.name.upcase %><span>, </span><%= @course.level.upcase %>
+       </div>
+         <%= link_to course_path(@course) do %>
+         <div class="course-title"><%= @course.title %>
+         </div>
+         <% end %>
+        <div>
+          <span>Price: </span><p><%= @course.price.to_i %>€ per student</p>
+    </div>
+    <div>
+    <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+    </div>
+    <% @course.course_days.each do |day| %>
+    <div>
+      <span>Days: </span><p><%= day.working_day %></p>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="btn-show-course">
+  <div class="price">
+    <h4><strong>€ <%= @course.price.to_i %></strong></h4>
+    <p><strong> per student </strong></p>
+  </div>
+  <div class="btn-book">
+    <%= link_to "Pay Now", [@course, @booking], :method => :post, class: "btn btn-primary" %>
+  </div>
+</div>

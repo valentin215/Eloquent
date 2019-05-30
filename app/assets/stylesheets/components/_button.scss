@@ -42,6 +42,10 @@
   .btn-primary {
   width: 120px;
   height: 50px;
-  border-radius: 5px;
+  border-radius: 4px;
+  background-color: $purple;
+  border-color: $purple;
+  opacity: 0.8;
+  font-weight: bold;
   }
 }
