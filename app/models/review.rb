@@ -1,8 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :booking
-
   after_create :update_teacher_rating
-
   # def average_rating
   #   @bookings = Review.all.map do |review|
   #     review.bookings
@@ -39,9 +37,4 @@ class Review < ApplicationRecord
   #   #    ratings << booking.review.rating
   #    # end
   #   # end
-
-
-
-
-
 end
