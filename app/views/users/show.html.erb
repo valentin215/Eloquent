@@ -24,4 +24,21 @@
 <h2>Next courses</h2>
 <%#= @user.course.title %>
 
+<h2>My bookings</h2>
 
+<% if current_user.student? %>
+ <% @bookings.each do |booking| %>
+ <%= booking.course.level %>
+ <%= booking.course.language.name %>
+ <%= booking.course.title %>
+ <%= booking.course.title %>
+ <%= booking.course.start_date.strftime("%-d %B") %> - <%= booking.course.end_date.strftime("%-d %B") %>
+ <% end %>
+<% else %>
+ <% @bookings.each do |booking| %>
+ <%= booking.level %>
+ <%= booking.language.name %>
+ <%= booking.title %>
+ <%= booking.start_date.strftime("%-d %B") %> - <%= booking.end_date.strftime("%-d %B")%>
+ <% end %>
+<% end %>

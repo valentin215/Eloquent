@@ -1,47 +1,30 @@
 class CoursesController < ApplicationController
+
  def index
 
-  @courses = Course.all
+    @courses = Course.all
 
-  if params[:city].present?
-    @courses = @courses.where("city ILIKE ?", "%#{params[:city]}%")
-  end
+    if params[:city].present?
+      @courses = @courses.where("city ILIKE ?", "%#{params[:city]}%")
+    end
 
-  if params[:language].present?
-    sql_query = "\
-    languages.name ILIKE :language \
-    "
-    @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
-  end
+    if params[:language].present?
+      sql_query = "\
+      languages.name ILIKE :language \
+      "
+      @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
+    end
 
-  if params[:city].present? && params[:language].present?
+    if params[:city].present? && params[:language].present?
 
-    sql_query = "\
-    languages.name ILIKE :language \
-    AND courses.city ILIKE :city \
-    "
-    @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%", city: "%#{params[:city]}%")
-  end
+      sql_query = "\
+      languages.name ILIKE :language \
+      AND courses.city ILIKE :city \
+      "
+      @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%", city: "%#{params[:city]}%")
+    end
 
-end
-
-
-              # # class MoviesController < ApplicationController
-              # #   def index
-              # #     if params[:query].present?
-              #       sql_query = " \
-              #         movies.title ILIKE :query \
-              #         OR movies.syllabus ILIKE :query \
-              #         OR directors.first_name ILIKE :query \
-              #         OR directors.last_name ILIKE :query \
-              #       "
-              #       @movies = Movie.joins(:director).where(sql_query, query: "%#{params[:query]}%")
-              #     else
-              #       @movies = Movie.all
-              #     end
-              #   end
-              # end
-
+ end
 
 
               def show
@@ -97,6 +80,6 @@ end
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :end_date, :start_date, :level, :address, :area, :city, :latitude, :longitude )
+    params.require(:course).permit(:title, :description, :end_date,:start_date, :level, :address, :area, :city, :language_id, :video_url, :price)
   end
 end
