@@ -7,12 +7,14 @@ class CoursesController < ApplicationController
     if params[:language].present?
       @courses = @courses.where("language = ?", params[:language]) ## we may have to change the argument of language
     end
+
   end
 
   def show
     @course = Course.find(params[:id])
     @booking = Booking.new
     @user = @course.user
+    @reviews_teacher_for_course = @course.user.teacher_reviews_for_show
   end
 
   def new

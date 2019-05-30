@@ -58,6 +58,7 @@ curso_spanish = Course.create!(user: juanito_teacher,
     city: "Barcelona",
     price: 100,
     video_url: "video_url",
+    capacity: 6
     )
 
 
@@ -73,6 +74,7 @@ curso_english = Course.create!(user: juanito_teacher,
     city: "Barcelona",
     price: 200,
     video_url: "video_url2",
+    capacity: 6
     )
 
 curso_spanish_days = CourseDay.create!(start_time: 19,
@@ -81,30 +83,14 @@ curso_spanish_days = CourseDay.create!(start_time: 19,
   course: curso_spanish
   )
 
-
-
-carlitos_student_spanish_review = Review.create!(content: 'Juanito is so bad teacher, I wont come back', rating: 1)
-carlitos_student_english_review = Review.create!(content: 'Juanito is amaaazing!', rating: 5)
-valentin_student_spanish_review = Review.create!(content: 'Juanito is a good teacher, takes the time explain and correct my grammar', rating: 4)
-
-carlitos_student_booking = Booking.create!(total_price: 100, course: curso_spanish, review: carlitos_student_spanish_review, user: carlitos_student)
-carlitos_student_booking2 = Booking.create!(total_price: 200, course: curso_english, review: carlitos_student_english_review, user: carlitos_student)
-valentin_student_booking = Booking.create!(total_price: 100, course: curso_spanish, review: valentin_student_spanish_review, user: valentin_student)
-
-
 carlitos_student_booking = Booking.create!(total_price: 100, course: curso_spanish, user: carlitos_student)
-
 carlitos_student_booking2 = Booking.create!(total_price: 200, course: curso_english, user: carlitos_student)
-
 valentin_student_booking = Booking.create!(total_price: 100, course: curso_spanish, user: valentin_student)
 
-
-
 carlitos_student_spanish_review = Review.create!(content: 'Juanito is so bad teacher, I wont come back', rating: 1, booking: carlitos_student_booking)
-
-carlitos_student_english_review = Review.create!(content: 'Juanito is amaaazing!', rating: 5, booking: carlitos_student_booking)
-
+carlitos_student_english_review = Review.create!(content: 'Juanito is amaaazing!', rating: 5, booking: carlitos_student_booking2)
 valentin_student_spanish_review = Review.create!(content: 'Juanito is a good teacher, takes the time explain and correct my grammar', rating: 4, booking: valentin_student_booking)
+
 
 music_interest_category = InterestCategory.create!(content: 'music')
 sport_interest_category = InterestCategory.create!(content: 'sport')

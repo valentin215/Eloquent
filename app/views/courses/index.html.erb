@@ -1,27 +1,69 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+<div class="content-container">
+  <h1 id="search-result"><%=@courses.count%> courses available <% if params[:city].present? %> <%= "in #{ params[:city]}"%> <% end  %></h1>
+  <div class="cards">
+    <% @courses.each do |course| %>
+      <div class="card-course">
+        <div class="teacher-content">
+            <div class="teacher-photo">
+              <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+            </div>
+            <div class="teacher-info">
+              <div id="name-teacher"><%= course.user.name %></div>
+              <% course.user.interest_tags.each do |interest| %>
+              <div class="interest-content">
+                <%= interest.content %>
+              </div>
+              <% end %>
+              <div>
+                <% rating = course.user.teacher_rating %>
+                <% rating.round.times do %>
+                <i class="fa fa-star"></i>
+                <% end %>
+                <!-- <i class="fa fa-star"></i> -->
+                <!-- <i class="fa fa-star"></i> -->
+                <!-- <i class="fa fa-star"></i> -->
+                <!-- <i class="fa fa-star"></i> -->
+              </div>
+            </div>
+        </div>
+        <div class="course-content">
+          <div class="course-info">
+            <div class="course-level">
+              <%= course.language.name.upcase %><span>, </span><%= course.level.upcase %>
+            </div>
+              <%= link_to course_path(course) do %>
+              <div class="course-title"><%= course.title %></div>
+              <% end %>
+                <div>
+                  <span>Price: </span><p><%= course.price.to_i %>€ per student</p>
+                </div>
+                <div>
+                  <span>Dates: </span><p><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B") %></p>
+                </div>
+                  <% course.course_days.each do |day| %>
+                <div>
+                  <span>Days: </span><p><%= day.working_day %></p>
+                </div>
+                <% end %>
+            </div>
+            <div class="course-area-spots">
+                <div class="course-area">
+                  <%= icon('fas', 'map-marker-alt') %>
+                  <p><%= course.area %></p>
+                </div>
+                <div class="course-spots">
+                  <span> <%= course.capacity - course.bookings.count%> spaces left</span>
 
-<% @courses.each do |course| %>
-  <br><%= course.user.name %> <br>
-    <% course.user.interest_tags.each do |interest| %>
-      <br> <%= interest.content %> <br>
-    <% end %>
-  <br><%= course.title %><br>
-
-    <% course.bookings.each do |booking| %>
-      <br><%#= booking.review.rating %> <br>
-    <% end%>
-    <br><%= course.level %><br>
-  <br><%= course.description %><br>
-   <p>Average: <%= course.user.teacher_rating %></p>
-
-  <br><%= course.start_date %> <br>
-  <br><%= course.end_date %> <br>
-  <br><%= course.price %><br>
-  <br><%= course.area %><br>
-  <%= link_to "view course", course_path(course) %>
-
-
-
-<% end %>
+                  <i class="far fa-user-circle"></i>
+                  <i class="far fa-user-circle"></i>
+                  <i class="far fa-user-circle"></i>
+                  <i class="far fa-user-circle"></i>
+                  <i class="far fa-user-circle"></i>
+                </div>
+            </div>
+          </div>
+        <hr>
+      <% end %>
+  </div>
+</div>
 

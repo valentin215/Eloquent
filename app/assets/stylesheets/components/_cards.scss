@@ -1,0 +1,116 @@
+.card-course {
+  margin-bottom: 20px;
+}
+
+.teacher-content {
+  display: flex;
+}
+
+.interest-content {
+  display: inline-block;
+  border: solid 1px $purple;
+  color: $purple;
+  opacity: 0.75;
+  border-radius: 4px;
+  padding: 0px 6px;
+  margin-top: 4px;
+  font-size: smaller;
+}
+
+.teacher-info {
+  margin-left: 10px;
+  display: block;
+}
+
+.teacher-info #name-teacher {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.fa-star {
+ opacity: 0.50;
+ margin-top: 6px;
+ font-size: 0.7rem;
+}
+
+.course-info {
+  display: block;
+}
+
+.course-level {
+  padding-bottom: 0px;
+  margin-top: 14px;
+  color: black;
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+.course-title {
+  font-weight: bold;
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.course-info a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+#search-result {
+  margin-top: 20px;
+  margin-bottom: 26px;
+  font-family: Open Sans, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  opacity: 0.75;
+}
+
+.course-info span {
+  opacity: 0.8;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.course-info p {
+  display: inline;
+  font-size: 14px;
+}
+
+.course-area-spots {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-spots span {
+  font-weight: bold;
+  opacity: 0.9;
+  padding-right: 6px;
+}
+
+.course-area {
+  font-weight: bold;
+  opacity: 0.75;
+  display: flex;
+}
+
+.course-area i {
+  padding-right: 10px;
+}
+
+.fa-user-circle {
+  opacity: 0.6;
+}
+
+.course-area p {
+  margin: 0;
+}
+
+
+
