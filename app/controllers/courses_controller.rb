@@ -1,28 +1,28 @@
 class CoursesController < ApplicationController
- def index
-  @courses = Course.all
-  if params[:city].present?
-    @courses = @courses.where("address ILIKE ?", "%#{params[:city]}%")
+  def index
+    @courses = Course.all
+    if params[:city].present?
+      @courses = @courses.where("address ILIKE ?", "%#{params[:city]}%")
+    end
+    if params[:language].present?
+      @courses = @courses.where("language = ?", params[:language]) ## we may have to change the argument of language
+    end
   end
-  if params[:language].present?
-    @courses = @courses.where("language = ?", params[:language]) ## we may have to change the argument of language
-  end
-end
 
   def show
     @course = Course.find(params[:id])
     @booking = Booking.new
     @user = @course.user
-    @reviews_teacher_for_course = @course.user.teacher_reviews_for_show
   end
 
   def new
-    @courses = Course.new
+    @course = Course.new
   end
 
   def create
     @course = Course.new(course_params)
     @course.user = current_user
+    @course.save
     if @course.save
       redirect_to course_path(@course)
     else
@@ -62,6 +62,6 @@ end
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :end_date, :start_date, :level, :address, :area, :city, :latitude, :longitude )
+    params.require(:course).permit(:title, :description, :end_date,:start_date, :level, :address, :area, :city, :language_id, :video_url, :price)
   end
 end
