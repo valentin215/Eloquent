@@ -1,46 +1,32 @@
 class CoursesController < ApplicationController
-
  def index
 
-    @courses = Course.all
+  @courses = Course.all
 
-   
-   if params[:city].present? && params[:language].present?
+  if params[:city].present? && params[:language].present?
 
-      sql_query = "\
-      languages.name ILIKE :language \
-      AND courses.city ILIKE :city \
-      "
-      @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%", city: "%#{params[:city]}%")
-   end
-   
-    if params[:city].present?
-      @courses = @courses.where("city ILIKE ?", "%#{params[:city]}%")
-    end
-
-    if params[:language].present?
-      sql_query = "\
-      languages.name ILIKE :language \
-      "
-      @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
-    end
-   
- end
-     
-  def new
-    @course = Course.new
+    sql_query = "\
+    languages.name ILIKE :language \
+    AND courses.city ILIKE :city \
+    "
+    @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%", city: "%#{params[:city]}%")
   end
 
-  def create
-    @course = Course.new(course_params)
-    @course.user = current_user
-    @course.language = Language.first
-    if @course.save
-      redirect_to course_path(@course)
-    else
-      render :new
-    end
+  if params[:city].present?
+    @courses = @courses.where("city ILIKE ?", "%#{params[:city]}%")
   end
+
+  if params[:language].present?
+    sql_query = "\
+    languages.name ILIKE :language \
+    "
+    @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
+  end
+
+
+  end
+   
+  
 
 
               def show
@@ -96,6 +82,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params
+
     params.require(:course).permit(:title,
       :language,
       :video_url,

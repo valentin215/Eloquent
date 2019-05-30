@@ -22,6 +22,17 @@ juanito_teacher = User.new(name: 'Juanito', biography: 'Buzzy destination for In
     nationality:   'Spanish'
    )
 
+
+
+chris_teacher = User.new(name: 'Chris', biography: 'Chilean born Spanish teacher with a lot of energy for teaching and with useful grammar tips',
+    email:        'chris@mail.com',
+    password:    '123456',
+    native_language: 'Spanish',
+    nationality:   'Chilean'
+   )
+
+
+
 # juanito_teacher.remote_picture_url = "https//planetary.s3.amazonaws.com/assets/images/people/20170726_FBavataremily-headshot-2017-IsabelLawrence-4_hires.jpg"
 # juanito_teacher.save!
 
@@ -50,7 +61,7 @@ curso_spanish = Course.create!(user: juanito_teacher,
     language: spanish_language,
     title:'Spanish Course for beginners',
     description:  'This is a course for beginners of spanish. We will walkthrough how to say fundamentals phrases and verbs to help you in your everyday encounters in barcelona',
-    end_date:        Date.new(2019,03,19),
+    end_date:        Date.new(2019,04,19),
     start_date:     Date.new(2019,03,15),
     level:    'Beginner',
     address: "Carrer d'en Grassot, 101, 08025",
@@ -66,7 +77,7 @@ curso_english = Course.create!(user: juanito_teacher,
     language: english_language,
     title:'English Course for advance users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
-    end_date:        Date.new(2019,03,17),
+    end_date:        Date.new(2019,04,17),
     start_date:     Date.new(2019,03,15),
     level:    'Advance',
     address: "Carrer Ramon y Cajal,50, 08012",
@@ -82,13 +93,29 @@ curso_english_in_london = Course.create!(user: juanito_teacher,
     language: english_language,
     title:'English Course for advance users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
-    end_date:        Date.new(2019,03,17),
+    end_date:        Date.new(2019,04,17),
     start_date:     Date.new(2019,03,15),
     level:    'Advance',
     address: "London Bridge, City of London",
     area: "City",
     city: "London",
     price: 200,
+    video_url: "video_url2",
+    capacity: 6
+    )
+
+
+curso_spanish_in_london = Course.create!(user: chris_teacher,
+    language: spanish_language,
+    title:'Spanish Course for advance users',
+    description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
+    end_date:        Date.new(2019,05,17),
+    start_date:     Date.new(2019,03,15),
+    level:    'Advance',
+    address: "Richmond, London",
+    area: "Richmond",
+    city: "London",
+    price: 150,
     video_url: "video_url2",
     capacity: 6
     )
@@ -106,6 +133,13 @@ curso_english_london_days = CourseDay.create!(start_time: 19,
   course: curso_english_in_london
   )
 
+curso_spanish_in_london_days = CourseDay.create!(start_time: 20,
+  end_time: 21,
+  working_day: "Tues",
+  course: curso_spanish_in_london
+  )
+
+
 
 
 
@@ -113,12 +147,14 @@ carlitos_student_booking = Booking.create!(total_price: 100, course: curso_spani
 carlitos_student_booking2 = Booking.create!(total_price: 200, course: curso_english, user: carlitos_student)
 valentin_student_booking = Booking.create!(total_price: 100, course: curso_spanish, user: valentin_student)
 carlitos_student_booking2_in_london = Booking.create!(total_price: 200, course: curso_english_in_london, user: carlitos_student)
+valentin_student_booking_london = Booking.create!(total_price: 150, course: curso_spanish_in_london, user: valentin_student)
 
 
 carlitos_student_spanish_review = Review.create!(content: 'Juanito is so bad teacher, I wont come back', rating: 1, booking: carlitos_student_booking)
 carlitos_student_english_review = Review.create!(content: 'Juanito is amaaazing!', rating: 5, booking: carlitos_student_booking2)
 valentin_student_spanish_review = Review.create!(content: 'Juanito is a good teacher, takes the time explain and correct my grammar', rating: 4, booking: valentin_student_booking)
 carlitos_student_spanish_review = Review.create!(content: 'Enjoyed my english course in London', rating: 3, booking: carlitos_student_booking2_in_london)
+valentin_student_spanish_review_london = Review.create!(content: 'Chris is a good teacher, with excellent grammar', rating: 4, booking: valentin_student_booking_london)
 
 
 personality = InterestCategory.create!(content: 'Personality')
@@ -130,9 +166,9 @@ movies = InterestCategory.create!(content: 'Movies')
 
 
 
-rock_interest_tag = InterestTag.create!(content: 'K-pop', interest_category:music_interest_category)
-tennis_interest_tag = InterestTag.create!(content: 'tennis', interest_category: sport_interest_category)
-movies_interest_tag = InterestTag.create!(content: 'Romantic', interest_category: movies_interest_category)
+rock_interest_tag = InterestTag.create!(content: 'K-pop', interest_category:music)
+tennis_interest_tag = InterestTag.create!(content: 'tennis', interest_category: sports)
+movies_interest_tag = InterestTag.create!(content: 'Romantic', interest_category: movies)
 
 juan_interest_link1 = UserInterest.create!(interest_tag: rock_interest_tag, user: juanito_teacher)
 juan_interest_link2 = UserInterest.create!(interest_tag: tennis_interest_tag, user: juanito_teacher)
