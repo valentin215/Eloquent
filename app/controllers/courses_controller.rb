@@ -24,25 +24,9 @@ class CoursesController < ApplicationController
   end
 
 
-end
-
-
-              # # class MoviesController < ApplicationController
-              # #   def index
-              # #     if params[:query].present?
-              #       sql_query = " \
-              #         movies.title ILIKE :query \
-              #         OR movies.syllabus ILIKE :query \
-              #         OR directors.first_name ILIKE :query \
-              #         OR directors.last_name ILIKE :query \
-              #       "
-              #       @movies = Movie.joins(:director).where(sql_query, query: "%#{params[:query]}%")
-              #     else
-              #       @movies = Movie.all
-              #     end
-              #   end
-              # end
-
+  end
+   
+  
 
 
               def show
@@ -98,6 +82,18 @@ end
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :end_date, :start_date, :level, :address, :area, :city, :latitude, :longitude )
+
+    params.require(:course).permit(:title,
+      :language,
+      :video_url,
+      :description,
+      :end_date,
+      :start_date,
+      :level,
+      :address,
+      :area,
+      :city,
+      :picture,
+      :picture_cache)
   end
 end

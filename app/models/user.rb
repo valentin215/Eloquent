@@ -15,14 +15,18 @@ class User < ApplicationRecord
   has_many :user_interests
   has_many :user_languages
   has_many :languages, through: :user_languages
-  has_many :bookings
 
   has_many :student_courses, through: :bookings, source: 'Course' # FOR STUDENTS
-  has_many :courses # FOR TEACHERS
+  has_many :courses
+  # FOR TEACHERS
+  has_many :bookings
+  has_many :teacher_bookings, through: :courses, source: :bookings
+
   has_many :reviews, through: :bookings # Student review a course
   has_many :interest_tags, through: :user_interests
 
   has_many :teacher_reviews, through: :courses, source: :reviews
+  mount_uploader :photo, PhotoUploader
 
   # current_user.teacher_reviews
 

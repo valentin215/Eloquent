@@ -19,19 +19,31 @@
   <%= f.input :description %>
 
   <h3>What's the maximum capacity for this course (6 max)</h3>
-  <%#= f.input :capacity %>
+  <%= f.input :capacity %>
+  <h3>Take your time and write a complete description of your course</h3>
+  <%= f.input :description %>
 
   <h3>Let's define a meeting point</h3>
   <%= f.input :address %>
 
   <h3>What's the area</h3>
   <%= f.input :area %>
-
   <h3>Start date</h3>
   <%= f.input :start_date %>
 
   <h3>End date</h3>
   <%= f.input :end_date %>
+  <h3>Start time</h3>
+  <%#= f.input :start_time %>
+  <h3>End Time</h3>
+  <%#= f.input :end_time %>
+  <h3>Upload a photo or video of the class!</h3>
+  <%= f.input :video_url %>
+  <%= f.input :picture %>
+  <%= f.input :picture_cache, as: :hidden %>
+  <%= f.submit "create course", class: "btn btn-primary" %>
+<% end %>
+
 
   <h3>Define the individial price for each student </h3>
   <%= f.input :price %>
