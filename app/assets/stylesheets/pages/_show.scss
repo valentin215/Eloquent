@@ -9,4 +9,29 @@
   height: 100%;
 }
 
+.sections-course {
+  font-size: 14px;
+}
 
+.classmates {
+  display: flex;
+}
+
+.classmate-photo {
+  margin-right: 20px;
+  justify-content: center;
+}
+
+.review-detail {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.review-comment {
+  margin-left: 14px;
+}
+
+.all-reviews > p {
+  text-decoration: underline;
+}
