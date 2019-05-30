@@ -4,6 +4,16 @@ class CoursesController < ApplicationController
 
     @courses = Course.all
 
+   
+   if params[:city].present? && params[:language].present?
+
+      sql_query = "\
+      languages.name ILIKE :language \
+      AND courses.city ILIKE :city \
+      "
+      @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%", city: "%#{params[:city]}%")
+   end
+   
     if params[:city].present?
       @courses = @courses.where("city ILIKE ?", "%#{params[:city]}%")
     end
@@ -14,17 +24,23 @@ class CoursesController < ApplicationController
       "
       @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
     end
-
-    if params[:city].present? && params[:language].present?
-
-      sql_query = "\
-      languages.name ILIKE :language \
-      AND courses.city ILIKE :city \
-      "
-      @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%", city: "%#{params[:city]}%")
-    end
-
+   
  end
+     
+  def new
+    @course = Course.new
+  end
+
+  def create
+    @course = Course.new(course_params)
+    @course.user = current_user
+    @course.language = Language.first
+    if @course.save
+      redirect_to course_path(@course)
+    else
+      render :new
+    end
+  end
 
 
               def show
@@ -80,6 +96,17 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :end_date,:start_date, :level, :address, :area, :city, :language_id, :video_url, :price)
+    params.require(:course).permit(:title,
+      :language,
+      :video_url,
+      :description,
+      :end_date,
+      :start_date,
+      :level,
+      :address,
+      :area,
+      :city,
+      :picture,
+      :picture_cache)
   end
 end
