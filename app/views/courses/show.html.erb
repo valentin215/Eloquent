@@ -6,7 +6,7 @@
 
 <div class="content-container">
   <div class="course-level">
-    <%= @course.language.name.upcase %><span>, </span><%= @course.level.upcase %></p>
+    <%= @course.language.name.upcase %><span>, </span><%= @course.level.upcase %>
   </div>
   <div class="title-show">
     <h3><strong><%= @course.title %></strong></h3>
@@ -26,10 +26,10 @@
       </div>
       <% end %>
       <div>
+        <% rating = @course.user.teacher_rating %>
+        <% rating.round.times do %>
         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
+        <% end %>
       </div>
     </div>
   </div>
@@ -133,6 +133,12 @@
             <div class="review-comment">
               <i class="far fa-comment"></i>
               <%= review.try(:content) %>
+              <div>
+                <% rating = review.rating %>
+                <% rating.round.times do %>
+                <i class="fa fa-star"></i>
+                <% end %>
+              </div>
             </div>
 <!-- IMPORTANT METHOD TRY: it iterates and if there is an object without content it doesnt raise an error, it moves to the next one -->
           </div>
@@ -148,17 +154,34 @@
   <hr>
 <!-- Map -->
 
-  <div class="">
-    <h3>Location</h3>
-    <div class="map">
+  <div class="sections-course">
+    <div class="">
+      <h3><strong>Location</strong></h3>
+      <div class="map">
 
+      </div>
     </div>
-  </div>
-
+    </div>
 </div>
 
+<div class="btn-show-course">
+  <div class="price">
+    <h4><strong>€<%= @course.price %></strong></h4>
+    <p><strong> per student </strong></p>
+  </div>
+  <div class="btn-book">
+    <button class="btn btn-primary">Book now</button>
+  </div>
+</div>
 
-
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 
 
 
