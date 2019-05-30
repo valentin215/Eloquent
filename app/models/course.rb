@@ -4,6 +4,7 @@ class Course < ApplicationRecord
   has_many :course_days #this returns all the instances of course days
   has_many :bookings
   has_many :reviews, through: :bookings
+  # has_one :teache
 
 
   def total_week_hours
@@ -13,6 +14,13 @@ class Course < ApplicationRecord
     end
     return total
   end
+
+  # def spaces_left
+  #   Course.all.each do |course|
+  #     course.capacity - course.bookings.count
+  #   end
+
+  # end
 
   # def course_days
   #   CourseDay.where(course_id: self.id)

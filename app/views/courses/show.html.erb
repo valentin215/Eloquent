@@ -3,113 +3,185 @@
   <img src="https://www.animaker.com/blog/wp-content/uploads/2015/07/teacher-01.png" alt="" class="">
 </div>
 
+
 <div class="content-container">
-  <div class="language-level">
-    <p><%= @course.language.name %></p>
-    <p><%= @course.level %></p>
+  <div class="course-level">
+    <%= @course.language.name.upcase %><span>, </span><%= @course.level.upcase %>
   </div>
   <div class="title-show">
-    <h3><%= @course.level %></h3>
+    <h3><strong><%= @course.title %></strong></h3>
   </div>
-  <div class="teacher-overview">
-    <img src="" alt="">
+  <hr>
+
+  <div class="teacher-content">
+    <div class="teacher-photo">
+      <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+    </div>
     <div class="teacher-info">
-      <p><%= @course.user.name %></p>
-      <p><%#= @course.user.user_interest.interest_tag.content %></p>
-      <p>          </p>
+      <div id="name-teacher"><%= @course.user.name %>
+      </div>
+      <% @course.user.interest_tags.each do |interest| %>
+      <div class="interest-content">
+        <%= interest.content %>
+      </div>
+      <% end %>
+      <div>
+        <% rating = @course.user.teacher_rating %>
+        <% rating.round.times do %>
+        <i class="fa fa-star"></i>
+        <% end %>
+      </div>
     </div>
   </div>
+  <hr>
 
 <!-- Dates Section -->
-    <div class="dates">
-      <h4>Dates</h4>
-      <p>Start: <%= @course.start_date %></p>
-      <p>End: <%= @course.end_date %></p>
+  <div class="sections-course">
+    <div class="main-info-course">
+      <div class="dates-pic">
+        <i class="far fa-clock"></i>
+        <div class="dates">
+          <p><strong>Dates</strong></p>
+          <p>Start: <%= @course.start_date %></p>
+          <p>End: <%= @course.end_date %></p>
+        </div>
+      </div>
     </div>
-    <div class="hours-per-week">
-      <h4>per week</h4>
-      <p><%= @course.start_date %></p>
-      <p><%= @course.total_week_hours %></p>
+
+    <div class="dates-pic">
+      <i class="far fa-clock"></i>
+      <div class="dates">
+        <p><strong><%= @course.total_week_hours %> hours-per-week</strong></p>
+        <% @course.course_days.each do |x| %>
+          <%= x.start_time %>:00
+        <% end %><span> - </span>
+        <% @course.course_days.each do |x| %>
+          <%= x.end_time %>:00
+        <% end %>
+        <div class="days">
+          <% @course.course_days.each do |x| %>
+            <%= x.working_day %>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="times"></div>
-      <% @course.course_days.each do |x| %>
-        <p> <%= x.start_time %>:00</p>
-      <% end %>
-      <% @course.course_days.each do |x| %>
-        <p> <%= x.end_time %>:00</p>
-      <% end %>
+
+    <div class="dates-pic">
+      <i class="fas fa-euro-sign"></i>
+      <div class="dates">
+        <p><strong>Price per student</strong></p>
+        <p>€ <%= @course.price %> </p>
+      </div>
     </div>
-    <div class="days">
-      <% @course.course_days.each do |x| %>
-        <p> <%= x.working_day %></p>
-      <% end %>
+     <!--  <div class="XX hours-per-week">
+        <h4>per week</h4>
+        <p><%= @course.start_date %></p>
+        <p><%= @course.total_week_hours %></p>
+      </div> -->
+
+    <div class="dates-pic">
+      <%= icon('fas', 'map-marker-alt') %>
+      <div class="dates">
+        <p><strong>Meeting point</strong></p>
+        <%= @course.address %>
+      </div>
     </div>
-    <div class="Price-student">
-      <p>Price per student</p>
-      <p>€ <%= @course.price %> </p>
-    </div>
-    <div class="meeting-point">
-      <p>Meeting point</p>
-      <%= @course.address %>
-    </div>
+  </div>
+  <hr>
 
 <!-- Course description -->
+  <div class="sections-course">
     <div class="description-course">
-      <h3>Course Description</h3>
+      <h4><strong>Course Description</strong></h4>
       <%= @course.description %>
     </div>
-
+  </div>
+<hr>
 
 <!-- Meet classmates -->
+  <div class="sections-course">
     <div class="meet-classmates">
-      <h3>Meet your classmates</h3>
+      <h4><strong>Meet your classmates</strong></h4>
       <div class="classmates">
         <% @course.bookings.each do |x| %>
           <div>
-            <p> <%= x.user.name %></p>
-            <p> <%#= x.user.photo %></p>
+            <div class="classmate-photo">
+              <img class="avatar" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+             <p> <%= x.user.name %></p>
+            </div>
           </div>
         <% end %>
       </div>
       <p>¡Hurry up! Just XXX spots left</p>
     </div>
+  </div>
+  <hr>
 
 <!-- Teacher reviews -->
+  <div class="sections-course">
     <div class="teacher-reviews">
-      <h3>Teacher reviews</h3>
+      <h4><strong>Teacher reviews</strong></h4>
       <div class="review-info">
-
-        <%#= @course.user.photo %>
-
-<% if @reviews_teacher_for_course.nil? %>
-  <p>no review yet</p>
-<% else %>
-    <% @reviews_teacher_for_course.each do |review|  %>
-          <div class="review-info">
-            <%= review.try(:content) %>
+        <% if @reviews_teacher_for_course.nil? %>
+          <p>no review yet</p>
+        <% else %>
+        <% @reviews_teacher_for_course.each do |review|  %>
+          <div class="review-detail">
+            <div class="">
+              <img class="avatar" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+            </div>
+            <div class="review-comment">
+              <i class="far fa-comment"></i>
+              <%= review.try(:content) %>
+              <div>
+                <% rating = review.rating %>
+                <% rating.round.times do %>
+                <i class="fa fa-star"></i>
+                <% end %>
+              </div>
+            </div>
 <!-- IMPORTANT METHOD TRY: it iterates and if there is an object without content it doesnt raise an error, it moves to the next one -->
           </div>
        <% end %>
         <!-- stars of the review -->
       </div>
       <% end %>
-      <p>Read all reviews</p>
-      <%#= @course.user.name %>
-    </div>
-
-<!-- Map -->
-
-  <div class="">
-    <h3>Location</h3>
-    <div class="map">
-
+      <div class="all-reviews">
+        <p>Read all reviews</p>
+      </div>
     </div>
   </div>
+  <hr>
+<!-- Map -->
 
+  <div class="sections-course">
+    <div class="">
+      <h3><strong>Location</strong></h3>
+      <div class="map">
+
+      </div>
+    </div>
+    </div>
 </div>
 
+<div class="btn-show-course">
+  <div class="price">
+    <h4><strong>€<%= @course.price %></strong></h4>
+    <p><strong> per student </strong></p>
+  </div>
+  <div class="btn-book">
+    <button class="btn btn-primary">Book now</button>
+  </div>
+</div>
 
-
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 
 
 
