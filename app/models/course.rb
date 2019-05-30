@@ -14,6 +14,13 @@ class Course < ApplicationRecord
     return total
   end
 
+  # def spaces_left
+  #   Course.all.each do |course|
+  #     course.capacity - course.bookings.count
+  #   end
+
+  # end
+
   # def course_days
   #   CourseDay.where(course_id: self.id)
   # end

@@ -7,6 +7,9 @@ class CoursesController < ApplicationController
   if params[:language].present?
     @courses = @courses.where("language = ?", params[:language]) ## we may have to change the argument of language
   end
+
+  @spaces_left = Course.last
+
 end
 
   def show

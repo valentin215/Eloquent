@@ -58,6 +58,7 @@ curso_spanish = Course.create!(user: juanito_teacher,
     city: "Barcelona",
     price: 100,
     video_url: "video_url",
+    capacity: 6
     )
 
 
@@ -73,6 +74,7 @@ curso_english = Course.create!(user: juanito_teacher,
     city: "Barcelona",
     price: 200,
     video_url: "video_url2",
+    capacity: 6
     )
 
 curso_spanish_days = CourseDay.create!(start_time: 19,
