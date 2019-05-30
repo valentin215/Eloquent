@@ -77,19 +77,48 @@ curso_english = Course.create!(user: juanito_teacher,
     capacity: 6
     )
 
+
+curso_english_in_london = Course.create!(user: juanito_teacher,
+    language: english_language,
+    title:'English Course for advance users',
+    description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
+    end_date:        Date.new(2019,03,17),
+    start_date:     Date.new(2019,03,15),
+    level:    'Advance',
+    address: "London Bridge, City of London",
+    area: "City",
+    city: "London",
+    price: 200,
+    video_url: "video_url2",
+    capacity: 6
+    )
+
+
 curso_spanish_days = CourseDay.create!(start_time: 19,
   end_time: 21,
   working_day: "Wed",
   course: curso_spanish
   )
 
+curso_english_london_days = CourseDay.create!(start_time: 19,
+  end_time: 21,
+  working_day: "Wed",
+  course: curso_english_in_london
+  )
+
+
+
+
 carlitos_student_booking = Booking.create!(total_price: 100, course: curso_spanish, user: carlitos_student)
 carlitos_student_booking2 = Booking.create!(total_price: 200, course: curso_english, user: carlitos_student)
 valentin_student_booking = Booking.create!(total_price: 100, course: curso_spanish, user: valentin_student)
+carlitos_student_booking2_in_london = Booking.create!(total_price: 200, course: curso_english_in_london, user: carlitos_student)
+
 
 carlitos_student_spanish_review = Review.create!(content: 'Juanito is so bad teacher, I wont come back', rating: 1, booking: carlitos_student_booking)
 carlitos_student_english_review = Review.create!(content: 'Juanito is amaaazing!', rating: 5, booking: carlitos_student_booking2)
 valentin_student_spanish_review = Review.create!(content: 'Juanito is a good teacher, takes the time explain and correct my grammar', rating: 4, booking: valentin_student_booking)
+carlitos_student_spanish_review = Review.create!(content: 'Enjoyed my english course in London', rating: 3, booking: carlitos_student_booking2_in_london)
 
 
 personality = InterestCategory.create!(content: 'Personality')
@@ -100,12 +129,22 @@ movies = InterestCategory.create!(content: 'Movies')
 
 
 
+
+rock_interest_tag = InterestTag.create!(content: 'K-pop', interest_category:music_interest_category)
+tennis_interest_tag = InterestTag.create!(content: 'tennis', interest_category: sport_interest_category)
+movies_interest_tag = InterestTag.create!(content: 'Romantic', interest_category: movies_interest_category)
+
+juan_interest_link1 = UserInterest.create!(interest_tag: rock_interest_tag, user: juanito_teacher)
+juan_interest_link2 = UserInterest.create!(interest_tag: tennis_interest_tag, user: juanito_teacher)
+juan_interest_link3 = UserInterest.create!(interest_tag: movies_interest_tag, user: juanito_teacher)
+
+
 puts 'creating interest tags!'
 
 puts 'creating interest tags! <<< PERSONALITY'
 
-p1 = InterestTag.create!(content: 'Activo/a', interest_category:personality)
-p2 = InterestTag.create!(content: 'Calmado/a', interest_category:personality)
+p1 = InterestTag.create!(content: 'Active', interest_category:personality)
+p2 = InterestTag.create!(content: 'Calm', interest_category:personality)
 p3 = InterestTag.create!(content: 'Atento/a', interest_category:personality)
 p4 = InterestTag.create!(content: 'Alegre', interest_category:personality)
 p5 = InterestTag.create!(content: 'Colaborador/a', interest_category:personality)
@@ -160,10 +199,10 @@ l27 = InterestTag.create!(content: 'Excursionista', interest_category:lifestyle)
 l28 = InterestTag.create!(content: 'Adicto/a al trabajo', interest_category:lifestyle)
 puts 'creating interest tags! <<< MUSIC'
 
-m1 = InterestTag.create!(content: 'Música alternativa', interest_category:music)
-m2 = InterestTag.create!(content: 'Pop asiático', interest_category:music)
+m1 = InterestTag.create!(content: 'alternative Music', interest_category:music)
+m2 = InterestTag.create!(content: 'Asian Pop ', interest_category:music)
 m3 = InterestTag.create!(content: 'Blues', interest_category:music)
-m4 = InterestTag.create!(content: 'Clásica', interest_category:music)
+m4 = InterestTag.create!(content: 'Clásical', interest_category:music)
 m5 = InterestTag.create!(content: 'Country', interest_category:music)
 m6 = InterestTag.create!(content: 'Dance', interest_category:music)
 m7 = InterestTag.create!(content: 'Electrónica', interest_category:music)
@@ -174,7 +213,7 @@ m11 = InterestTag.create!(content: 'Hip-Hop', interest_category:music)
 m12 = InterestTag.create!(content: 'Indie', interest_category:music)
 m13 = InterestTag.create!(content: 'Instrumental', interest_category:music)
 m14 = InterestTag.create!(content: 'Jazz', interest_category:music)
-m16 = InterestTag.create!(content: 'Latina', interest_category:music)
+m16 = InterestTag.create!(content: 'Latino', interest_category:music)
 m17 = InterestTag.create!(content: 'Lounge', interest_category:music)
 m18 = InterestTag.create!(content: 'Metal', interest_category:music)
 m19 = InterestTag.create!(content: 'New age', interest_category:music)
@@ -248,6 +287,11 @@ as18 = InterestTag.create!(content: 'Western', interest_category:movies)
 juan_interest_link1 = UserInterest.create!(interest_tag: p1, user: juanito_teacher)
 juan_interest_link2 = UserInterest.create!(interest_tag: p3, user: juanito_teacher)
 juan_interest_link3 = UserInterest.create!(interest_tag: p2, user: juanito_teacher)
+
+
+carlos_interest_link1 = UserInterest.create!(interest_tag: rock_interest_tag, user: carlitos_student)
+carlos_interest_link2 = UserInterest.create!(interest_tag: tennis_interest_tag, user: carlitos_student)
+carlos_interest_link3 = UserInterest.create!(interest_tag: movies_interest_tag, user: carlitos_student)
 
 puts 'Finished!'
 

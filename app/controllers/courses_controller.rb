@@ -1,43 +1,61 @@
 class CoursesController < ApplicationController
-  def index
+
+ def index
+
     @courses = Course.all
+
     if params[:city].present?
-      @courses = @courses.where("address ILIKE ?", "%#{params[:city]}%")
+      @courses = @courses.where("city ILIKE ?", "%#{params[:city]}%")
     end
+
     if params[:language].present?
-      @courses = @courses.where("language = ?", params[:language]) ## we may have to change the argument of language
+      sql_query = "\
+      languages.name ILIKE :language \
+      "
+      @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
     end
-  end
 
-  def show
-    @course = Course.find(params[:id])
-    @booking = Booking.new
-    @user = @course.user
-  end
+    if params[:city].present? && params[:language].present?
 
-  def new
-    @course = Course.new
-  end
-
-  def create
-    @course = Course.new(course_params)
-    @course.user = current_user
-    @course.save
-    if @course.save
-      redirect_to course_path(@course)
-    else
-      render :new
+      sql_query = "\
+      languages.name ILIKE :language \
+      AND courses.city ILIKE :city \
+      "
+      @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%", city: "%#{params[:city]}%")
     end
-  end
 
-  def destroy
-    @course = Course.find(params[:id])
-    if current_user != @course.user
-      redirect_to courses_path
-      flash[:warning] = "Get out of here !"
-    else
-      @course.destroy
-      redirect_to courses_path
+ end
+
+
+              def show
+                @course = Course.find(params[:id])
+                @booking = Booking.new
+                @user = @course.user
+                @reviews_teacher_for_course = @course.user.teacher_reviews_for_show
+              end
+
+              def new
+                @courses = Course.new
+              end
+
+              def create
+                @course = Course.new(course_params)
+                @course.user = current_user
+                if @course.save
+                  redirect_to course_path(@course)
+                else
+                  render :new
+                end
+              end
+
+              def destroy
+                @course = Course.find(params[:id])
+                if current_user != @course.user
+                  redirect_to courses_path
+                  flash[:warning] = "Get out of here !"
+                else
+                  @course.destroy
+                  redirect_to courses_path
       # might be nice to redirect somewhere more usefull.
     end
   end
