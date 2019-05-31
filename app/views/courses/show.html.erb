@@ -19,7 +19,7 @@
 
   <div class="teacher-content">
     <div class="teacher-photo">
-      <% if current_user.photo.present? %>
+      <% if @user.photo.present? %>
       <div class="avatar-large">
         <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill %>
       </div>
@@ -115,14 +115,14 @@
       <div class="classmates">
         <% @course.bookings.each do |x| %>
           <div>
-            <% if current_user.photo.present? %>
+            <% if @user.photo.present? %>
               <div class="classmate-photo">
                 <%= cl_image_tag x.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
                 <p> <%= x.user.name %></p>
               </div>
              <% else %>
               <div class="classmate-photo text-center">
-              <i class="far fa-user fa-2x"></i>
+                <i class="far fa-user fa-2x"></i>
               <p> <%= x.user.name %></p>
              <% end %>
             </div>
@@ -144,7 +144,7 @@
         <% else %>
         <% @reviews_teacher_for_course.each do |review|  %>
           <div class="review-detail">
-            <% if current_user.photo.present? %>
+            <% if @user.photo.present? %>
               <div class="">
                 <%= cl_image_tag review.try(:booking).try(:user).try(:photo), height: 40, width: 40, radius: 50, crop: :fill %>
               </div>
