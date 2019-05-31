@@ -33,7 +33,11 @@
  <%= booking.course.title %>
  <%= booking.course.title %>
  <%= booking.course.start_date.strftime("%-d %B") %> - <%= booking.course.end_date.strftime("%-d %B") %>
+ <%= booking.review.content %>
+
  <% end %>
+
+
 <% elsif current_user.student? == false %>
 <h2>My Reservations</h2>
  <% @bookings.each do |booking| %>
@@ -44,6 +48,10 @@
  <% else %>
  <p> You have no reservation !</p>
 <% end %>
+
+
+<p>review</p>
+
 
 
 
