@@ -25,8 +25,8 @@ class CoursesController < ApplicationController
 
 
   end
-   
-  
+
+
 
 
               def show
