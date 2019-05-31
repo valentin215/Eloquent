@@ -20,7 +20,7 @@ juanito_teacher = User.new(name: 'Juan', biography: 'Buzzy destination for India
     password:    '123456',
     native_language: 'Basque',
     nationality:   'Spanish',
-    photo: url()
+
    )
 
 juanito_teacher.remote_photo_url = "http://tedxudeusto.com/wp-content/uploads/2018/12/Juan-Barbed.png"
@@ -45,7 +45,7 @@ carlitos_student = User.new(name: 'Carlitos',
     native_language: 'Colombian',
     nationality:   'British')
 
-carlitos_student.remote_photo_url = "https://timedotcom.files.wordpress.com/2014/09/jack-ma-alibaba-life-lessons-clinton-global-initiative.jpg"
+carlitos_student.remote_photo_url = "https://i.pinimg.com/originals/28/2c/3d/282c3dd1fcc5ac1a659fa4cfb34c10b2.jpg"
 carlitos_student.save!
 
 
