@@ -1,32 +1,61 @@
-<%= simple_form_for current_user do |f| %>
-  <%= f.input :name,
-              required: true %>
-  <%= f.input :nationality,
-              hint: "leave it blank if you don't want to change it",
-              required: true %>
-  <%= f.input :native_language,
-              hint: "leave it blank if you don't want to change it",
-              required: true %>
-  <%= f.input :biography,
-              hint: "leave it blank if you don't want to change it",
-              required: true %>
-  <%= f.input :photo,
-              hint: "leave it blank if you don't want to change it",
-              required: true %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 
-  <h3>Pick your interest</h2>
+      <div class="form-post">
+        <h1>Write a post</h1>
 
-  <% @tags_by_category.each do |category, taglist| %>
-    <h3><%= category.content %></h3>
+          <%= simple_form_for current_user do |f| %>
+          <div class="row">
+            <div class="col-xs-6">
 
-        <%= f.association :interest_tags, collection: taglist, as: :check_boxes, label_method: :content, input_html: { class: 'ck-button' } %>
-
-
-  <% end %>
-
-
-  <%= f.submit %>
-
-<% end %>
-
+                  <%= f.input :name,
+                              required: true %>
+            </div>
+            <div class="col-xs-6">
+                  <%= f.input :nationality,
+                              hint: "leave it blank if you don't want to change it",
+                              required: true %>
+            </div>
+            <div class="col-xs-6">
+                  <%= f.input :native_language,
+                              hint: "leave it blank if you don't want to change it",
+                              required: true %>
+            </div>
+            <div class="col-xs-6">
+                  <%= f.input :biography,
+                              hint: "leave it blank if you don't want to change it",
+                              required: true %>
+            </div>
+            <div class="col-xs-6">
+                  <%= f.input :photo,
+                              hint: "leave it blank if you don't want to change it",
+                              required: true %>
+            </div>
+              <% @tags_by_category.each do |category, taglist| %>
+                <div class="col-xs-12 col-sm-12">
+                  <fieldset class="form-group">
+                  <input type="hidden" name="user[interest_tag_ids][]" value="">
+                  <%= category.content %>
+                  <div class="category-choices">
+                    <% taglist.each do |tag| %>
+                      <% if current_user.user_interests.find_by(interest_tag: tag) %>
+                        <input class="hidden" hidden type="checkbox" value="<%= tag.id %>" name="user[interest_tag_ids][]" id="user_interest_tag_ids_<%= tag.id %>">
+                        <label class="category-choice active" for="user_interest_tag_ids_<%= tag.id %>"><%= tag.content %><i class="fa fa-check"></i>
+                        </label>
+                      <% else %>
+                        <input class="hidden" hidden type="checkbox" value="<%= tag.id %>" name="user[interest_tag_ids][]" id="user_interest_tag_ids_<%= tag.id %>">
+                        <label class="category-choice" for="user_interest_tag_ids_<%= tag.id %>"><%= tag.content %><i class="fa fa-check"></i>
+                        </label>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <%= f.submit "Save", class: "btn btn-primary"  %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
 
