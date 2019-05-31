@@ -30,16 +30,12 @@ class UsersController < ApplicationController
       @bookings = current_user.bookings
     else
       @courses = current_user.courses
-      @bookings = bookings_teacher(@courses)
+      @bookings = current_user.teacher_bookings.includes(:course)
     end
     # @category = current_user.interest_tags.map { |it| it.interest_category }.uniq
   end
 
   private
-
-  def bookings_teacher(courses)
-    @courses.each { |course| course.bookings }
-  end
 
   def create_user_interests
     # current_user.user_interests.reject { |ui| ui.interest_tag_id.in? user_params[:interest_tag_ids }.destroy

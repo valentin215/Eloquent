@@ -1,3 +1,5 @@
+<%= cl_image_tag @user.photo, height: 180, width: 180, radius: 50, crop: :fill %>
+
 <h1><%= @user.name %></h1>
 <h3>Student</h3>
 <%= @user.nationality%>
@@ -20,21 +22,38 @@
 <h2>Next courses</h2>
 <%#= @user.course.title %>
 
-<h2>My bookings</h2>
-
 <% if current_user.student? %>
+<h2>My bookings</h2>
  <% @bookings.each do |booking| %>
  <%= booking.course.level %>
  <%= booking.course.language.name %>
  <%= booking.course.title %>
  <%= booking.course.title %>
  <%= booking.course.start_date.strftime("%-d %B") %> - <%= booking.course.end_date.strftime("%-d %B") %>
+ <%= booking.review.content %>
+
  <% end %>
-<% else %>
+
+
+<% elsif current_user.student? == false %>
+<h2>My Reservations</h2>
  <% @bookings.each do |booking| %>
- <%= booking.level %>
- <%= booking.language.name %>
- <%= booking.title %>
- <%= booking.start_date.strftime("%-d %B") %> - <%= booking.end_date.strftime("%-d %B")%>
+ <%= booking.user.name %>
+ <%= booking.course.title %>
+ <%= booking.course.start_date.strftime("%-d %B") %> - <%= booking.course.end_date.strftime("%-d %B")%>
  <% end %>
+ <% else %>
+ <p> You have no reservation !</p>
 <% end %>
+
+
+<p>review</p>
+
+
+
+
+
+<p>edit your profile</p>
+
+
+<%= link_to "Edit my profile", edit_user_path(current_user) %>
