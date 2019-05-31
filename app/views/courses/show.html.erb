@@ -120,12 +120,12 @@
                 <%= cl_image_tag x.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
                 <p> <%= x.user.name %></p>
               </div>
-             <% else %>
+            <% else %>
               <div class="classmate-photo text-center">
                 <i class="far fa-user fa-2x"></i>
-              <p> <%= x.user.name %></p>
-             <% end %>
-            </div>
+                <p> <%= x.user.name %></p>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
