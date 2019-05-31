@@ -20,7 +20,6 @@ juanito_teacher = User.new(name: 'Juan', biography: 'Buzzy destination for India
     password:    '123456',
     native_language: 'Basque',
     nationality:   'Spanish',
-    photo: url()
    )
 
 juanito_teacher.remote_photo_url = "http://tedxudeusto.com/wp-content/uploads/2018/12/Juan-Barbed.png"
