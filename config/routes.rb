@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+  get 'reviews/create'
   get 'courses/index'
   get 'courses/show'
   get 'courses/new'
