@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     # @booking.total_price = @booking.course.price.to_i * @course.bookings.count
       if @booking.save
-        redirect_to courses_index_path
+        redirect_to user_path(@user)
       else
         render :new
       end
