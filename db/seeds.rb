@@ -15,7 +15,7 @@ Language.destroy_all
 puts 'Creating Users...'
 
 
-juanito_teacher = User.new(name: 'Juanito', biography: 'Buzzy destination for Indian street food in Bombay-style vintage decor.',
+juanito_teacher = User.new(name: 'Juan', biography: 'Buzzy destination for Indian street food in Bombay-style vintage decor.',
     email:        'juan@mail.com',
     password:    '123456',
     native_language: 'Basque',
@@ -23,6 +23,8 @@ juanito_teacher = User.new(name: 'Juanito', biography: 'Buzzy destination for In
     photo: url()
    )
 
+juanito_teacher.remote_photo_url = "http://tedxudeusto.com/wp-content/uploads/2018/12/Juan-Barbed.png"
+juanito_teacher.save!
 
 
 chris_teacher = User.new(name: 'Chris', biography: 'Chilean born Spanish teacher with a lot of energy for teaching and with useful grammar tips',
@@ -32,25 +34,32 @@ chris_teacher = User.new(name: 'Chris', biography: 'Chilean born Spanish teacher
     nationality:   'Chilean'
    )
 
+chris_teacher.remote_photo_url = "https://cdn.countryflags.com/thumbs/chile/flag-400.png"
+chris_teacher.save!
 
 
-# juanito_teacher.remote_picture_url = "https//planetary.s3.amazonaws.com/assets/images/people/20170726_FBavataremily-headshot-2017-IsabelLawrence-4_hires.jpg"
-# juanito_teacher.save!
-
-carlitos_student = User.create!(name: 'Carlitos',
+carlitos_student = User.new(name: 'Carlitos',
     biography:  'Living in Urgarit street',
     email:        'carlos@mail.com',
     password:    '123456',
     native_language: 'Colombian',
     nationality:   'British')
 
+carlitos_student.remote_photo_url = "https://timedotcom.files.wordpress.com/2014/09/jack-ma-alibaba-life-lessons-clinton-global-initiative.jpg"
+carlitos_student.save!
 
-valentin_student = User.create!(name: 'Valentin',
+
+
+
+valentin_student = User.new(name: 'Valentin',
     biography:  'French who moved to Spain to make money and code',
     email:        'valentin@mail.com',
     password:    '123456',
     native_language: 'French',
     nationality:   'French',)
+
+valentin_student.remote_photo_url = "https://i.mdel.net/mdx/i/2019/01/2019_01_16_Models.com_15.jpg"
+valentin_student.save!
 
 
 spanish_language = Language.create!(name:'Spanish')
