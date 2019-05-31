@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def edit
     @tags_by_category = InterestCategory.includes(:interest_tags).all.map { |c| [c, c.interest_tags] }.to_h
+    @interests = current_user.user_interests
   end
 
   def update
