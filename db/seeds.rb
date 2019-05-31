@@ -19,7 +19,8 @@ juanito_teacher = User.new(name: 'Juanito', biography: 'Buzzy destination for In
     email:        'juan@mail.com',
     password:    '123456',
     native_language: 'Basque',
-    nationality:   'Spanish'
+    nationality:   'Spanish',
+    photo: url()
    )
 
 
@@ -49,7 +50,7 @@ valentin_student = User.create!(name: 'Valentin',
     email:        'valentin@mail.com',
     password:    '123456',
     native_language: 'French',
-    nationality:   'French')
+    nationality:   'French',)
 
 
 spanish_language = Language.create!(name:'Spanish')

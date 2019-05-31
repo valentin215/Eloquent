@@ -19,9 +19,13 @@
 
   <div class="teacher-content">
     <div class="teacher-photo">
+      <% if current_user.photo.present? %>
       <div class="avatar-large">
-      <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill %>
+        <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill %>
       </div>
+      <% else %>
+        <i class="far fa-user fa-2x" style="margin-top: 3px;"></i>
+      <% end %>
     </div>
     <div class="teacher-info">
       <div id="name-teacher"><%= @course.user.name %>
@@ -111,9 +115,16 @@
       <div class="classmates">
         <% @course.bookings.each do |x| %>
           <div>
-            <div class="classmate-photo">
-              <%= cl_image_tag x.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
-             <p> <%= x.user.name %></p>
+            <% if current_user.photo.present? %>
+              <div class="classmate-photo">
+                <%= cl_image_tag x.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
+                <p> <%= x.user.name %></p>
+              </div>
+             <% else %>
+              <div class="classmate-photo text-center">
+              <i class="far fa-user fa-2x"></i>
+              <p> <%= x.user.name %></p>
+             <% end %>
             </div>
           </div>
         <% end %>
@@ -133,16 +144,24 @@
         <% else %>
         <% @reviews_teacher_for_course.each do |review|  %>
           <div class="review-detail">
-            <div class="">
-              <%= cl_image_tag review.booking.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
-            </div>
+            <% if current_user.photo.present? %>
+              <div class="">
+                <%= cl_image_tag review.try(:booking).try(:user).try(:photo), height: 40, width: 40, radius: 50, crop: :fill %>
+              </div>
+            <% else %>
+              <div class="">
+                <i class="far fa-user fa-2x mt-1"></i>
+              </div>
+            <% end %>
             <div class="review-comment">
               <i class="far fa-comment"></i>
               <%= review.try(:content) %>
               <div>
-                <% rating = review.rating %>
-                <% rating.round.times do %>
-                <i class="fa fa-star"></i>
+                <% rating = review.try(:rating) %>
+                <% if rating %>
+                  <% rating.round.times do %>
+                  <i class="fa fa-star"></i>
+                  <% end  %>
                 <% end %>
               </div>
             </div>
