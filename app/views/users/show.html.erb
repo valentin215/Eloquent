@@ -108,15 +108,17 @@
   <!--- profil reviews for teacher  --->
 
   <% if current_user.teacher? %>
-  <hr>
+  <hr style="margin-top: -20px;">
   <div class="sections-course">
     <div class="teacher-reviews">
-      <h4><strong>Teacher reviews</strong></h4>
+      <div id="title-category">
+        <h4>Teacher reviews</h4>
+      </div>
       <div class="review-info">
-        <% if @reviews_teacher.nil? %>
-          <p>no review yet</p>
-        <% else %>
-        <% @reviews_teacher.each do |review|  %>
+          <% if @reviews_teacher.nil? %>
+            <p>no review yet</p>
+          <% else %>
+          <% @reviews_teacher.each do |review|  %>
           <div class="review-detail">
             <% if @user.photo.present? %>
               <div class="">
@@ -129,7 +131,7 @@
             <% end %>
             <div class="review-comment">
               <i class="far fa-comment"></i>
-              <%= review.try(:content) %>
+                <%= review.try(:content) %>
               <div>
                 <% rating = review.try(:rating) %>
                 <% if rating %>
