@@ -58,17 +58,19 @@
       <% if current_user.student? %>
         <h2>Next courses</h2>
          <% @bookings.each do |booking| %>
-         <div class="course-info">
+         <div class="course-info" style="margin-bottom: 12px;">
           <div class="course-level">
             <%= booking.course.level %><span>, </span>
             <%= booking.course.language.name %>
           </div>
-          <div class="course-title">
+          <div class="course-title" style="margin-bottom: -2px;">
             <p><%= booking.course.title %></p>
           </div>
           <div class="course-date-review">
-            <p>Dates:<%= booking.course.start_date.strftime("%-d %B") %> - <%= booking.course.end_date.strftime("%-d %B") %></p>
-            <%= link_to "Add a review !", reviews_new_path(current_user) %>
+            <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
+            <div class="course-review">
+              <%= link_to "Add review", reviews_new_path(current_user)%>
+            </div>
           </div>
             <%# if booking.reviewed? %>
           <%#booking.review.try(:content) %>
