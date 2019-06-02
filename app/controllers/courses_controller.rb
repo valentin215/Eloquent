@@ -24,37 +24,37 @@ class CoursesController < ApplicationController
   end
 
 
+end
+
+def show
+  @course = Course.find(params[:id])
+  @booking = Booking.new
+  @user = @course.user
+  @reviews_teacher_for_course = @course.user.teacher_reviews_for_show
+end
+
+def new
+  @courses = Course.new
+end
+
+def create
+  @course = Course.new(course_params)
+  @course.user = current_user
+  if @course.save
+    redirect_to course_path(@course)
+  else
+    render :new
   end
+end
 
-              def show
-                @course = Course.find(params[:id])
-                @booking = Booking.new
-                @user = @course.user
-                @reviews_teacher_for_course = @course.user.teacher_reviews_for_show
-              end
-
-              def new
-                @courses = Course.new
-              end
-
-              def create
-                @course = Course.new(course_params)
-                @course.user = current_user
-                if @course.save
-                  redirect_to course_path(@course)
-                else
-                  render :new
-                end
-              end
-
-              def destroy
-                @course = Course.find(params[:id])
-                if current_user != @course.user
-                  redirect_to courses_path
-                  flash[:warning] = "Get out of here !"
-                else
-                  @course.destroy
-                  redirect_to courses_path
+def destroy
+  @course = Course.find(params[:id])
+  if current_user != @course.user
+    redirect_to courses_path
+    flash[:warning] = "Get out of here !"
+  else
+    @course.destroy
+    redirect_to courses_path
       # might be nice to redirect somewhere more usefull.
     end
   end

@@ -52,7 +52,7 @@ carlitos_student.save!
 
 
 valentin_student = User.new(name: 'Valentin',
-    biography:  'French who moved to Spain to make money and code',
+    biography:  'French who moved to Spain to make money and code. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi quasi minus cumque, illo repudiandae tempore voluptatibus debitis. Beatae eveniet magni fugiat obcaecati quaerat, nam assumenda hic, cumque vel, quo sed.',
     email:        'valentin@mail.com',
     password:    '123456',
     native_language: 'French',

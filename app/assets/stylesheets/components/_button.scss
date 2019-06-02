@@ -60,3 +60,29 @@
     font-weight: bold;
     font-size: 14px;
 }
+
+.login-button {
+  border: solid 2px;
+  border-color: $purple;
+  width: 66px;
+  border-radius: 4px;
+  text-align: center;
+  color: $purple;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0.75;
+  height:  33px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.login-button:hover {
+  text-decoration: none;
+  color: $purple;
+  opacity: 0.6;
+}
+
+
