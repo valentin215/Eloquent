@@ -1,0 +1,25 @@
+.profil-header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.header-nationality {
+  display: inline-flex;
+  font-size: 12px;
+}
+
+.header-infos h1 {
+  margin-bottom: -6px;
+  opacity: 0.75;
+  padding: 0px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
+.header-nationality h4 {
+  font-size: 12px;
+  opacity: 0.75;
+  padding-right: 3px;
+}

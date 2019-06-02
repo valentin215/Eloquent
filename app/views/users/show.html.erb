@@ -1,60 +1,86 @@
-<%= cl_image_tag @user.photo, height: 180, width: 180, radius: 50, crop: :fill %>
+<div class="content-container">
 
-<h1><%= @user.name %></h1>
-<h3>Student</h3>
-<%= @user.nationality%>
+  <!--- profil header --->
 
-<h2>About me</h2>
-<%= @user.biography%>
+  <div class="profil-header">
+    <div class="header-infos">
+      <h1><%= @user.name %></h1>
+      <% if current_user.student? %>
+          <div class="header-nationality">
+            <h4>STUDENT,</h4>
+            <h4><%= @user.nationality.upcase%></h4>
+          <% else %>
+            <h4>TEACHER,</h4>
+            <h4><%= @user.nationality.upcase%> </h4>
+      <% end %>
+          </div>
+      </div>
+      <%= cl_image_tag @user.photo, class: 'avatar-large' %>
+  </div>
 
-<h2>categories</h2>
+  <!--- profil description --->
 
-<% @categories.each do |cat| %>
-  <h2><%= cat.content %></h2>
-  <% @tags.each do |tag| %>
-    <%= tag.content %>
+  <div class="profil-description">
+    <h2>About me</h2>
+    <%= @user.biography%>
+  </div>
+
+  <!--- profil categories --->
+
+  <div class="profil-categories">
+    <h2>categories</h2>
+    <% @categories.each do |cat| %>
+      <h2><%= cat.content %></h2>
+      <% @tags.each do |tag| %>
+        <%= tag.content %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <!--- profil languages  --->
+
+  <div class='profil-languages'>
+    <h2>Native Language</h2>
+    <%= @user.native_language%>
+  </div>
+
+  <!--- profil bookings  --->
+
+  <div class="profil-bookings">
+      <% if current_user.student? %>
+        <h2>Next courses</h2>
+         <% @bookings.each do |booking| %>
+         <%= booking.course.level %>
+         <%= booking.course.language.name %>
+         <%= booking.course.title %>
+         <%= booking.course.title %>
+         <%= booking.course.start_date.strftime("%-d %B") %> - <%= booking.course.end_date.strftime("%-d %B") %>
+            <%# if booking.reviewed? %>
+          <%= booking.review.try(:content) %>
+          <%# else  %>
+          <%#= render 'reviews/form', booking: booking, review: Review.new %>
+          <!-- <p>add review</p> -->
+          <%# end %>
+       <% end %>
+        <% elsif current_user.teacher? %>
+        <h2>My Reservations</h2>
+          <% @bookings.each do |booking| %>
+            <%= booking.user.name %>
+            <%= booking.course.title %>
+            <%= booking.course.start_date.strftime("%-d %B") %> - <%= booking.course.end_date.strftime("%-d %B")%>
+          <% end %>
+        <% else %>
+          <p> You have no reservation !</p>
+        <% end %>
+    </div>
+
+  <% if current_user.teacher? %>
+    <div class='profil-reviews'>
+      <p>review</p>
+    </div>
   <% end %>
-<% end %>
-
-<h2>Native Language</h2>
-<%= @user.native_language%>
-
-<h2>Next courses</h2>
-<%#= @user.course.title %>
-
-
-
-<% if current_user.student? %>
-<h2>My bookings</h2>
- <% @bookings.each do |booking| %>
- <%= booking.course.level %>
- <%= booking.course.language.name %>
- <%= booking.course.title %>
- <%= booking.course.title %>
- <%= booking.course.start_date.strftime("%-d %B") %> - <%= booking.course.end_date.strftime("%-d %B") %>
-    <%# if booking.reviewed? %>
-  <%= booking.review.try(:content) %>
-    <%# else  %>
-    <%#= render 'reviews/form', booking: booking, review: Review.new %>
-    <!-- <p>add review</p> -->
-    <%# end %>
- <% end %>
-
-
-<% elsif current_user.teacher? %>
-<h2>My Reservations</h2>
-  <% @bookings.each do |booking| %>
- <%= booking.user.name %>
- <%= booking.course.title %>
- <%= booking.course.start_date.strftime("%-d %B") %> - <%= booking.course.end_date.strftime("%-d %B")%>
- <% end %>
- <% else %>
- <p> You have no reservation !</p>
-<% end %>
-
-
-<p>review</p>
-
 
 
 <%= link_to "Edit my profile", edit_user_path(current_user) %>
+
+</div>
