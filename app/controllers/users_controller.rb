@@ -33,6 +33,11 @@ class UsersController < ApplicationController
       @courses = current_user.courses
       @bookings = current_user.teacher_bookings.includes(:course)
     end
+
+    if current_user.teacher?
+      @reviews_teacher = current_user.teacher_reviews_for_show
+    end
+
     # @category = current_user.interest_tags.map { |it| it.interest_category }.uniq
   end
 
