@@ -26,6 +26,7 @@
 .profil-description {
   padding-top: 30px;
 }
+
 .profil-description h2 {
   font-size: 16px;
   font-weight: bold;
@@ -38,16 +39,47 @@
   text-align: justify;
 }
 
-.profil-interests {
-  padding-top: 10px;
-}
-
 .profil-interests h2 {
   opacity: 0.8;
   font-size: 16px;
   font-weight: bold;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .interest-categories {
   padding-bottom: 10px;
+}
+
+
+.profil-languages h2 {
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.profil-languages p {
+  opacity: 0.7;
+  font-size: 14px;
+  text-align: justify;
+  margin-bottom: 0px;
+}
+
+.profil-bookings h2 {
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.profil-bookings .course-level {
+  margin: 0px;
+}
+
+.profil-bookings .course-title p {
+  margin-bottom: -4px;
+}
+
+.course-date-review {
+  display: flex;
+  justify-content: space-between;
 }

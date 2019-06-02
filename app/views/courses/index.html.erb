@@ -28,7 +28,8 @@
               <%= course.language.name.upcase %><span>, </span><%= course.level.upcase %>
             </div>
               <%= link_to course_path(course) do %>
-              <div class="course-title"><%= course.title %>
+              <div class="course-title">
+                <%= course.title %>
               </div>
               <% end %>
                 <div>
