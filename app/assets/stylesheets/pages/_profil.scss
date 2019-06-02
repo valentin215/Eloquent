@@ -1,7 +1,7 @@
 .profil-header {
   display: flex;
   justify-content: space-between;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .header-nationality {
@@ -11,15 +11,43 @@
 
 .header-infos h1 {
   margin-bottom: -6px;
-  opacity: 0.75;
+  opacity: 0.8;
   padding: 0px;
   font-size: 2rem;
   font-weight: bold;
 }
 
-
 .header-nationality h4 {
   font-size: 12px;
-  opacity: 0.75;
+  opacity: 0.7;
   padding-right: 3px;
+}
+
+.profil-description {
+  padding-top: 30px;
+}
+.profil-description h2 {
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.profil-description p {
+  opacity: 0.7;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.profil-interests {
+  padding-top: 10px;
+}
+
+.profil-interests h2 {
+  opacity: 0.8;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.interest-categories {
+  padding-bottom: 10px;
 }

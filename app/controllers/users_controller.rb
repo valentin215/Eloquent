@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     end
 
     @categories = @categories.uniq
+    @tags = @tags.uniq
 
     if current_user.student?
       @bookings = current_user.bookings

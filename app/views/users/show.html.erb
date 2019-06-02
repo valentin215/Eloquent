@@ -22,19 +22,22 @@
 
   <div class="profil-description">
     <h2>About me</h2>
-    <%= @user.biography%>
+    <p><%= @user.biography%></p>
   </div>
 
   <!--- profil categories --->
 
-  <div class="profil-categories">
-    <h2>categories</h2>
-    <% @categories.each do |cat| %>
-      <h2><%= cat.content %></h2>
-      <% @tags.each do |tag| %>
-        <%= tag.content %>
+  <div class="profil-interests">
+      <% @categories.each do |cat| %>
+      <div class="interest-categories">
+        <h2><%= cat.content %></h2>
+        <% @tags.each do |tag| %>
+          <div class="interest-content">
+            <%= tag.content %>
+          </div>
+        <% end %>
+      </div>
       <% end %>
-    <% end %>
   </div>
 
   <!--- profil languages  --->
