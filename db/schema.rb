@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_06_03_152139) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +23,9 @@ ActiveRecord::Schema.define(version: 2019_06_03_152139) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "state"
+    t.jsonb "payment"
     t.index ["course_id"], name: "index_bookings_on_course_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -54,8 +59,12 @@ ActiveRecord::Schema.define(version: 2019_06_03_152139) do
     t.datetime "updated_at", null: false
     t.integer "capacity"
     t.string "picture"
+
+    t.integer "price_cents", default: 0, null: false
+
     t.string "start_time"
     t.string "integer"
+
     t.index ["language_id"], name: "index_courses_on_language_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end

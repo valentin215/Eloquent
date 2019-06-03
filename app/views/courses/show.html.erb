@@ -35,9 +35,11 @@
       </div>
       <% end %>
       <div>
-        <% rating = @course.user.teacher_rating %>
-        <% rating.round.times do %>
-        <i class="fa fa-star"></i>
+        <% unless @course.user.teacher_rating.nil? %>
+          <% rating = @course.user.teacher_rating %>
+          <% rating.round.times do %>
+          <i class="fa fa-star"></i>
+        <% end %>
         <% end %>
       </div>
     </div>
@@ -195,11 +197,33 @@
     <p><strong> per student </strong></p>
   </div>
   <div class="btn-book">
-    <%= link_to "Book Now", new_course_booking_path(@course), class: "btn btn-primary" %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Book Now
+    </button>
   </div>
 </div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Next step</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Congratulations, you booked the course !
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= link_to "Go to payment", new_course_payment_path(@course), class: "button-profile"%>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

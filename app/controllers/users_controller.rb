@@ -42,7 +42,6 @@ class UsersController < ApplicationController
     # @category = current_user.interest_tags.map { |it| it.interest_category }.uniq
   end
 
-
   private
 
   def create_user_interests

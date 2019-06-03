@@ -5,7 +5,7 @@ class Course < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
   mount_uploader :picture, PhotoUploader
-
+  monetize :price_cents
 
   def total_week_hours
     total = 0
