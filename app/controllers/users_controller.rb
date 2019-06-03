@@ -46,9 +46,9 @@ class UsersController < ApplicationController
 
   def create_user_interests
     # current_user.user_interests.reject { |ui| ui.interest_tag_id.in? user_params[:interest_tag_ids }.destroy
-    interest_tag_ids = user_params[:interest_tag_ids].reject { |it| it == "" }
+    interest_tag_ids = user_params[:interest_tag_ids].try(:reject) { |it| it == "" }
 
-    interest_tag_ids.each do |interest_tag_id|
+    interest_tag_ids.try(:each) do |interest_tag_id|
       UserInterest.create(user_id: current_user.id, interest_tag_id: interest_tag_id)
     end
   end

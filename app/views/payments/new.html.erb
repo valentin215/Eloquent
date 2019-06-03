@@ -1,9 +1,31 @@
-<!-- payment -->
-<h1>Payment <%= @course.title %></h1>
+<div class="content-container" style="text-align: center; margin-top: 40px; border-radius: 4px; padding-top: 10px; padding-bottom: 30px;">
+  <div class="course-info">
+    <div class="course-level">
+      <%= @course.language.name.upcase %><span>, </span><%= @course.level.upcase %>
+       </div>
+         <%= link_to course_path(@course) do %>
+         <div class="course-title"><%= @course.title %>
+         </div>
+         <% end %>
+        <div>
+          <span>Price: </span><p><%= @course.price.to_i %>€ per student</p>
+        </div>
+    <div>
+    <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+    </div>
+    <% @course.course_days.each do |day| %>
+    <div>
+      <span>Days: </span><p><%= day.working_day %></p>
+    </div>
+    <% end %>
+    <p> Your teacher will be: <%= @course.user.name  %> </p>
+     <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill %>
+  </div>
+
 <%= form_tag course_payments_path(@course) do %>
   <article>
     <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@course.price) %></span>
+      <span>Total amount: <%= humanized_money_with_symbol(@course.price) %></span>
     </label>
   </article>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -14,3 +36,4 @@
     data-amount="<%= @course.price_cents %>"
     data-currency="<%= @course.price.currency %>"></script>
 <% end %>
+</div>
