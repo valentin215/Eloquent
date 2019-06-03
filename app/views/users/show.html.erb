@@ -6,7 +6,7 @@
     <div class="header-infos">
       <h1><%= @user.name %></h1>
       <div class="header-nationality">
-        <% if current_user.student? %>
+        <% if @user.student? %>
         <h4>STUDENT,</h4>
         <h4><%= @user.nationality.upcase%></h4>
         <% else %>
@@ -60,24 +60,48 @@
   <!--- profil bookings  --->
 
   <div class="profil-bookings">
-    <% if current_user.student? %>
-    <h2>Next courses</h2>
+    <% if @user.student? %>
+    <h2> My courses</h2>
     <% @bookings.each do |booking| %>
     <div class="course-info" style="margin-bottom: 12px;">
-      <div class="course-level">
-        <%= booking.course.level %><span>, </span>
-        <%= booking.course.language.name %>
-      </div>
-      <div class="course-title" style="margin-bottom: -4px;">
-        <p><%= booking.course.title %></p>
-      </div>
-      <div class="course-date-review">
-        <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
-        <div class="course-review">
-          <%= link_to "Add review", reviews_new_path(current_user)%>
+      <div class="course-booking-review">
+        <div class="course-level">
+          <%= booking.course.level %><span>, </span>
+          <%= booking.course.language.name %>
         </div>
+        <div class="course-title" style="margin-bottom: -4px;">
+          <p><%= booking.course.title %></p>
+        </div>
+
+        <% if booking.review.nil? %>
+          <div class="course-date-review">
+            <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
+            <div class="course-review">
+              <%= link_to "Add review", reviews_new_path(current_user)%>
+            </div>
+          </div>
+        <% else %>
+          <div class="review-comment">
+                <i class="far fa-comment"></i>
+                <%= booking.review.try(:content) %>
+                <div>
+                  <% rating = booking.review.try(:rating) %>
+                  <% if rating %>
+                    <% rating.round.times do %>
+                    <i class="fa fa-star"></i>
+                    <% end  %>
+                  <% end %>
+                </div>
+          </div>
+        <% end %>
       </div>
     </div>
+    <%# else  %>
+    <%#= render 'reviews/form', booking: booking, review: Review.new %>
+    <!-- <p>add review</p> -->
+    <%# end %>
+
+
     <% end %>
     <%# if booking.reviewed? %>
     <%#booking.review.try(:content) %>
@@ -85,7 +109,7 @@
     <%#= render 'reviews/form', booking: booking, review: Review.new %>
     <!-- <p>add review</p> -->
     <%# end %>
-    <% elsif current_user.teacher? %>
+    <% elsif @user.teacher? %>
     <h2>My Reservations</h2>
     <% @bookings.each do |booking| %>
     <div class="course-info" style="margin-bottom: 12px;">
@@ -107,7 +131,7 @@
 
   <!--- profil reviews for teacher  --->
 
-  <% if current_user.teacher? %>
+  <% if @user.teacher? %>
   <hr style="margin-top: -20px;">
   <div class="sections-course">
     <div class="teacher-reviews">

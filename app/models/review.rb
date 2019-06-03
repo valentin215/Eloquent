@@ -21,10 +21,12 @@ class Review < ApplicationRecord
   private
 
   def update_teacher_rating
+    if booking.course.user.teacher_reviews
     teacher = booking.course.user
     ratings = teacher.teacher_reviews.pluck(:rating)
     teacher.teacher_rating = ratings.compact.sum / ratings.compact.count
     teacher.save
+    end
   end
 
   #same as:
