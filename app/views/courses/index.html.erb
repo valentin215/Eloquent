@@ -5,7 +5,7 @@
     <div class="card-course">
       <div class="teacher-content">
         <div class="teacher-photo">
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+          <%= cl_image_tag course.user.photo, class: "avatar-large" %>
         </div>
         <div class="teacher-info">
           <div id="name-teacher"><%= course.user.name %></div>
@@ -13,14 +13,32 @@
             <div class="interest-content">
               <%= interest.content %>
             </div>
-            <% end %>
+            <div class="teacher-info">
+              <div id="name-teacher"><%= course.user.name %></div>
+              <% course.user.interest_tags.each do |interest| %>
+              <div class="interest-content">
+                <%= interest.content %>
+              </div>
+              <% end %>
               <div>
                 <% rating = course.user.teacher_rating %>
+                <% if rating %>
                 <% rating.round.times do %>
+
                 <i class="fa fa-star"></i>
                 <% end %>
+                  <% end %>
+                <!-- <i class="fa fa-star"></i> -->
+                <!-- <i class="fa fa-star"></i> -->
+                <!-- <i class="fa fa-star"></i> -->
+                <!-- <i class="fa fa-star"></i> -->
               </div>
-          </div>
+            </div>
+
+
+           <% end %>
+
+
         </div>
         <div class="course-content">
           <div class="course-info">
@@ -28,9 +46,7 @@
               <%= course.language.name.upcase %><span>, </span><%= course.level.upcase %>
             </div>
               <%= link_to course_path(course) do %>
-              <div class="course-title">
-                <%= course.title %>
-              </div>
+              <div class="course-title"><%= course.title %></div>
               <% end %>
                 <div>
                   <span>Price: </span><p><%= course.price.to_i %>€ per student</p>
@@ -45,13 +61,13 @@
                 <% end %>
             </div>
             <div class="course-area-spots">
-              <div class="course-area">
-                <%= icon('fas', 'map-marker-alt') %>
+                <div class="course-area">
+                  <%= icon('fas', 'map-marker-alt') %>
                   <p><%= course.area %></p>
-              </div>
+                </div>
                 <div class="course-spots">
-                  <span> <%= course.capacity - course.bookings.count%> spaces left
-                  </span>
+                  <span> <%= course.capacity - course.bookings.count%> spaces left</span>
+
                   <i class="far fa-user-circle"></i>
                   <i class="far fa-user-circle"></i>
                   <i class="far fa-user-circle"></i>
@@ -64,4 +80,6 @@
       <% end %>
   </div>
 </div>
+
+
 
