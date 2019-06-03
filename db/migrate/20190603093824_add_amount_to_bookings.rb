@@ -1,5 +1,5 @@
 class AddAmountToBookings < ActiveRecord::Migration[5.2]
   def change
-    add_monetize :bookings, :price, currency: { present: false }
+    add_monetize :bookings, :amount, currency: { present: false }
   end
 end
