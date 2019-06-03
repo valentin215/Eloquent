@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
   def create
     @user = current_user
     @course = Course.find(params[:course_id])
-    @booking = Booking.new
+    @booking = Booking.new(price_cents: @course.price, user: current_user)
     @booking.course = @course
     @booking.user = current_user
     # @booking.total_price = @booking.course.price.to_i * @course.bookings.count
