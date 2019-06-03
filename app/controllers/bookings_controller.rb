@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
-
   def new
     @booking = Booking.new
     @course = Course.find(params[:course_id])
+    # @payment = Payment.new
   end
 
   def create
@@ -12,11 +12,7 @@ class BookingsController < ApplicationController
     @booking.course = @course
     @booking.user = current_user
     # @booking.total_price = @booking.course.price.to_i * @course.bookings.count
-    if @booking.save
-      redirect_to new_course_booking_payment_path(@course, @booking)
-    else
-      render :new
-    end
+    @booking.save
   end
 
   def show
