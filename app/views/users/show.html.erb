@@ -34,15 +34,27 @@
   <!--- profil categories --->
 
   <div class="profil-interests">
-    <% @categories.each do |cat| %>
-    <div class="interest-categories">
-      <h2><%= cat.content %></h2>
-      <% @tags.each do |tag| %>
-      <div class="interest-content">
-        <%= tag.content %>
+    <% @tags_by_category.each do |category, taglist| %>
+      <div class="interest-categories">
+        <% array = [] %>
+        <% category.interest_tags.each do |tag| %>
+          <% unless tag.user_interests.where(user_id: current_user).empty? %>
+            <% array << tag %>
+          <% end %>
+        <% end %>
+        <% unless array.empty? %>
+          <h2><%= category.content %></h2>
+          <% array = [] %>
+        <% end %>
+
+        <% taglist.each do |tag| %>
+          <% if current_user.user_interests.find_by(interest_tag: tag) %>
+            <div class="interest-content">
+              <%= tag.content %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-      <% end %>
-    </div>
     <% end %>
   </div>
 
