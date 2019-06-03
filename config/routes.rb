@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:edit, :update, :show]
+
+  resources :bookings, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
 end

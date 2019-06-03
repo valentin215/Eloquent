@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
 
+
   def new
     @booking = Booking.new
     @course = Course.find(params[:course_id])
