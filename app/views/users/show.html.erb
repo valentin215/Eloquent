@@ -77,7 +77,9 @@
           <div class="course-date-review">
             <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
             <div class="course-review">
-              <%= link_to "Add review", reviews_new_path(current_user)%>
+              <% if current_user == @user %>
+              <%= link_to "Add review", new_booking_review_path(booking) %>
+              <% end %>
             </div>
           </div>
         <% else %>
