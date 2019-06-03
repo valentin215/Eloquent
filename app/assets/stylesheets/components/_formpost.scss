@@ -40,10 +40,15 @@
   text-align: center;
   color: #bbb;
   background-color: transparent;
-
-
   flex: 0 0 30%;
   text-align: center;
+  font-size: .93rem;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    color: #bbb;
+    background-color: transparent;
+
   &:hover {
     opacity: 1;
     cursor: pointer;
@@ -55,38 +60,60 @@
   }
 }
 
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+// .form-control.is-valid {
+//   border-color: $purple;
+
+// }
+
+// .form-control.is-valid:active {
+//  border-color: $purple;
+
+// }
+
+.form-control:focus{
+ // border-color: $purple !important;
+ //  box-shadow: 10px 10px 9px -12px $purple !important;
+
 }
 
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
+// .form-control:focus-within{
+//  border-color: none !important;
+//  box-shadow: none !important;
+
+// }
+
+// .form-control:active{
+//  border-color: none !important;
+//  box-shadow: none !important;
+
+// }
+// .is-valid {
+//   color: $purple !important;
+
+// }
+
+.form-control.remove-bootstrap {
+ border-color: $gray !important;
+ opacity: 0.5;
+ box-shadow: 10px 10px 9px -12px $gray !important;
+
+
 }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
+// .remove-bootstrap {
+//    border-color: $purple !important;
+//    opacity: 0.5;
+
+
+// }
+
+.form-control:focus {
+  .remove-bootstrap {
+   border-color: $gray !important;
+  box-shadow: 10px 10px 9px -12px $gray  !important;
+
+  }
 }
 
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
 
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
+

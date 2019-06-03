@@ -27,20 +27,20 @@ class UsersController < ApplicationController
     @categories = @categories.uniq
     @tags = @tags.uniq
 
-    if current_user.student?
-      @bookings = current_user.bookings
+    if @user.student?
+      @bookings = @user.bookings
     else
-      @courses = current_user.courses
-      @bookings = current_user.teacher_bookings.includes(:course)
+      @courses = @user.courses
+      @bookings = @user.teacher_bookings.includes(:course)
     end
 
-    if current_user.teacher?
-      @reviews_teacher = current_user.teacher_reviews_for_show
+    if @user.teacher?
+      @reviews_teacher = @user.teacher_reviews_for_show
     end
+    @tags_by_category = InterestCategory.includes(:interest_tags).all.map { |c| [c, c.interest_tags] }.to_h
 
     # @category = current_user.interest_tags.map { |it| it.interest_category }.uniq
   end
-
 
   private
 
