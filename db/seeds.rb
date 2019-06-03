@@ -20,7 +20,6 @@ juanito_teacher = User.new(name: 'Juan', biography: 'Buzzy destination for India
     password:    '123456',
     native_language: 'Basque',
     nationality:   'Spanish',
-
    )
 
 juanito_teacher.remote_photo_url = "http://tedxudeusto.com/wp-content/uploads/2018/12/Juan-Barbed.png"
@@ -74,7 +73,7 @@ curso_spanish = Course.create!(user: juanito_teacher,
     end_date:        Date.new(2019,04,19),
     start_date:     Date.new(2019,03,15),
     level:    'Beginner',
-    address: "Carrer d'en Grassot, 101, 08025",
+    address: "Carrer d'en Grassot, 101, Barcelona",
     area: "Gracia",
     city: "Barcelona",
     price: 100,
@@ -90,7 +89,7 @@ curso_english = Course.create!(user: juanito_teacher,
     end_date:        Date.new(2019,04,17),
     start_date:     Date.new(2019,03,15),
     level:    'Advance',
-    address: "Carrer Ramon y Cajal,50, 08012",
+    address: "Carrer Ramon y Cajal,50, Barcelona",
     area: "Joanic",
     city: "Barcelona",
     price: 200,
