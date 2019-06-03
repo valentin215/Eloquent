@@ -44,14 +44,14 @@ carlitos_student = User.new(name: 'Carlitos',
     native_language: 'Colombian',
     nationality:   'British')
 
-carlitos_student.remote_photo_url = "https://timedotcom.files.wordpress.com/2014/09/jack-ma-alibaba-life-lessons-clinton-global-initiative.jpg"
+carlitos_student.remote_photo_url = "https://i.pinimg.com/originals/28/2c/3d/282c3dd1fcc5ac1a659fa4cfb34c10b2.jpg"
 carlitos_student.save!
 
 
 
 
 valentin_student = User.new(name: 'Valentin',
-    biography:  'French who moved to Spain to make money and code',
+    biography:  'French who moved to Spain to make money and code. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi quasi minus cumque, illo repudiandae tempore voluptatibus debitis. Beatae eveniet magni fugiat obcaecati quaerat, nam assumenda hic, cumque vel, quo sed.',
     email:        'valentin@mail.com',
     password:    '123456',
     native_language: 'French',
