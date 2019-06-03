@@ -23,7 +23,6 @@ class CoursesController < ApplicationController
     @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
   end
 
-
 end
 
 def show
@@ -31,6 +30,14 @@ def show
   @booking = Booking.new
   @user = @course.user
   @reviews_teacher_for_course = @course.user.teacher_reviews_for_show
+
+
+  @markers =
+      [{
+        lat: @course.latitude,
+        lng: @course.longitude,
+        # infoWindow: render_to_string(partial: "infowindow", locals: { course: @course })
+      }]
 end
 
 def new
