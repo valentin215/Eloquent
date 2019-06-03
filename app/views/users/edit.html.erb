@@ -1,38 +1,33 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 
       <div class="form-post">
-        <h1>Write a post</h1>
-
+        <h1>Your profile</h1>
           <%= simple_form_for current_user do |f| %>
-          <div class="row">
-            <div class="col-xs-6">
-
-                  <%= f.input :name,
-                              required: true %>
+            <div>
+              <%= f.input :name, input_html: { class:'remove-bootstrap'},
+              required: true %>
             </div>
-            <div class="col-xs-6">
-                  <%= f.input :nationality,
-                              hint: "leave it blank if you don't want to change it",
-                              required: true %>
+            <div >
+              <%= f.input :nationality, input_html: { class:'remove-bootstrap'},
+              hint: "leave it blank if you don't want to change it",
+              required: true  %>
             </div>
-            <div class="col-xs-6">
-                  <%= f.input :native_language,
-                              hint: "leave it blank if you don't want to change it",
-                              required: true %>
+            <div>
+              <%= f.input :native_language, input_html: { class:'remove-bootstrap'},
+              hint: "leave it blank if you don't want to change it",
+              required: true %>
             </div>
-            <div class="col-xs-6">
-                  <%= f.input :biography,
-                              hint: "leave it blank if you don't want to change it",
-                              required: true %>
+            <div>
+              <%= f.input :biography, input_html: { class:'remove-bootstrap'},
+              hint: "leave it blank if you don't want to change it",
+              required: true %>
             </div>
-            <div class="col-xs-6">
-                  <%= f.input :photo,
-                              hint: "leave it blank if you don't want to change it",
-                              required: true %>
+            <div>
+              <%= f.input :photo, input_html: { class:'remove-bootstrap'},
+              hint: "leave it blank if you don't want to change it",
+              required: true %>
             </div>
-              <% @tags_by_category.each do |category, taglist| %>
+            <% @tags_by_category.each do |category, taglist| %>
                 <div class="col-xs-12 col-sm-12">
                   <fieldset class="form-group">
                   <input type="hidden" name="user[interest_tag_ids][]" value="">
@@ -54,7 +49,7 @@
               <% end %>
             <%= f.submit "Save", class: "btn btn-primary"  %>
           <% end %>
-        </div>
     </div>
+
   </div>
 </div>

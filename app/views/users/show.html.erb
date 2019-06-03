@@ -1,4 +1,4 @@
-<div class="content-container">
+    <div class="content-container">
 
   <!--- profil header --->
 
@@ -74,7 +74,9 @@
       <div class="course-date-review">
         <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
         <div class="course-review">
+          <% if current_user.id == params[:id].to_i  %>
           <%= link_to "Add review", reviews_new_path(current_user)%>
+          <% end %>
         </div>
       </div>
     </div>
@@ -153,4 +155,11 @@
     </div>
   </div>
   <% end %>
+
+  <% if current_user.id == params[:id].to_i  %>
+
+  <%= link_to "Edit your profile", edit_user_path(current_user)%>
+  <% end %>
+
 </div>
+
