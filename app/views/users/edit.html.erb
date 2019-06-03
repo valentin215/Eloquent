@@ -8,12 +8,10 @@
           <%= simple_form_for current_user do |f| %>
           <div class="row">
             <div class="col-xs-6">
-
-                  <%= f.input :name,
-                              required: true %>
+              <%= f.input :name, required: true %>
             </div>
             <div class="col-xs-6">
-                  <%= f.input :nationality,
+              <%= f.input :nationality,
                               hint: "leave it blank if you don't want to change it",
                               required: true %>
             </div>
@@ -41,11 +39,11 @@
                     <% taglist.each do |tag| %>
                       <% if current_user.user_interests.find_by(interest_tag: tag) %>
                         <input class="hidden" hidden type="checkbox" value="<%= tag.id %>" name="user[interest_tag_ids][]" id="user_interest_tag_ids_<%= tag.id %>">
-                        <label class="category-choice active" for="user_interest_tag_ids_<%= tag.id %>"><%= tag.content %><i class="fa fa-check"></i>
+                        <label class="category-choice active" for="user_interest_tag_ids_<%= tag.id %>"><%= tag.content %>
                         </label>
                       <% else %>
                         <input class="hidden" hidden type="checkbox" value="<%= tag.id %>" name="user[interest_tag_ids][]" id="user_interest_tag_ids_<%= tag.id %>">
-                        <label class="category-choice" for="user_interest_tag_ids_<%= tag.id %>"><%= tag.content %><i class="fa fa-check"></i>
+                        <label class="category-choice" for="user_interest_tag_ids_<%= tag.id %>"><%= tag.content %>
                         </label>
                       <% end %>
                     <% end %>
