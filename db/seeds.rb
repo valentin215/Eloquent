@@ -158,7 +158,7 @@ carlitos_student_booking2 = Booking.create!(total_price: 200, course: curso_engl
 valentin_student_booking = Booking.create!(total_price: 100, course: curso_spanish, user: valentin_student)
 carlitos_student_booking2_in_london = Booking.create!(total_price: 200, course: curso_english_in_london, user: carlitos_student)
 valentin_student_booking_london = Booking.create!(total_price: 150, course: curso_spanish_in_london, user: valentin_student)
-valentin_student_booking_london2 = Booking.create!(total_price: 160, course: curso_english_in_london, user: valentin_student)
+valentin_student_booking_londonon2 = Booking.create!(total_price: 160, course: curso_english_in_london, user: valentin_student)
 
 
 carlitos_student_spanish_review = Review.create!(content: 'Juanito is so bad teacher, I wont come back', rating: 1, booking: carlitos_student_booking)

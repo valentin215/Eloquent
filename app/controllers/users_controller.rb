@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     if @user.teacher?
       @reviews_teacher = @user.teacher_reviews_for_show
     end
+    @tags_by_category = InterestCategory.includes(:interest_tags).all.map { |c| [c, c.interest_tags] }.to_h
 
     # @category = current_user.interest_tags.map { |it| it.interest_category }.uniq
   end
