@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
-  get 'reviews/create'
+
   get 'courses/index'
   get 'courses/show'
   get 'courses/new'
@@ -14,5 +13,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update, :show]
 
+
   resources :bookings, only: [:show]
+
+  resources :bookings, only: [] do
+    resources :reviews, only: [ :new, :create ]
+  end
 end

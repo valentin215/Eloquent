@@ -1,57 +1,108 @@
-<h2>Let's create a new course</h2>
-<p>Find me in app/views/courses/new.html.erb</p>
+<div class="content-container">
 
+  <div class="profil-description">
+
+    <h2>Let's create a new course</h2>
+  </div>
+
+    <div class="search-form">
 <%= simple_form_for @course do |f| %>
 
-  <h3>What’s language would you like to offer?</h3>
-  <%= f.input :language_id, collection: Language.all, label_method: :name, value_method: :id %>
 
-  <h3>What’s the level of this course?</h3>
-  <%= f.input :level %>
+  <div class="profil-description">
+    <h2>What’s language would you like to offer?</h2>
+    <%= f.input :language_id, collection: Language.all, label_method: :name, value_method: :id, class: 'form-control' %>
+  </div>
 
-  <h3>In which city you will provide this course?</h3>
-  <%= f.input :city %>
+  <div class="profil-description">
+    <h2>What’s the level of this course?</h2>
+    <%= f.input :level, class: 'form-control' %>
+  </div>
 
-  <h3>What's title of your announcement?</h3>
-  <%= f.input :title %>
+  <div class="profil-description">
+    <h2>In which city you will provide this course?</h2>
+    <%= f.input :city, class: 'form-control' %>
+  </div>
 
-  <h3>Take your time and write a complete description of your course</h3>
-  <%= f.input :description %>
+  <div class="profil-description">
+    <h2>What's title of your announcement?</h2>
+    <%= f.input :title, class: 'form-control' %>
+  </div>
 
-  <h3>What's the maximum capacity for this course (6 max)</h3>
-  <%= f.input :capacity %>
-  <h3>Take your time and write a complete description of your course</h3>
-  <%= f.input :description %>
+  <div class="profil-description">
+    <h2>Take your time and write a complete description of your course</h2>
+    <%= f.input :description, class: 'form-control' %>
+  </div>
 
-  <h3>Let's define a meeting point</h3>
-  <%= f.input :address %>
+  <div class="profil-description">
+    <h2>What's the maximum capacity for this course (5 max)</h2>
+    <%= f.input :capacity, class: 'form-control' %>
+  </div>
 
-  <h3>What's the area</h3>
-  <%= f.input :area %>
-  <h3>Start date</h3>
-  <%= f.input :start_date %>
+  <div class="profil-description">
+    <h2>Take your time and write a complete description of your course</h2>
+    <%= f.input :description, class: 'form-control' %>
+  </div>
 
-  <h3>End date</h3>
-  <%= f.input :end_date %>
-  <h3>Start time</h3>
-  <%#= f.input :start_time %>
-  <h3>End Time</h3>
-  <%#= f.input :end_time %>
-  <h3>Upload a photo or video of the class!</h3>
-  <%= f.input :video_url %>
-  <%= f.input :picture %>
-  <%= f.input :picture_cache, as: :hidden %>
-  <%= f.submit "create course", class: "btn btn-primary" %>
-<% end %>
+  <div class="profil-description">
+    <h2>Let's define a meeting point</h2>
+    <%= f.input :address, class: 'form-control' %>
+  </div>
+
+  <div class="profil-description">
+    <h2>What's the area</h2>
+    <%= f.input :area, class: 'form-control' %>
+  </div>
+
+  <div class="profil-description">
+    <h2>Dates:</h2>
+    <%#= f.input :start_time %>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+
+       <%= f.input :start_date %>
+
+    </div>
+    <div class="form-group col-md-6">
+
+      <%= f.input :end_date, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="profil-description">
+    <h2>Start time</h2>
+    <%#= f.input :start_time %>
+  </div>
+
+  <div class="profil-description">
+    <h2>End Time</h2>
+    <%#= f.input :end_time %>
+  </div>
 
 
-  <h3>Define the individial price for each student </h3>
-  <%= f.input :price %>
 
-  <h3>Please copy your Youtube video URL here</h3>
-   <%= f.input :video_url %>
+  <div class="profil-description">
+    <h2>Define the individial price for each student </h2>
+    <%= f.input :price, class: 'form-control' %>
+  </div>
 
-  <%= f.submit "create course", class: "btn btn-primary" %>
-<% end %>
+  <div class="profil-description">
+    <h2>Please copy your Youtube video URL here</h2>
+    <%= f.input :video_url, class: 'form-control' %>
+  </div>
 
-<%= link_to "Back", :back %>
+  <div class="profil-description">
+    <h2>Upload a photo of the class!</h2>
+    <%= f.input :picture, class: 'form-control' %>
+    <%= f.input :picture_cache, as: :hidden, class: 'form-control' %>
+  </div>
+
+    <%= f.submit "Create my Course", class: "button-search" %>
+
+    <% end %>
+  </div>
+    <%= link_to "Back", :back %>
+
+</div>

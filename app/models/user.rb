@@ -34,7 +34,9 @@ class User < ApplicationRecord
     reviews = []
     courses.each do |course|
       course.bookings.each do |booking|
+        if booking.review.present?
         reviews << booking.review
+        end
       end
     end
     reviews

@@ -27,7 +27,7 @@
       <% end %>
     </div>
     <div class="teacher-info">
-      <div id="name-teacher"><%= @course.user.name %>
+      <div id="name-teacher"><%= link_to "#{@course.user.name}", user_path(@course.user.id), :class => "user-profile-links" %>
       </div>
       <% @course.user.interest_tags.each do |interest| %>
       <div class="interest-content">
@@ -50,7 +50,7 @@
   <div class="sections-course">
     <div class="main-info-course">
       <div class="dates-pic">
-        <i class="far fa-clock"></i>
+        <i class="far fa-calendar"></i>
         <div class="dates">
           <p><strong>Dates</strong></p>
           <p>Start: <%= @course.start_date %></p>
@@ -114,23 +114,23 @@
     <div class="meet-classmates">
       <h4><strong>Meet your classmates</strong></h4>
       <div class="classmates">
-        <% @course.bookings.each do |x| %>
+        <% @course.bookings.each do |booking| %>
           <div>
             <% if @user.photo.present? %>
               <div class="classmate-photo">
-                <%= cl_image_tag x.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
-                <p> <%= x.user.name %></p>
+                <%= cl_image_tag booking.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
+                <p> <%= link_to "#{booking.user.name}", user_path(booking.user.id), :class => "user-profile-links" %></p>
               </div>
             <% else %>
               <div class="classmate-photo text-center">
                 <i class="far fa-user fa-2x"></i>
-                <p> <%= x.user.name %></p>
+                <p> <%= booking.user.name %></p>
               </div>
             <% end %>
           </div>
         <% end %>
       </div>
-      <p>¡Hurry up! Just XXX spots left</p>
+      <p > <strong>Hurry up! <%= @course.capacity - @course.bookings.count %> spots left</p></strong>
     </div>
   </div>
   <hr>
