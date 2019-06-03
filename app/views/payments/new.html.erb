@@ -1,5 +1,6 @@
+<!-- payment -->
 <h1>Payment <%= @booking.course %></h1>
-<%= form_tag booking_payments_path(@booking) do %>
+<%= form_tag booking_path(@booking) do %>
   <article>
     <label class="amount">
       <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>

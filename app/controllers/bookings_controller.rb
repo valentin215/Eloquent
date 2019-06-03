@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   def new
     @booking = Booking.new
     @course = Course.find(params[:course_id])
@@ -11,18 +12,17 @@ class BookingsController < ApplicationController
     @booking.course = @course
     @booking.user = current_user
     # @booking.total_price = @booking.course.price.to_i * @course.bookings.count
-      if @booking.save
-        redirect_to new_booking_payment_path(@booking)
-      else
-        render :new
-      end
-
-
+    if @booking.save
+      redirect_to new_course_booking_payment_path(@course, @booking)
+    else
+      render :new
+    end
   end
 
   def show
     @booking = current_user.bookings.where(state: 'paid').find(params[:id])
   end
+
 #----------> Params empty we don't need a permission for bookings controller
   # private
 
