@@ -19,60 +19,26 @@
     </div>
     <% end %>
   </div>
+
+  <!-- payment -->
+    <h1><%= @booking.course %></h1>
+    <%= form_tag new_course_booking_path([@course, @booking]) do %>
+      <article>
+        <label class="amount">
+          <span>Total price: <%= humanized_money_with_symbol(@booking.amount) %></span>
+        </label>
+      </article>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="My Course"
+        data-email="<%= current_user.email %>"
+        data-description="Course <%= @booking.course%>"
+        data-amount="<%= @booking.amount_cents %>"
+        data-currency="<%= @booking.amount.currency %>"></script>
+    <% end %>
 </div>
 
 
-<div class="btn-show-course">
-  <div class="price">
-    <h4><strong>€ <%= @course.price.to_i %></strong></h4>
-    <p><strong> per student </strong></p>
-  </div>
 
-<!-- Button trigger modal -->
-  <div class="btn-book">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Pay Now
-    </button>
-  </div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Payment confirmation</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Congratulations, you booked the course !
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= link_to "Go to payment", [@course, @booking], class: "button-profile", :method => :post %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- payment -->
-<h1><%= @booking.course %></h1>
-<%= form_tag new_course_booking_path([@course, @booking]) do %>
-  <article>
-    <label class="amount">
-      <span>Total price: <%= humanized_money_with_symbol(@booking.amount) %></span>
-    </label>
-  </article>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Course"
-    data-email="<%= current_user.email %>"
-    data-description="Course <%= @booking.course%>"
-    data-amount="<%= @booking.amount_cents %>"
-    data-currency="<%= @booking.amount.currency %>"></script>
-<% end %>
 
 
