@@ -1,4 +1,4 @@
-<div class="content-container">
+    <div class="content-container">
 
   <!--- profil header --->
 
@@ -76,11 +76,13 @@
     <h2> My courses</h2>
     <% @bookings.each do |booking| %>
     <div class="course-info" style="margin-bottom: 12px;">
+
       <div class="course-booking-review">
         <div class="course-level">
           <%= booking.course.level %><span>, </span>
           <%= booking.course.language.name %>
         </div>
+
         <div class="course-title" style="margin-bottom: -4px;">
           <p><%= booking.course.title %></p>
         </div>
@@ -111,6 +113,7 @@
             </div>
           </div>
         <% end %>
+
       </div>
     </div>
     <%# else  %>
@@ -194,4 +197,11 @@
     </div>
   </div>
   <% end %>
+
+  <% if current_user.id == params[:id].to_i  %>
+
+  <%= link_to "Edit your profile", edit_user_path(current_user)%>
+  <% end %>
+
 </div>
+

@@ -7,7 +7,7 @@ class Course < ApplicationRecord
   mount_uploader :picture, PhotoUploader
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
+  monetize :price_cents
 
   def total_week_hours
     total = 0
