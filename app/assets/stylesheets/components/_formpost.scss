@@ -54,3 +54,61 @@ font-size: .93rem;
   opacity: 1;
   }
 }
+
+// .form-control.is-valid {
+//   border-color: $purple;
+
+// }
+
+// .form-control.is-valid:active {
+//  border-color: $purple;
+
+// }
+
+.form-control:focus{
+ // border-color: $purple !important;
+ //  box-shadow: 10px 10px 9px -12px $purple !important;
+
+}
+
+// .form-control:focus-within{
+//  border-color: none !important;
+//  box-shadow: none !important;
+
+// }
+
+// .form-control:active{
+//  border-color: none !important;
+//  box-shadow: none !important;
+
+// }
+// .is-valid {
+//   color: $purple !important;
+
+// }
+
+.form-control.remove-bootstrap {
+ border-color: $gray !important;
+ opacity: 0.5;
+ box-shadow: 10px 10px 9px -12px $gray !important;
+
+
+}
+
+// .remove-bootstrap {
+//    border-color: $purple !important;
+//    opacity: 0.5;
+
+
+// }
+
+.form-control:focus {
+  .remove-bootstrap {
+   border-color: $gray !important;
+  box-shadow: 10px 10px 9px -12px $gray  !important;
+
+  }
+}
+
+
+

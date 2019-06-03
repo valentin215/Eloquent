@@ -10,13 +10,11 @@ class CoursesController < ApplicationController
     AND courses.city ILIKE :city \
     "
     @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%", city: "%#{params[:city]}%")
-  end
 
-  if params[:city].present?
+  elsif params[:city].present?
     @courses = @courses.where("city ILIKE ?", "%#{params[:city]}%")
-  end
 
-  if params[:language].present?
+  elsif params[:language].present?
     sql_query = "\
     languages.name ILIKE :language \
     "
