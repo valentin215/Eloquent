@@ -16,7 +16,7 @@
             <% end %>
               <div>
                 <% rating = course.user.teacher_rating %>
-                <% rating.try(:round)..try(:times) do %>
+                <% rating.try(:round).try(:times) do %>
                 <i class="fa fa-star"></i>
                 <% end %>
               </div>

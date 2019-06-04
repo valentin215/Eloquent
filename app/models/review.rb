@@ -1,6 +1,8 @@
 class Review < ApplicationRecord
   belongs_to :booking
   after_create :update_teacher_rating
+  validates :content, presence: true, length: { minimum: 10 }
+  validates :rating, presence: true
   # def average_rating
   #   @bookings = Review.all.map do |review|
   #     review.bookings
