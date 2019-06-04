@@ -2,12 +2,15 @@ import "bootstrap";
 import "jquery";
 
 import 'mapbox-gl/dist/mapbox-gl.css';
- // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+import { initAutocomplete } from '../plugins/init_autocomplete'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+import { initAutocompleteCourse } from '../plugins/init_autocomplete'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 
 
 import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
+initAutocomplete();
+initAutocompleteCourse();
 
 $(document).ready(function(){
   $(".category-choice").click(function(){

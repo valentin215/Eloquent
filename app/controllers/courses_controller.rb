@@ -1,24 +1,16 @@
 class CoursesController < ApplicationController
+ skip_before_action :authenticate_user!, only: [:index, :show]
+
  def index
 
   @courses = Course.all
 
-  if params[:city].present? && params[:language].present?
+  if params[:city].present?
+    @courses = Course.near(params[:city])
+  end
 
-    sql_query = "\
-    languages.name ILIKE :language \
-    AND courses.city ILIKE :city \
-    "
-    @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%", city: "%#{params[:city]}%")
-
-  elsif params[:city].present?
-    @courses = @courses.where("city ILIKE ?", "%#{params[:city]}%")
-
-  elsif params[:language].present?
-    sql_query = "\
-    languages.name ILIKE :language \
-    "
-    @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
+  if params[:language].present?
+    @courses = @courses.joins(:language).where("languages.name ILIKE :language", language: params[:language] )
   end
 
 end
@@ -86,7 +78,7 @@ def destroy
   def course_params
 
     params.require(:course).permit(:title,
-      :language,
+      :language_id,
       :video_url,
       :description,
       :end_date,

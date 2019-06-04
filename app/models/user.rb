@@ -27,6 +27,7 @@ class User < ApplicationRecord
 
   has_many :teacher_reviews, through: :courses, source: :reviews
   mount_uploader :photo, PhotoUploader
+  validates :name, presence: true, uniqueness: true
 
   # current_user.teacher_reviews
 

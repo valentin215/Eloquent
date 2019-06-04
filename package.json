@@ -7,6 +7,7 @@
     "jquery": "^3.4.1",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^1.0.0",
+    "places.js": "^1.16.4",
     "popper.js": "^1.15.0"
   },
   "devDependencies": {
