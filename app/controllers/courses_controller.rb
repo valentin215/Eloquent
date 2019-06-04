@@ -1,8 +1,10 @@
 class CoursesController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @courses = Course.all
+
 
     if params[:city].present?
       @courses = Course.near(params[:city])
@@ -78,7 +80,8 @@ def destroy
 
   def course_params
 
-    params.require(:course).permit(:title,
+    params.require(:course).permit(
+      :title,
       :language_id,
       :video_url,
       :description,
@@ -89,6 +92,10 @@ def destroy
       :area,
       :city,
       :picture,
-      :picture_cache)
+      :picture_cache,
+      :capacity,
+      :price,
+      :start_time,
+      :end_time)
   end
 end

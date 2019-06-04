@@ -1,8 +1,8 @@
 <div class="video-container">
-  <% if @course.picture.present? %>
-    <%= cl_image_tag @course.picture %>
+  <% if @course.video_url.present? %>
+  <iframe width="100%" height="340" src="<%= @course.video_url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   <% else %>
-    <img src="https://www.animaker.com/blog/wp-content/uploads/2015/07/teacher-01.png" alt="" class="">
+    <%= cl_image_tag @course.picture %>
   <% end %>
 </div>
 

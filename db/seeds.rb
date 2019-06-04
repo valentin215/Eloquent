@@ -63,7 +63,6 @@ carlitos_student.save!
 
 
 
-
 valentin_student = User.new(name: 'Valentin',
     biography:  'French expat who moved to Spain to learn to code and in love with the spanish language and I am looking to improve my spanish with an experienced teacher with similar interests to me.',
     email:        'valentin@mail.com',
@@ -88,14 +87,25 @@ leo_student.save!
 
 
 
-
-spanish_language = Language.create!(name:'Spanish')
-english_language = Language.create!(name:'English')
-catalan_language = Language.create!(name:'Catalan')
+lang1 = Language.create!(name:'English')
+lang2 = Language.create!(name:'Spanish')
+lang3 = Language.create!(name:'French')
+lang5 = Language.create!(name:'Italian')
+lang6 = Language.create!(name:'Portuguese')
+lang7 = Language.create!(name:'German')
+lang8 = Language.create!(name:'Russian')
+lang9 = Language.create!(name:'Japanese')
+lang10 = Language.create!(name:'Chinese')
+lang11 = Language.create!(name:'Korean')
+lang12 = Language.create!(name:'Turkish')
+lang13 = Language.create!(name:'Dutch')
+lang14 = Language.create!(name:'Hindi')
+lang15 = Language.create!(name:'Polish')
+lang16 = Language.create!(name:'Arabic')
 
 
 curso_spanish_juanito = Course.create!(user: juanito_teacher,
-    language: spanish_language,
+    language: lang2,
     title:'Spanish Course for beginners',
     description:  'This is a course for beginners of spanish. We will walkthrough how to say fundamentals phrases and verbs to help you in your everyday encounters in barcelona',
     end_date:        Date.new(2019,04,19),
@@ -105,13 +115,13 @@ curso_spanish_juanito = Course.create!(user: juanito_teacher,
     area: "Gracia",
     city: "Barcelona",
     price: 100,
-    video_url: "video_url",
+    video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 4
     )
 
 
 curso_spanish_jenny = Course.create!(user: jenny_teacher,
-    language: spanish_language,
+    language: lang2,
     title:'Spanish Course for advance users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
     end_date:        Date.new(2019,06,17),
@@ -121,13 +131,13 @@ curso_spanish_jenny = Course.create!(user: jenny_teacher,
     area: "Joanic",
     city: "Barcelona",
     price: 200,
-    video_url: "video_url2",
+    video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 4
     )
 
 
 curso_spanish_london_jaunito = Course.create!(user: juanito_teacher,
-    language: spanish_language,
+    language: lang2,
     title:'English Course for advance users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
     end_date:        Date.new(2019,04,17),
@@ -137,13 +147,13 @@ curso_spanish_london_jaunito = Course.create!(user: juanito_teacher,
     area: "Whitechapel",
     city: "London",
     price: 200,
-    video_url: "video_url2",
+    video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 6
     )
 
 
 curso_spanish_in_eixample_chris = Course.create!(user: chris_teacher,
-    language: spanish_language,
+    language: lang2,
     title:'Spanish Course for advance users',
     description:  'This course is aimed at intermediate users of Spanish who want to talk and be corrected in their use of spanish along with correction of their grammar',
     end_date:        Date.new(2019,05,17),
@@ -153,7 +163,7 @@ curso_spanish_in_eixample_chris = Course.create!(user: chris_teacher,
     area: "Eixample",
     city: "",
     price: 150,
-    video_url: "video_url2",
+    video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 6
     )
 
