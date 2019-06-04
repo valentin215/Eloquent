@@ -207,8 +207,6 @@ valentin_student_spanish_review_chris = Review.create!(content: 'Chris is a good
 
 
 leo_student_spanish_review_jenny = Review.create!(content: 'Enjoyed my spanish course in Barcelona', rating: 4, booking: leo_student_booking)
-leo_student_spanish_review_juanito = Review.create!(content: 'Enjoyed my spanish - it was good value for money', rating: 5, booking: leo_student_booking2)
-
 
 
 personality = InterestCategory.create!(content: 'Personality')
