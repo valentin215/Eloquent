@@ -50,8 +50,11 @@
 .course-title {
   font-weight: bold;
   font-size: 18px;
-  opacity: 0.9;
+  opacity: 0.8;
   margin-bottom: 6px;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .course-info a {

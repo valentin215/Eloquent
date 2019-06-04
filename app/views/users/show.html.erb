@@ -32,6 +32,7 @@
     <h2>About me</h2>
     <p><%= @user.biography%></p>
   </div>
+<hr>
 
   <!--- profil categories --->
 
@@ -75,12 +76,12 @@
 
   <div class="profil-bookings">
     <% if @user.student? %>
-    <h2> My courses</h2>
+    <h2 style="padding-bottom: 8px;"> My courses</h2>
     <% @bookings.each do |booking| %>
     <div class="course-info" style="margin-bottom: 12px;">
 
       <div class="course-booking-review">
-        <div class="course-level">
+        <div class="course-level-user">
           <%= booking.course.level %><span>, </span>
           <%= booking.course.language.name %>
           <% if booking.course.language.name == "Spanish" %>
@@ -90,7 +91,7 @@
           <% end %>
         </div>
 
-        <div class="course-title" style="margin-bottom: -4px;">
+        <div class="course-title-user" style="margin-bottom: -4px;">
           <p><%= booking.course.title %></p>
         </div>
 

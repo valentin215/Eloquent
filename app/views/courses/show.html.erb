@@ -205,7 +205,7 @@
     <p><strong> per student </strong></p>
   </div>
   <div class="btn-book">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <button type="button" class="btn-book-modal" data-toggle="modal" data-target="#exampleModal">
       Book Now
     </button>
   </div>
@@ -226,8 +226,9 @@
         Congratulations, you booked the course !
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= link_to "Go to payment", new_course_payment_path(@course), class: "button-profile"%>
+        <div class="button-payment">
+          <%= link_to "Go to payment", new_course_payment_path(@course) %>
+        </div>
       </div>
     </div>
   </div>
