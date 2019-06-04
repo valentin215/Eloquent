@@ -6,11 +6,14 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.booking = Booking.find(params[:booking_id])
+    @booking = Booking.find(params[:booking_id])
+    # We need to write @booking too here because we will need it in the render new page
+    # Otherwise it will throw an error
+    @review.booking = @booking
     if @review.save
       redirect_to user_path(current_user)
     else
-      render :new
+      render "new"
     end
   end
 
