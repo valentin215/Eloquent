@@ -1,3 +1,24 @@
 #map {
   margin-bottom: 50px;
 }
+
+.infowindow-level {
+  margin-bottom: 0px;
+}
+
+.mapboxgl-popup-content {
+  padding-bottom: 0px;
+}
+
+.course-level-infowindow {
+  padding-bottom: 0px;
+  margin-top: 10px;
+  padding-top: 0px;
+  color: black;
+  opacity: 0.5;
+  font-size: 12px;
+  margin-bottom:0px;
+  a {
+    color: black;
+  }
+}

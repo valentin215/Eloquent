@@ -20,11 +20,11 @@ class CoursesController < ApplicationController
     @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
   end
 
-  @markers = @courses.map do |c|
+  @markers = @courses.map do |course|
       {
-        lat: c.latitude,
-        lng: c.longitude,
-        # infoWindow: render_to_string(partial: "infowindow", locals: { course: @course })
+        lat: course.latitude,
+        lng: course.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { course: course })
       }
   end
 
