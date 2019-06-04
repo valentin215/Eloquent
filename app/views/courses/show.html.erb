@@ -130,7 +130,7 @@
           </div>
         <% end %>
       </div>
-      <p > <strong>Hurry up! <%= @course.capacity - @course.bookings.count %> spots left</p></strong>
+      <p> <strong>Hurry up! <%= (@course.capacity) - (@course.bookings.count) %> spots left</p></strong>
     </div>
   </div>
   <hr>

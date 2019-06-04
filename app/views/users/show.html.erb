@@ -83,6 +83,11 @@
         <div class="course-level">
           <%= booking.course.level %><span>, </span>
           <%= booking.course.language.name %>
+          <% if booking.course.language.name == "Spanish" %>
+            <%= image_tag('spain-flag.png', :width => 24) %>
+          <% else %>
+           <%= image_tag('uk-flag.png', :width => 24) %>
+          <% end %>
         </div>
 
         <div class="course-title" style="margin-bottom: -4px;">
