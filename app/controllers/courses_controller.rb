@@ -10,19 +10,16 @@ class CoursesController < ApplicationController
     AND courses.city ILIKE :city \
     "
     @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%", city: "%#{params[:city]}%")
-  end
 
-  if params[:city].present?
+  elsif params[:city].present?
     @courses = @courses.where("city ILIKE ?", "%#{params[:city]}%")
-  end
 
-  if params[:language].present?
+  elsif params[:language].present?
     sql_query = "\
     languages.name ILIKE :language \
     "
     @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
   end
-
 
 end
 
@@ -31,6 +28,14 @@ def show
   @booking = Booking.new
   @user = @course.user
   @reviews_teacher_for_course = @course.user.teacher_reviews_for_show
+
+
+  @markers =
+      [{
+        lat: @course.latitude,
+        lng: @course.longitude,
+        # infoWindow: render_to_string(partial: "infowindow", locals: { course: @course })
+      }]
 end
 
 def new
