@@ -115,7 +115,7 @@ curso_spanish_juanito = Course.create!(user: juanito_teacher,
     area: "Gracia",
     city: "Barcelona",
     price: 100,
-    video_url: "video_url",
+    video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 4
     )
 
@@ -131,7 +131,7 @@ curso_spanish_jenny = Course.create!(user: jenny_teacher,
     area: "Joanic",
     city: "Barcelona",
     price: 200,
-    video_url: "video_url2",
+    video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 4
     )
 
@@ -147,7 +147,7 @@ curso_spanish_london_jaunito = Course.create!(user: juanito_teacher,
     area: "Whitechapel",
     city: "London",
     price: 200,
-    video_url: "video_url2",
+    video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 6
     )
 
@@ -163,7 +163,7 @@ curso_spanish_in_eixample_chris = Course.create!(user: chris_teacher,
     area: "Eixample",
     city: "",
     price: 150,
-    video_url: "video_url2",
+    video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 6
     )
 

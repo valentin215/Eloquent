@@ -1,7 +1,6 @@
 class CoursesController < ApplicationController
- skip_before_action :authenticate_user!, only: [:index, :show]
-
  def index
+
   @courses = Course.all
 
   if params[:city].present?
@@ -11,15 +10,6 @@ class CoursesController < ApplicationController
   if params[:language].present?
     @courses = @courses.joins(:language).where("languages.name ILIKE :language", language: params[:language] )
   end
-
-  @markers = @courses.map do |course|
-      {
-        lat: course.latitude,
-        lng: course.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { course: course })
-      }
-  end
-
 
 end
 
@@ -85,7 +75,8 @@ def destroy
 
   def course_params
 
-    params.require(:course).permit(:title,
+    params.require(:course).permit(
+      :title,
       :language_id,
       :video_url,
       :description,
