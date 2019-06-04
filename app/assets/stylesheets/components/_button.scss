@@ -86,4 +86,10 @@
   opacity: 0.6;
 }
 
-
+button.stripe-button-el,
+button.stripe-button-el>span {
+  background-color: #4a194b !important;
+  background-image: none;
+  opacity: 0.85;
+  border-radius: 4px;
+}

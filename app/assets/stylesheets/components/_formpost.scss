@@ -30,14 +30,19 @@
 
 .category-choice {
   margin: 8px 4px 0;
-    padding: 0 16px;
-    box-sizing: border-box;
-    border-radius: 21px;
-    border: 1px solid #bbb;
+  padding: 0 16px;
   background: #b7b7b7;
+  border-radius: 21px;
+  border: 1px solid #bbb;
+  font-size: .93rem;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+  color: #bbb;
+  background-color: transparent;
   flex: 0 0 30%;
   text-align: center;
-font-size: .93rem;
+  font-size: .93rem;
     font-weight: 500;
     line-height: 40px;
     text-align: center;
@@ -49,8 +54,8 @@ font-size: .93rem;
     cursor: pointer;
   }
   &.active {
-  border: 1px solid purple;
   color: purple;
+  border: 1px solid purple;
   opacity: 1;
   }
 }
