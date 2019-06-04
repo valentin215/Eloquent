@@ -8,10 +8,10 @@
       <div class="header-nationality">
         <% if @user.student? %>
         <h4>STUDENT,</h4>
-        <h4><%= @user.nationality.upcase%></h4>
+        <h4><%= @user.try(:nationality).try(:upcase)%></h4>
         <% else %>
         <h4>TEACHER,</h4>
-        <h4><%= @user.nationality.upcase%> </h4>
+        <h4><%= @user.try(:nationality).try(:upcase)%> </h4>
         <% end %>
         <div class="edit-profile">
           <% if current_user.id == params[:id].to_i  %>
