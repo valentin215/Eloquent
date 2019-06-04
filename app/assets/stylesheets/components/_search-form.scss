@@ -33,3 +33,14 @@
   right: 16px;
   opacity: 0.75;
 }
+
+.search-form a {
+  text-decoration: none;
+  color: grey;
+  opacity: 0.8;
+  font-size: 14px;
+  &:hover {
+    opacity: 1;
+  }
+}
+

@@ -101,7 +101,7 @@ curso_spanish_juanito = Course.create!(user: juanito_teacher,
     end_date:        Date.new(2019,04,19),
     start_date:     Date.new(2019,03,15),
     level:    'Beginner',
-    address: "Mama's Cafe, Carrer de Torrijos, 26, 08012 Barcelona",
+    address: "Carrer de Torrijos, 26, 08012 Barcelona",
     area: "Gracia",
     city: "Barcelona",
     price: 100,
@@ -117,7 +117,7 @@ curso_spanish_jenny = Course.create!(user: jenny_teacher,
     end_date:        Date.new(2019,06,17),
     start_date:     Date.new(2019,03,15),
     level:    'Advance',
-    address: "Imagine Cafe, Carrer de Pelai, 11, 08001 Barcelona",
+    address: "Carrer de Pelai, 11, 08001 Barcelona",
     area: "Joanic",
     city: "Barcelona",
     price: 200,
@@ -133,7 +133,7 @@ curso_spanish_london_jaunito = Course.create!(user: juanito_teacher,
     end_date:        Date.new(2019,04,17),
     start_date:     Date.new(2019,05,15),
     level:    'Advance',
-    address: "Costa Coffee, London Bridge, City of London",
+    address: "London Bridge, City of London",
     area: "Whitechapel",
     city: "London",
     price: 200,
@@ -149,7 +149,7 @@ curso_spanish_in_eixample_chris = Course.create!(user: chris_teacher,
     end_date:        Date.new(2019,05,17),
     start_date:     Date.new(2019,03,15),
     level:    'Advance',
-    address: "Biblioteca Pública Episcopal de Barcelona, Carrer de la Diputació, 231",
+    address: "Carrer de la Diputació, 231",
     area: "Eixample",
     city: "",
     price: 150,
@@ -207,8 +207,6 @@ valentin_student_spanish_review_chris = Review.create!(content: 'Chris is a good
 
 
 leo_student_spanish_review_jenny = Review.create!(content: 'Enjoyed my spanish course in Barcelona', rating: 4, booking: leo_student_booking)
-leo_student_spanish_review_juanito = Review.create!(content: 'Enjoyed my spanish - it was good value for money', rating: 5, booking: leo_student_booking2)
-
 
 
 personality = InterestCategory.create!(content: 'Personality')

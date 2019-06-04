@@ -1,63 +1,56 @@
 <div class="content-container">
 
-  <div class="profil-description">
-
-    <h2>Let's create a new course</h2>
-  </div>
-
     <div class="search-form">
+      <h2>Let's create a new course</h2>
 <%= simple_form_for @course do |f| %>
 
-
-  <div class="profil-description">
-    <h2>What’s language would you like to offer?</h2>
-    <%= f.input :language_id, collection: Language.all, label_method: :name, value_method: :id, class: 'form-control' %>
-  </div>
-
-  <div class="profil-description">
-    <h2>What’s the level of this course?</h2>
-    <%= f.input :level, class: 'form-control' %>
-  </div>
-
-  <div class="profil-description">
-    <h2>In which city you will provide this course?</h2>
-    <%= f.input :city, class: 'form-control' %>
-  </div>
-
-  <div class="profil-description">
-    <h2>What's title of your announcement?</h2>
-    <%= f.input :title, class: 'form-control' %>
-  </div>
-
-  <div class="profil-description">
-    <h2>Take your time and write a complete description of your course</h2>
-    <%= f.input :description, class: 'form-control' %>
-  </div>
-
-  <div class="profil-description">
-    <h2>What's the maximum capacity for this course (5 max)</h2>
-    <%= f.input :capacity, class: 'form-control' %>
-  </div>
-
-  <div class="profil-description">
-    <h2>Take your time and write a complete description of your course</h2>
-    <%= f.input :description, class: 'form-control' %>
-  </div>
-
-  <div class="profil-description">
-    <h2>Let's define a meeting point</h2>
-    <%= f.input :address, class: 'form-control' %>
-  </div>
-
-  <div class="profil-description">
-    <h2>What's the area</h2>
-    <%= f.input :area, class: 'form-control' %>
-  </div>
-
-  <div class="profil-description">
-    <h2>Dates:</h2>
+<div class="profil-description">
+    <h2>Step 1: Language and Level</h2>
     <%#= f.input :start_time %>
   </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+
+      <p>What’s language would you like to offer?</p>
+      <%= f.input :language_id, collection: Language.all, label_method: :name, label: false, value_method: :id, class: 'form-control' %>
+
+    </div>
+    <div class="form-group col-md-6">
+      <p>What’s the level of this course?</p>
+      <%= f.input :level, label: false, class: 'form-control' %>
+    </div>
+  </div>
+
+
+<!-- city -->
+
+  <div class="profil-description">
+    <h2>Step 2: Location</h2>
+    <%#= f.input :start_time %>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <p>What’s your city?</p>
+       <%= f.input :city, label: false, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-6">
+      <p>What’s the area?</p>
+      <%= f.input :area, label: false, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <p>Please enter an exact address of your first meeting point</p>
+      <%= f.input :address, label: false, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="profil-description">
+    <h2>Step 3: Date & Time</h2>
+    <%#= f.input :start_time %>
+  </div>
+
 
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -70,32 +63,60 @@
       <%= f.input :end_date, class: 'form-control' %>
     </div>
   </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
 
-  <div class="profil-description">
-    <h2>Start time</h2>
+    <p>Start time:</p>
     <%#= f.input :start_time %>
+
+    </div>
+    <div class="form-group col-md-6">
+      <p>End time</p>
+      <%#= f.input :start_time %>
+    </div>
+  </div>
+
+
+  <div class="profil-description">
+    <h2>Step 4: Price & Capacity</h2>
+  </div>
+
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <p>Define the individial price for each student</p>
+         <%= f.input :price, label: false, class: 'form-control' %>
+      </div>
+      <div class="form-group col-md-6">
+        <p>What's the maximum capacity for this course (5 max)</p>
+        <%= f.input :capacity, label: false, class: 'form-control' %>
+      </div>
+    </div>
+
+  <div class="profil-description">
+    <h2>Step 5: Finish your announcement</h2>
+  </div>
+
+
+  <div class="profil-description">
+    <p>What's title of your announcement?</p>
+    <%= f.input :title, label: false, class: 'form-control' %>
   </div>
 
   <div class="profil-description">
-    <h2>End Time</h2>
-    <%#= f.input :end_time %>
+    <p>Take your time and write a complete description of your course</p>
+    <%= f.input :description, label: false, class: 'form-control' %>
   </div>
 
 
-
   <div class="profil-description">
-    <h2>Define the individial price for each student </h2>
-    <%= f.input :price, class: 'form-control' %>
+    <p>Please copy your Youtube video URL here</p>
+    <%= f.input :video_url, label: false, class: 'form-control' %>
   </div>
 
   <div class="profil-description">
-    <h2>Please copy your Youtube video URL here</h2>
-    <%= f.input :video_url, class: 'form-control' %>
-  </div>
-
-  <div class="profil-description">
-    <h2>Upload a photo of the class!</h2>
-    <%= f.input :picture, class: 'form-control' %>
+    <p>Upload a photo of the class!</p>
+    <%= f.input :picture, label: false, class: 'form-control' %>
     <%= f.input :picture_cache, as: :hidden, class: 'form-control' %>
   </div>
 

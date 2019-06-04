@@ -6,7 +6,7 @@
   <p>Your review is important for your teacher and us</p>
   <%= simple_form_for [@booking, @review] do |f| %>
     <%= f.input :content %>
-    <%= f.input :rating, placeholder: 'Rate from 0 to 5 stars your experience!'%>
+    <%= f.input :rating, collection: 1..5, placeholder: 'Rate from 0 to 5 stars your experience!'%>
     <%= f.submit "create review", class: "btn btn-primary button-search" %>
 
     <%#= f.button :submit, class: "btn btn-danger" %>
