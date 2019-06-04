@@ -8,6 +8,7 @@
       <div class="header-nationality">
         <% if @user.student? %>
         <h4>STUDENT,</h4>
+
         <h4><%= @user.nationality.try(:upcase)%></h4>
         <% else %>
         <h4>TEACHER,</h4>
