@@ -1,5 +1,6 @@
 <div class="content-container">
   <h1 id="search-result"><%=@courses.count(:all)%> courses available <% if params[:city].present? %> <%= "in #{ params[:city]}"%> <% end  %></h1>
+  <%= link_to 'filter', courses_filter_path %>
   <div class="cards">
     <% @courses.each do |course| %>
     <div class="card-course">
@@ -50,7 +51,7 @@
                   <p><%= course.area %></p>
               </div>
                 <div class="course-spots">
-                  <span> <%= course.capacity - course.bookings.count%> spaces left
+                  <span> <%= (course.capacity) - (course.bookings.count)%> spaces left
                   </span>
                   <i class="far fa-user-circle"></i>
                   <i class="far fa-user-circle"></i>

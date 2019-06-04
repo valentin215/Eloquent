@@ -1,26 +1,27 @@
 class CoursesController < ApplicationController
- skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
- def index
+  def index
+    @courses = Course.all
 
-  @courses = Course.all
+    if params[:city].present?
+      @courses = Course.near(params[:city])
+    end
 
-  if params[:city].present?
-    @courses = Course.near(params[:city])
+    if params[:language].present?
+      @courses = @courses.joins(:language).where("languages.name ILIKE :language", language: params[:language] )
+    end
+
+    if params[:query].present?
+      @courses = SearchCourses.new(params: params[:query]).call
+    end
   end
-
-  if params[:language].present?
-    @courses = @courses.joins(:language).where("languages.name ILIKE :language", language: params[:language] )
-  end
-
-end
 
 def show
   @course = Course.find(params[:id])
   @booking = Booking.new
   @user = @course.user
   @reviews_teacher_for_course = @course.user.teacher_reviews_for_show
-
 
   @markers =
       [{

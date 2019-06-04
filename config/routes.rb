@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'courses/show'
   get 'courses/new'
   get 'courses/edit'
+  get 'courses/filter'
   devise_for :users
   root to: 'pages#home'
   resources :courses do
