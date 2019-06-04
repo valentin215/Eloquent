@@ -5,17 +5,30 @@
           </div>
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-              <%= f.input :email,
+              <div class="form-login-email">
+                <%= f.input :email,
+                          label: false,
                           required: false,
                           autofocus: true,
                           input_html: { autocomplete: "email" },
-                          class: 'form-control'
-                           %>
-              <%= f.input :password,
+                          class: 'form-control',
+                          placeholder: 'Email' %>
+                <div class="icon-envelope">
+                  <%= icon('fas', 'envelope') %>
+                </div>
+              </div>
+
+              <div class="form-login-password">
+                <%= f.input :password,
+                          label: false,
                           required: false,
                           input_html: { autocomplete: "current-password" },
-                          class: 'form-control' %>
-
+                          class: 'form-control',
+                          placeholder: 'Password' %>
+                <div class="icon-password">
+                  <%= icon('fas', 'lock') %>
+                </div>
+              </div>
 
               <%= f.button :submit, "Login", class: "button-search"%>
 
