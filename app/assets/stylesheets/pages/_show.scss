@@ -41,9 +41,16 @@
   }
 }
 
-.course-level {
-  margin-bottom: 12px;
+.course-level-user {
+  padding-bottom: 0px;
   align-items: center;
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+.course-level-user img {
+  padding-bottom: 1px;
+  padding-left: 3px;
 }
 
 .user-profile-links {
