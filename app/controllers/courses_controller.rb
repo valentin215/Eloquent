@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
  def index
-
   @courses = Course.all
 
   if params[:city].present? && params[:language].present?
@@ -20,6 +19,15 @@ class CoursesController < ApplicationController
     "
     @courses = Course.joins(:language).where(sql_query, language: "%#{params[:language]}%")
   end
+
+  @markers = @courses.map do |c|
+      {
+        lat: c.latitude,
+        lng: c.longitude,
+        # infoWindow: render_to_string(partial: "infowindow", locals: { course: @course })
+      }
+  end
+
 
 end
 
