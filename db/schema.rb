@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 2019_06_04_161225) do
     t.datetime "updated_at", null: false
     t.integer "capacity"
     t.string "picture"
+    t.string "start_time"
+    t.string "integer"
     t.integer "price_cents", default: 0, null: false
-    t.time "start_time"
-    t.time "end_time"
     t.index ["language_id"], name: "index_courses_on_language_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
