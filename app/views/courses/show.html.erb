@@ -226,8 +226,9 @@
         Congratulations, you booked the course !
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= link_to "Go to payment", new_course_payment_path(@course), class: "button-profile"%>
+        <div class="button-payment">
+          <%= link_to "Go to payment", new_course_payment_path(@course) %>
+        </div>
       </div>
     </div>
   </div>
