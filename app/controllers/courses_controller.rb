@@ -96,6 +96,10 @@ def destroy
       :area,
       :city,
       :picture,
-      :picture_cache)
+      :picture_cache,
+      :capacity,
+      :price,
+      :start_time,
+      :end_time)
   end
 end

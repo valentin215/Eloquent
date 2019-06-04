@@ -13,17 +13,24 @@
     <div class="form-group col-md-6">
 
       <p>What’s language would you like to offer?</p>
-      <%= f.input :language_id, collection: Language.all, label_method: :name, label: false, value_method: :id, class: 'form-control' %>
+      <%= f.input :language_id, collection: Language.all,
+       label_method: :name, label: false,
+       value_method: :id, class: 'form-control' %>
 
     </div>
     <div class="form-group col-md-6">
       <p>What’s the level of this course?</p>
-      <%= f.input :level, label: false, class: 'form-control' %>
+      <%= f.input :level, :collection => ['No knowledge',
+        'Elementary level (A1)',
+        'Low intermediate level (B1)',
+        'High intermediate level (B2)',
+        'Advanced level (C1)',
+        'Proficient (C2)',
+        'Test Preparation',
+        ], label: false, class: 'form-control' %>
     </div>
   </div>
 
-
-<!-- city -->
 
   <div class="profil-description">
     <h2>Step 2: Location</h2>
@@ -32,17 +39,17 @@
 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <p>What’s your city?</p>
-       <%= f.input :city, label: false, class: 'form-control' %>
+      <p>What’s the meeting point?</p>
+       <%= f.input :city, label: false, class: 'form-control', placeholder: "E.g. Public Library in Gracia" %>
     </div>
     <div class="form-group col-md-6">
       <p>What’s the area?</p>
-      <%= f.input :area, label: false, class: 'form-control' %>
+      <%= f.input :area, label: false, class: 'form-control', placeholder: "E.g. Gracia" %>
     </div>
 
     <div class="form-group col-md-12">
       <p>Please enter an exact address of your first meeting point</p>
-      <%= f.input :address, label: false, class: 'form-control' %>
+      <%= f.input :address, label: false, class: 'form-control', placeholder: "Write the exact address"%>
     </div>
   </div>
 
@@ -55,41 +62,41 @@
   <div class="form-row">
     <div class="form-group col-md-6">
 
-       <%= f.input :start_date %>
+       <%= f.input :start_date, as: :string, input_html: {class: "datepicker"}, placeholder: "Pick the start and end dates" %>
 
     </div>
     <div class="form-group col-md-6">
 
-      <%= f.input :end_date, class: 'form-control' %>
+      <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
 
     <p>Start time:</p>
-    <%#= f.input :start_time %>
+    <%= f.input :start_time, label: false %>
 
     </div>
     <div class="form-group col-md-6">
       <p>End time</p>
-      <%#= f.input :start_time %>
+      <%= f.input :end_time, label: false %>
     </div>
   </div>
+
 
 
   <div class="profil-description">
     <h2>Step 4: Price & Capacity</h2>
   </div>
 
-
     <div class="form-row">
       <div class="form-group col-md-6">
         <p>Define the individial price for each student</p>
-         <%= f.input :price, label: false, class: 'form-control' %>
+         <%= f.input :price, label: false, class: 'form-control', placeholder: "E.g. 120" %>
       </div>
       <div class="form-group col-md-6">
         <p>What's the maximum capacity for this course (5 max)</p>
-        <%= f.input :capacity, label: false, class: 'form-control' %>
+        <%= f.input :capacity, label: false, class: 'form-control', placeholder: "E.g. 5"%>
       </div>
     </div>
 
@@ -100,18 +107,18 @@
 
   <div class="profil-description">
     <p>What's title of your announcement?</p>
-    <%= f.input :title, label: false, class: 'form-control' %>
+    <%= f.input :title, label: false, class: 'form-control', placeholder: "E.g. Great spanish course for beginners around Barcelona" %>
   </div>
 
   <div class="profil-description">
     <p>Take your time and write a complete description of your course</p>
-    <%= f.input :description, label: false, class: 'form-control' %>
+    <%= f.input :description, :as => :text, :input_html => { 'rows' => 5, 'cols' => 10 }, label: false, class: 'form-control', placeholder: "Use this space to give to your future students all the details they need to book your course" %>
   </div>
 
 
   <div class="profil-description">
     <p>Please copy your Youtube video URL here</p>
-    <%= f.input :video_url, label: false, class: 'form-control' %>
+    <%= f.input :video_url, label: false, class: 'form-control', placeholder: "E.g. https://www.youtube.com/watch?v=m3Uh24QiJUI&list=RDMrHxhQPOO2c&index=2" %>
   </div>
 
   <div class="profil-description">
