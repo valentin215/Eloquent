@@ -44,13 +44,23 @@
 .course-level-user {
   padding-bottom: 0px;
   align-items: center;
-  opacity: 0.7;
+  opacity: 0.8;
   font-size: 13px;
 }
 
 .course-level-user img {
   padding-bottom: 1px;
   padding-left: 3px;
+}
+
+.course-title-user {
+  font-weight: bold;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+.course-title-user p {
+  font-size: 16px;
 }
 
 .user-profile-links {

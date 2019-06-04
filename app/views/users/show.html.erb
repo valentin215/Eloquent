@@ -31,6 +31,7 @@
     <h2>About me</h2>
     <p><%= @user.biography%></p>
   </div>
+<hr>
 
   <!--- profil categories --->
 
@@ -74,7 +75,7 @@
 
   <div class="profil-bookings">
     <% if @user.student? %>
-    <h2> My courses</h2>
+    <h2 style="padding-bottom: 8px;"> My courses</h2>
     <% @bookings.each do |booking| %>
     <div class="course-info" style="margin-bottom: 12px;">
 
@@ -89,7 +90,7 @@
           <% end %>
         </div>
 
-        <div class="course-title" style="margin-bottom: -4px;">
+        <div class="course-title-user" style="margin-bottom: -4px;">
           <p><%= booking.course.title %></p>
         </div>
 

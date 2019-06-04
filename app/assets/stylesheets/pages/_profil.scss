@@ -96,11 +96,12 @@
 }
 
 .course-review a {
-  opacity: 0.85;
-  color: $purple;
+  opacity: 0.8;
+  color: black;
   font-size: 13px;
-} :hover {
+  &:hover {
   opacity: 1;
+  }
 }
 
 
