@@ -48,7 +48,7 @@
       <div class="interest-categories">
         <% array = [] %>
         <% category.interest_tags.each do |tag| %>
-          <% unless tag.user_interests.where(user_id: current_user).empty? %>
+          <% unless tag.user_interests.where(user_id: @user).empty? %>
             <% array << tag %>
           <% end %>
         <% end %>
@@ -58,7 +58,7 @@
         <% end %>
 
         <% taglist.each do |tag| %>
-          <% if current_user.user_interests.find_by(interest_tag: tag) %>
+          <% if @user.user_interests.find_by(interest_tag: tag) %>
             <div class="interest-content">
               <%= tag.content %>
             </div>
