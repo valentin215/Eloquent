@@ -65,8 +65,7 @@
 }
 
 #search-result {
-  margin-top: 20px;
-  margin-bottom: 26px;
+  margin-bottom: 0px;
   font-family: Open Sans, Helvetica, sans-serif;
   font-size: 1.1rem;
   font-weight: bold;
@@ -146,6 +145,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
 // .fa-bars {
