@@ -30,12 +30,17 @@ def create
   )
 
   @booking.update(payment: charge.to_json, state: 'paid')
-  redirect_to user_path(current_user)
+  redirect_to  booking_path(@booking)
 
 rescue Stripe::CardError => e
   flash[:alert] = e.message
   redirect_to new_booking_payment_path(@booking)
 end
+
+def show
+  @booking
+end
+
 
   private
 

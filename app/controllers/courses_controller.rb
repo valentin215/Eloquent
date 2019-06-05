@@ -15,8 +15,10 @@ class CoursesController < ApplicationController
     end
 
     if params[:query].present?
-      @courses = SearchCourses.new(params: params[:query]).call
+      # @courses = @SearchCourses.new(params: params[:query]).call
+      @courses = @courses.where('level @@ ?', params[:query][:levels])
     end
+
 
     @markers = @courses.map do |course|
       {

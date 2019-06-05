@@ -17,6 +17,8 @@ class BookingsController < ApplicationController
 
   def show
     @booking = current_user.bookings.where(state: 'paid').find(params[:id])
+    @course = @booking.course
+
   end
 
 #----------> Params empty we don't need a permission for bookings controller
