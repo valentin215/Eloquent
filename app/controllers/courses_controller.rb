@@ -3,17 +3,6 @@ class CoursesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @courses = Course.all
-
-
-    if params[:city].present?
-      @courses = Course.near(params[:city])
-    end
-
-    if params[:language].present?
-      @courses = @courses.joins(:language).where("languages.name ILIKE :language", language: params[:language] )
-    end
-
     if params[:query].present?
       @courses = SearchCourses.new(params: params[:query]).call
     end
