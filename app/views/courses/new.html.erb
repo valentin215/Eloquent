@@ -54,9 +54,9 @@
   </div>
 
   <div class="profil-description">
-    <h2>Step 3: Date & Time</h2>
-    <%#= f.input :start_time %>
+    <h2>Step 3: Date, Time & Days</h2>
   </div>
+
 
 
   <div class="form-row">
@@ -74,15 +74,18 @@
     <div class="form-group col-md-6">
 
     <p>Start time:</p>
-    <%= f.input :start_time, label: false %>
+    <%= f.input :start_time, label: false, input_html: { class: "course_time" } %>
 
     </div>
     <div class="form-group col-md-6">
       <p>End time</p>
-      <%= f.input :end_time, label: false %>
+      <%= f.input :end_time, label: false, input_html: { class: "course_time" } %>
     </div>
   </div>
 
+  <div class="profil-description">
+    <%= f.association :course_days, label: false, collection: Date::DAYNAMES, as: :check_boxes, include_hidden: false%>
+  </div>
 
 
   <div class="profil-description">
