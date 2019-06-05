@@ -39,10 +39,11 @@
                 <div>
                   <span>Dates: </span><p><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B") %></p>
                 </div>
+                  <span>Days: </span>
                   <% course.course_days.each do |day| %>
-                <div>
-                  <span>Days: </span><p><%= day.working_day %></p>
-                </div>
+
+                  <p><%= day.working_day %>,</p>
+
                 <% end %>
             </div>
             <div class="course-area-spots">
