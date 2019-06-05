@@ -74,18 +74,23 @@
 }
 
 .courses-reservations {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   margin-top: 20px;
   background-color: #F6F6F6;
   padding: 10px 20px;
-  padding-bottom: 8px;
+  padding-bottom: 2px;
   border-radius: 5px;
   // border: 1px solid gray;
 }
 
 .attendees > .classmates {
- margin-top: 8px;
+ margin-top: 16px;
  // margin-bottom: 0px;
+}
+
+.new-course {
+  display: flex;
+  justify-content: space-between;
 }
 
 

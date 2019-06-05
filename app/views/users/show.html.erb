@@ -142,7 +142,14 @@
     <!-- <p>add review</p> -->
     <%# end %>
     <% elsif @user.teacher? %>
-      <h2>My Courses</h2>
+      <div class="new-course">
+        <h2>My Courses</h2>
+        <div class="course-review">
+          <% if current_user == @user %>
+            <%= link_to " + Create new Course", new_course_path(@user) %>
+          <% end %>
+        </div>
+      </div>
       <% @courses.each do |course| %>
         <div class="courses-reservations">
           <div class="course-info" style="margin-bottom: 12px;">
