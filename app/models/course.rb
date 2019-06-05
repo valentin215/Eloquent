@@ -8,11 +8,12 @@ class Course < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   monetize :price_cents
+  attr_accessor :start_time, :end_time
 
   def total_week_hours
     total = 0
-    course_days.each do |course_day|
-      total += course_day.end_time - course_day.start_time
+    course_days.first(1).each do |course_day|
+      total += course_day.end_time.strftime('%I:%M%p').to_i - course_day.start_time.strftime('%I:%M%p').to_i
     end
     return total
   end

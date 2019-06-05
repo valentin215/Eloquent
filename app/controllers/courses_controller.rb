@@ -50,6 +50,7 @@ def create
   @course = Course.new(course_params)
   @course.user = current_user
   if @course.save
+    create_course_days
     redirect_to course_path(@course)
   else
     render :new
@@ -87,6 +88,17 @@ def destroy
 
   private
 
+  def create_course_days
+    params[:course][:course_day_ids].each do |day|
+      CourseDay.create(
+        course_id: @course.id,
+        start_time: params[:course][:start_time],
+        end_time: params[:course][:end_time],
+        working_day: day
+      )
+    end
+  end
+
   def course_params
 
     params.require(:course).permit(
@@ -104,7 +116,6 @@ def destroy
       :picture_cache,
       :capacity,
       :price,
-      :start_time,
-      :end_time)
+    )
   end
 end
