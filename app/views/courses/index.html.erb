@@ -1,12 +1,12 @@
 <div class="content-container">
   <h1 id="search-result"><%=@courses.count(:all)%> courses available <% if params[:city].present? %> <%= "in #{ params[:city]}"%> <% end  %></h1>
-  <div class="content-container">
+ <!--  <div class="content-container">
   <div class="row">
     <div class="col-4">
-      <%= render 'query' %>
+      <%#= render 'query' %>
     </div>
   </div>
-</div>
+</div> -->
 
   <div class="cards">
     <% @courses.each do |course| %>

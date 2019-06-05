@@ -5,7 +5,7 @@
   <%= f.input :city, required: false, input_html: {value: params[:query].try(:[], :city)} %>
   <%= f.input :language, required: false, input_html: {value: params[:query].try(:[], :language)} %>
   <%= f.input :level, collection: Course.levels, selected: params[:query].try(:[], :level) %>
-  <%= f.input :categories, collection: InterestCategory.all, selected: params[:query].try(:[], :categories)  %>
+  <%#= f.input :interest_categories, collection: Course.interests, selected: params[:query].try(:[], :interest_categories)  %>
   <%#= f.input :tags, collection: InterestTag.interests, selected: params[:query].try(:[], :tags).categoy_id %>
   <%#= f.input :name, input_html: { value: params[:query].try(:[], :name) } %>
   <%#= f.input :material, collection: Product.materials, selected: params[:query].try(:[], :material) %>

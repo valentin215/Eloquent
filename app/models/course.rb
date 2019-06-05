@@ -20,6 +20,10 @@ class Course < ApplicationRecord
   def self.levels
     self.all.pluck(:level).uniq
   end
+
+  # def self.interests
+  #   self.all.where(pluck(:content).uniq
+  # end
   # def spaces_left
   #   Course.all.each do |course|
   #     course.capacity - course.bookings.count
