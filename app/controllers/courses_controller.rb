@@ -17,6 +17,14 @@ class CoursesController < ApplicationController
     if params[:query].present?
       @courses = SearchCourses.new(params: params[:query]).call
     end
+
+  @markers = @courses.map do |course|
+      {
+        lat: course.latitude,
+        lng: course.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { course: course })
+      }
+    end
   end
 
 def show
