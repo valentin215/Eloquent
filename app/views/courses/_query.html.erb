@@ -1,6 +1,6 @@
 <%= simple_form_for :query, method: :get do |f| %>
-  <%= f.input :city, required: false, input_html: {value: params[:query].try(:[], :city)} %>
-  <%= f.input :language, required: false, input_html: {value: params[:query].try(:[], :language)} %>
+  <%= f.hidden_field :city, required: false, input_html: {value: params[:query].try(:[], :city)} %>
+  <%= f.hidden_field :language, required: false, input_html: {value: params[:query].try(:[], :language)} %>
   <%= f.input :level, collection: Course.levels, selected: params[:query].try(:[], :level) %>
   <%= f.input :interest_categories, collection: InterestCategory.all.pluck(:content, :id), selected: params[:query].try(:[], :interest_categories)  %>
   <%= f.submit 'filter' %>
