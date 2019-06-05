@@ -83,13 +83,13 @@
 
   <div class="profil-bookings">
     <% if @user.student? %>
-      <h2 style="padding-bottom: 8px;"> My courses & Reviews</h2>
+      <h2 style="padding-bottom: 8px;"> <%= @user.name %> Courses & Reviews</h2>
       <% @bookings.each do |booking| %>
       <div class="course-info-student" style="margin-bottom: 12px;">
         <div class="course-booking-review">
           <div class="course-level-user">
-            <%= booking.course.level %><span>, </span>
-            <%= booking.course.language.name %>
+            <%= booking.course.level.upcase %><span>, </span>
+            <%= booking.course.language.name.upcase %>
             <% if booking.course.language.name == "Spanish" %>
               <%= image_tag('spain-flag.png', :width => 24) %>
             <% else %>
@@ -259,7 +259,7 @@
     </div>
   </div>
   <% end %>
-      <%= link_to "Edit your profile", edit_user_path(current_user) %>
+      <%#= link_to "Edit your profile", edit_user_path(current_user) %>
 
 </div>
 
