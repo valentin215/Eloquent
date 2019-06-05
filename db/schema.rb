@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_06_05_093755) do
 
   # These are extensions that must be enabled in order to support this database
@@ -60,8 +61,6 @@ ActiveRecord::Schema.define(version: 2019_06_05_093755) do
     t.string "start_time"
     t.string "integer"
     t.integer "price_cents", default: 0, null: false
-    t.string "start_time"
-    t.string "integer"
     t.index ["language_id"], name: "index_courses_on_language_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end

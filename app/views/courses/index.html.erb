@@ -1,6 +1,13 @@
 <div class="content-container">
   <h1 id="search-result"><%=@courses.count(:all)%> courses available <% if params[:city].present? %> <%= "in #{ params[:city]}"%> <% end  %></h1>
-  <%= link_to 'filter', courses_filter_path %>
+  <div class="content-container">
+  <div class="row">
+    <div class="col-4">
+      <%= render 'query' %>
+    </div>
+  </div>
+</div>
+
   <div class="cards">
     <% @courses.each do |course| %>
     <div class="card-course">

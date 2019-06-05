@@ -83,9 +83,9 @@
 
   <div class="profil-bookings">
     <% if @user.student? %>
-      <h2 style="padding-bottom: 8px;"> My courses</h2>
+      <h2 style="padding-bottom: 8px;"> My courses & Reviews</h2>
       <% @bookings.each do |booking| %>
-      <div class="course-info" style="margin-bottom: 12px;">
+      <div class="course-info-student" style="margin-bottom: 12px;">
         <div class="course-booking-review">
           <div class="course-level-user">
             <%= booking.course.level %><span>, </span>
@@ -104,9 +104,9 @@
           <% if booking.review.nil? %>
             <div class="course-date-review">
               <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
-              <div class="course-review">
+              <div class="review-comment-2">
                 <% if current_user == @user %>
-                <%= link_to "Add review", new_booking_review_path(booking) %>
+                <%= link_to "Add your review", new_booking_review_path(booking) %>
                 <% end %>
               </div>
             </div>
@@ -115,8 +115,7 @@
               <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
             </div>
             <div class="review-comment-2">
-              <i class="far fa-comment"></i>
-              <%= booking.review.try(:content) %>
+              <i class="far fa-comment"></i> <span> </span> <%= booking.review.try(:content) %>
               <div>
                 <% rating = booking.review.try(:rating) %>
                 <% if rating %>
@@ -128,7 +127,11 @@
             </div>
           <% end %>
         </div>
+        <div>
+          <%= cl_image_tag booking.course.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
+        </div>
       </div>
+
       <% end %>
     <%# else  %>
     <%#= render 'reviews/form', booking: booking, review: Review.new %>
@@ -146,7 +149,7 @@
         <h2><%= @user.name %> Courses</h2>
         <div class="course-review">
           <% if current_user == @user %>
-            <%= link_to " + Create new Course", new_course_path(@user) %>
+            <%= link_to " + new Course", new_course_path(@user) %>
           <% end %>
         </div>
       </div>
@@ -256,5 +259,7 @@
     </div>
   </div>
   <% end %>
+      <%= link_to "Edit your profile", edit_user_path(current_user) %>
+
 </div>
 

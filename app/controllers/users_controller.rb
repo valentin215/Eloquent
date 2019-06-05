@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def update
     create_user_interests
     current_user.update(user_params)
-    redirect_to edit_user_path(current_user)
+    redirect_to user_path(current_user)
   end
 
   def show
