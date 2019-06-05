@@ -11,9 +11,9 @@ class SearchCourses
     @scope = filter_by_level(@scope, params[:level]) if params[:level].present?
     @scope = filter_by_language(@scope, params[:language]) if params[:language].present?
     @scope = filter_by_city(@scope, params[:city]) if params[:city].present?
-    @scope = filter_by_categories(params[:interest_categories]) if params[:interest_categories].present?
+    @scope = filter_by_categories(@scope, params[:interest_categories]) if params[:interest_categories].present?
     @scope
-     # @scope = filter_by_tags(@scope, params[:tags]) if params[:tags].present?
+     # @scope = filter_by_tags(@scope, params[:tags]) if para.ms[:tags].present?
   end
 
   private
@@ -26,10 +26,9 @@ class SearchCourses
   #   scope.where('tags @@ ?', tags)
   # end
 
-  def filter_by_categories(content)
-    Course.find :all, :include =>  { :user => { :user_interests => { :interest_tag => { interest_category: :content} } } }
-    # @second_query = @first_query.joins(user_interests: :interest_tags)
-    raise
+  def filter_by_categories(scope, category_id)
+    scope.joins(user: { user_interests: :interest_tag})
+      .where(interest_tags: {interest_category_id: category_id} )
   end
 
 # where('content @@ ?', content)

@@ -1,12 +1,10 @@
 class CoursesController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     if params[:query].present?
       @courses = SearchCourses.new(params: params[:query]).call
     end
-
 
 
   @markers = @courses.map do |course|
