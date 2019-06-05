@@ -29,7 +29,7 @@
     <div class="teacher-info">
       <div id="name-teacher"><%= link_to "#{@course.user.name}", user_path(@course.user.id), :class => "user-profile-links" %>
       </div>
-      <% @course.user.interest_tags.each do |interest| %>
+      <% @course.user.interest_tags.first(8).each do |interest| %>
       <div class="interest-content">
         <%= interest.content %>
       </div>
@@ -69,7 +69,7 @@
         <% end %><span> - </span>
         <% @course.course_days.first(1).each do |x| %>
           <%= x.end_time.strftime('%I:%M%p') %>
-          <span> (<%= @course.total_week_hours %> hours per day)</span>
+          <span> (<%= @course.total_week_hours  %> hours per day)</span>
         <% end %>
         <div class="days">
           <% @course.course_days.each do |x| %>

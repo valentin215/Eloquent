@@ -143,7 +143,7 @@
     <%# end %>
     <% elsif @user.teacher? %>
       <div class="new-course">
-        <h2>My Courses</h2>
+        <h2><%= @user.name %> Courses</h2>
         <div class="course-review">
           <% if current_user == @user %>
             <%= link_to " + Create new Course", new_course_path(@user) %>
