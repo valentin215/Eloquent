@@ -1,5 +1,5 @@
 <div class="content-container">
-  <h1 id="search-result"><%=@courses.count(:all)%> courses available <% if params[:city].present? %> <%= "in #{ params[:city]}"%> <% end  %></h1>
+  <h1 id="search-result"><%=@courses.count(:all)%> courses available <% if params[:query][:city].present? %> <%= "in #{ params[:query][:city]}"%> <% end  %></h1>
   <div class="content-container">
   <div class="row">
     <div class="col-4">
