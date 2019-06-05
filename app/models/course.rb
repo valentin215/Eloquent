@@ -34,6 +34,10 @@ class Course < ApplicationRecord
   def self.levels
     self.all.pluck(:level).uniq
   end
+
+  def self.interests
+    self.where(user: :user_interests).where(user_interests: :interest_tags).where(interest_tags: :interests_categories)
+  end
   # def spaces_left
   #   Course.all.each do |course|
   #     course.capacity - course.bookings.count
