@@ -29,6 +29,9 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   validates :name, presence: true, uniqueness: true
 
+  validates :nationality, presence: true, on: :update
+  validates :native_language, presence: true, on: :update
+
   # current_user.teacher_reviews
 
   def teacher_reviews_for_show
