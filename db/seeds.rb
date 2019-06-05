@@ -137,7 +137,7 @@ curso_spanish_jenny = Course.create!(user: jenny_teacher,
 
 
 curso_spanish_london_jaunito = Course.create!(user: juanito_teacher,
-    language: lang2,
+    language: lang1,
     title:'English Course for advance users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
     end_date:        Date.new(2019,04,17),

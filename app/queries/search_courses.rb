@@ -3,16 +3,16 @@ class SearchCourses
 
   def initialize(attributes = {})
     @params = attributes[:params]
-    @scope = attributes[:scope] || Course.all
+    @courses = attributes[:SearchCourses] || Course.all
   end
 
   def call
-    @scope = filter_by_level(@scope, params[:level]) if params[:level].present?
+    @courses = filter_by_level(@courses, params[:level]) if params[:level].present?
   end
 
   private
 
-  def filter_by_level(scope, level)
-    scope.where('level @@ ?', level)
+  def filter_by_level(courses, level)
+    courses.where('level @@ ?', level)
   end
 end
