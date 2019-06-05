@@ -8,11 +8,25 @@ class Course < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   monetize :price_cents
+  validates :title, presence: true, length: { minimum: 5 }
+  validates :description, presence: true, length: { minimum: 10 }
+  validates :end_date, presence: true
+  validates :start_date, presence: true
+  validates :level, presence: true
+  validates :address, presence: true
+  validates :area, presence: true
+  validates :city, presence: true
+  validates :price, presence: true
+  validates :capacity, presence: true
+  validates :language_id, presence: true
+
+  attr_accessor :start_time, :end_time
+
 
   def total_week_hours
     total = 0
-    course_days.each do |course_day|
-      total += course_day.end_time - course_day.start_time
+    course_days.first(1).each do |course_day|
+      total += course_day.end_time.strftime('%I:%M%p').to_i - course_day.start_time.strftime('%I:%M%p').to_i
     end
     return total
   end

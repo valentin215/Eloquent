@@ -72,3 +72,85 @@
   text-decoration: none;
   color: black;
 }
+
+.courses-reservations {
+  margin-bottom: 8px;
+  margin-top: 20px;
+  background-color: #F6F6F6;
+  padding: 10px 20px;
+  padding-bottom: 2px;
+  border-radius: 5px;
+  // border: 1px solid gray;
+}
+
+.attendees > .classmates {
+ margin-top: 16px;
+ // margin-bottom: 0px;
+}
+
+.new-course {
+  display: flex;
+  justify-content: space-between;
+}
+
+.course-info-student {
+  display: flex;
+  margin-bottom: 8px;
+  margin-top: 20px;
+  background-color: #F6F6F6;
+  padding: 10px 20px;
+  padding-bottom: 2px;
+  border-radius: 5px;
+}
+
+.course-booking-review {
+  p {
+    margin-bottom: 0px;
+    margin-top: 6px;
+  }
+  .review-comment-2 {
+    opacity: 1;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+
+.course-date-review {
+  margin-top: -2px;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+}
+
+.course-date-review p {
+  opacity: 0.7;
+  font-size: 13px;
+  text-align: justify;
+  margin-bottom: 0px;
+}
+
+.course-review a {
+  opacity: 0.8;
+  color: black;
+  font-size: 13px;
+  &:hover {
+  opacity: 1;
+  }
+}
+
+.review-comment {
+  opacity: 0.8;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+
+
+
+
+
+
+

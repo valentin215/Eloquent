@@ -47,15 +47,3 @@ class SearchCourses
     scope.where('level @@ ?', level)
   end
 end
-
-    # @courses = Course.all
-
-    # if params[:city].present?
-    #   @courses = Course.near(params[:city])
-    #   # @previous_city = @courses
-    # end
-
-    # if params[:language].present?
-    #   @courses = @courses.joins(:language).where("languages.name ILIKE :language", language: params[:language] )
-    #   # @previous_language = @courses
-    # end
