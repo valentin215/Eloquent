@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 2019_06_05_093755) do
     t.integer "capacity"
     t.string "picture"
     t.integer "price_cents", default: 0, null: false
+
+    t.string "start_time"
+    t.string "integer"
+
     t.index ["language_id"], name: "index_courses_on_language_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end

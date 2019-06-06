@@ -1,5 +1,12 @@
-body {
-  background-color: white;
+  body {
+    background-color: white;
+  }
+
+
+.home-container {
+  height: calc(100vh - 50px);
+  max-width: 1600px;
+  background-size: cover;
 }
 
 .banner {
