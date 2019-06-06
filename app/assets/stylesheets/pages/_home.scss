@@ -52,7 +52,7 @@ body {
 
 .card-how-1{
   padding-bottom: 40px;
-  padding-right: 20px;
+  padding-right: 40px;
   padding-left: 0px;
   // height: 120px;
   margin-bottom: 0px;
@@ -65,7 +65,7 @@ body {
 }
 
 .card-how-2 {
-  border-left: 2px solid black;
+  border-left: 2px solid $purple;;
   object-fit: fill;
   padding-bottom: 36px;
   display: flex;
@@ -76,7 +76,9 @@ body {
   align-items: center;
   p {
     opacity: 0.8;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: bolder;
+
   }
 }
 
@@ -91,7 +93,8 @@ body {
   align-items: center;
   p {
     opacity: 0.8;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: bolder;
   }
 }
 
@@ -106,8 +109,8 @@ margin-bottom: 100px;
   width: 10px;
   radius: 50;
   position: absolute;
-  right: 192px;
-  top: -3px;
+  right: 163px;
+  top: -1px;
   img {
     object-fit: fill;
     height: 100%;
@@ -116,6 +119,7 @@ margin-bottom: 100px;
 
 .home {
   margin-bottom: 50px;
+  height: 720px;
 }
 
 
