@@ -48,7 +48,7 @@
       <div class="interest-categories">
         <% array = [] %>
         <% category.interest_tags.each do |tag| %>
-          <% unless tag.user_interests.where(user_id: current_user).empty? %>
+          <% unless tag.user_interests.where(user_id: @user).empty? %>
             <% array << tag %>
           <% end %>
         <% end %>
@@ -58,7 +58,7 @@
         <% end %>
 
         <% taglist.each do |tag| %>
-          <% if current_user.user_interests.find_by(interest_tag: tag) %>
+          <% if @user.user_interests.find_by(interest_tag: tag) %>
             <div class="interest-content">
               <%= tag.content %>
             </div>
@@ -103,7 +103,7 @@
 
           <% if booking.review.nil? %>
             <div class="course-date-review">
-              <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
+              <p>Dates: <%= booking.course.start_date&.strftime("%-d %B").downcase %> - <%= booking.course.end_date&.strftime("%-d %B").downcase %></p>
               <div class="review-comment-2">
                 <% if current_user == @user %>
                 <%= link_to "Add your review", new_booking_review_path(booking) %>
@@ -112,7 +112,7 @@
             </div>
           <% else %>
             <div class="course-date-review">
-              <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
+              <p>Dates: <%= booking.course.start_date&.strftime("%-d %B").downcase %> - <%= booking.course.end_date&.strftime("%-d %B").downcase %></p>
             </div>
             <div class="review-comment-2">
               <i class="far fa-comment"></i> <span> </span> <%= booking.review.try(:content) %>
@@ -163,7 +163,7 @@
               <p><%= course.title %></p>
             </div>
             <div class="course-date-review">
-              <p><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B")%></p>
+              <p><%= course.start_date&.strftime("%-d %B") %> - <%= course.end_date&.strftime("%-d %B")%></p>
             </div>
             <div class="attendees">
               <div class="classmates">
@@ -202,7 +202,7 @@
           <p><%#= booking.course.title %></p>
         </div>
         <div class="course-date-review">
-          <p><%#= booking.course.start_date.strftime("%-d %B") %> - <%#= booking.course.end_date.strftime("%-d %B")%></p>
+          <p><%#= booking.course.start_date&.strftime("%-d %B") %> - <%#= booking.course.end_date&.strftime("%-d %B")%></p>
         </div>
       </div>
 

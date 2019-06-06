@@ -36,10 +36,12 @@
      <b>Course: </b><%= @course.title %>
     </div>
     <div>
+
       <b>Price paid: </b>€<%= @course.price.to_i %>
     </div>
     <div>
       <b>Dates: </b><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %>
+
     </div>
     <% @course.course_days.each do |day| %>
     <div>

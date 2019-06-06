@@ -1,0 +1,279 @@
+\Searching 214 files for "% unless x.start_time.nil? %>"
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/courses/show.html.erb:
+   66  </strong></p>
+   67          <% @course.course_days.first(1).each do |x| %>
+   68:           <% unless x.start_time.nil? %>
+   69              <%= x.start_time.strftime('%I:%M%p') %>
+   70              <%= raise %>
+   ..
+   72          <% end %><span> - </span>
+   73          <% @course.course_days.first(1).each do |x| %>
+   74:           <% unless x.start_time.nil? %>
+   75              <%= x.end_time.strftime('%I:%M%p') %>
+   76            <% end %>
+
+2 matches in 1 file
+
+
+Searching 214 files for "strftime"
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/models/course.rb:
+   27      total = 0
+   28      course_days.first(1).each do |course_day|
+   29:       total += course_day.end_time.strftime('%I:%M%p').to_i - course_day.start_time.strftime('%I:%M%p').to_i
+   30      end
+   31      return total
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/bookings/new.html.erb:
+   12      </div>
+   13      <div>
+   14:     <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+   15      </div>
+   16      <% @course.course_days.each do |day| %>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/bookings/show.html.erb:
+   19      </div>
+   20      <div>
+   21:       <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+   22      </div>
+   23      <% @course.course_days.each do |day| %>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/courses/index.html.erb:
+   38                  </div>
+   39                  <div>
+   40:                   <span>Dates: </span><p><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B") %></p>
+   41                  </div>
+   42                    <span>Days: </span>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/courses/show.html.erb:
+   54          <div class="dates">
+   55            <p><strong>Dates</strong></p>
+   56:           <p>Start: <%= @course.start_date&.strftime('%a, %B %e, %Y') %></p>
+   57:           <p>End: <%= @course.end_date&.strftime('%a, %B %e, %Y') %></p>
+   58          </div>
+   59        </div>
+   ..
+   67          <% @course.course_days.first(1).each do |x| %>
+   68            <% unless x.start_time.nil? %>
+   69:             <%= x.start_time&.strftime('%I:%M%p') %>
+   70              <%= raise %>
+   71            <% end  %>
+   ..
+   73          <% @course.course_days.first(1).each do |x| %>
+   74            <% unless x.start_time.nil? %>
+   75:             <%= x.end_time&.strftime('%I:%M%p') %>
+   76            <% end %>
+   77            <span> (<%= @course.total_week_hours %> hours per day)</span>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/payments/new.html.erb:
+   13      </div>
+   14      <div>
+   15:       <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+   16      </div>
+   17      <% @course.course_days.each do |day| %>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/users/show.html.erb:
+  104            <% if booking.review.nil? %>
+  105              <div class="course-date-review">
+  106:               <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
+  107                <div class="review-comment-2">
+  108                  <% if current_user == @user %>
+  ...
+  113            <% else %>
+  114              <div class="course-date-review">
+  115:               <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
+  116              </div>
+  117              <div class="review-comment-2">
+  ...
+  164              </div>
+  165              <div class="course-date-review">
+  166:               <p><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B")%></p>
+  167              </div>
+  168              <div class="attendees">
+  ...
+  203          </div>
+  204          <div class="course-date-review">
+  205:           <p><%#= booking.course.start_date.strftime("%-d %B") %> - <%#= booking.course.end_date.strftime("%-d %B")%></p>
+  206          </div>
+  207        </div>
+
+22 matches across 7 files
+
+
+Searching 214 files for "\.strftime"
+
+0 matches
+
+Searching 214 files for ".strftime"
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/models/course.rb:
+   27      total = 0
+   28      course_days.first(1).each do |course_day|
+   29:       total += course_day.end_time.strftime('%I:%M%p').to_i - course_day.start_time.strftime('%I:%M%p').to_i
+   30      end
+   31      return total
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/bookings/new.html.erb:
+   12      </div>
+   13      <div>
+   14:     <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+   15      </div>
+   16      <% @course.course_days.each do |day| %>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/bookings/show.html.erb:
+   19      </div>
+   20      <div>
+   21:       <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+   22      </div>
+   23      <% @course.course_days.each do |day| %>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/courses/index.html.erb:
+   38                  </div>
+   39                  <div>
+   40:                   <span>Dates: </span><p><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B") %></p>
+   41                  </div>
+   42                    <span>Days: </span>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/courses/show.html.erb:
+   54          <div class="dates">
+   55            <p><strong>Dates</strong></p>
+   56:           <p>Start: <%= @course.start_date&.strftime('%a, %B %e, %Y') %></p>
+   57:           <p>End: <%= @course.end_date&.strftime('%a, %B %e, %Y') %></p>
+   58          </div>
+   59        </div>
+   ..
+   67          <% @course.course_days.first(1).each do |x| %>
+   68            <% unless x.start_time.nil? %>
+   69:             <%= x.start_time&.strftime('%I:%M%p') %>
+   70              <%= raise %>
+   71            <% end  %>
+   ..
+   73          <% @course.course_days.first(1).each do |x| %>
+   74            <% unless x.start_time.nil? %>
+   75:             <%= x.end_time&.strftime('%I:%M%p') %>
+   76            <% end %>
+   77            <span> (<%= @course.total_week_hours %> hours per day)</span>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/payments/new.html.erb:
+   13      </div>
+   14      <div>
+   15:       <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+   16      </div>
+   17      <% @course.course_days.each do |day| %>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/users/show.html.erb:
+  104            <% if booking.review.nil? %>
+  105              <div class="course-date-review">
+  106:               <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
+  107                <div class="review-comment-2">
+  108                  <% if current_user == @user %>
+  ...
+  113            <% else %>
+  114              <div class="course-date-review">
+  115:               <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
+  116              </div>
+  117              <div class="review-comment-2">
+  ...
+  164              </div>
+  165              <div class="course-date-review">
+  166:               <p><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B")%></p>
+  167              </div>
+  168              <div class="attendees">
+  ...
+  203          </div>
+  204          <div class="course-date-review">
+  205:           <p><%#= booking.course.start_date.strftime("%-d %B") %> - <%#= booking.course.end_date.strftime("%-d %B")%></p>
+  206          </div>
+  207        </div>
+
+22 matches across 7 files
+
+
+Searching 214 files for "&.strftime"
+
+0 matches
+
+Searching 214 files for ".strftime"
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/models/course.rb:
+   27      total = 0
+   28      course_days.first(1).each do |course_day|
+   29:       total += course_day.end_time.strftime('%I:%M%p').to_i - course_day.start_time.strftime('%I:%M%p').to_i
+   30      end
+   31      return total
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/bookings/new.html.erb:
+   12      </div>
+   13      <div>
+   14:     <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+   15      </div>
+   16      <% @course.course_days.each do |day| %>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/bookings/show.html.erb:
+   19      </div>
+   20      <div>
+   21:       <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+   22      </div>
+   23      <% @course.course_days.each do |day| %>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/courses/index.html.erb:
+   38                  </div>
+   39                  <div>
+   40:                   <span>Dates: </span><p><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B") %></p>
+   41                  </div>
+   42                    <span>Days: </span>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/courses/show.html.erb:
+   54          <div class="dates">
+   55            <p><strong>Dates</strong></p>
+   56:           <p>Start: <%= @course.start_date.strftime('%a, %B %e, %Y') %></p>
+   57:           <p>End: <%= @course.end_date.strftime('%a, %B %e, %Y') %></p>
+   58          </div>
+   59        </div>
+   ..
+   67          <% @course.course_days.first(1).each do |x| %>
+   68            <% unless x.start_time.nil? %>
+   69:             <%= x.start_time.strftime('%I:%M%p') %>
+   70              <%= raise %>
+   71            <% end  %>
+   ..
+   73          <% @course.course_days.first(1).each do |x| %>
+   74            <% unless x.start_time.nil? %>
+   75:             <%= x.end_time.strftime('%I:%M%p') %>
+   76            <% end %>
+   77            <span> (<%= @course.total_week_hours %> hours per day)</span>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/payments/new.html.erb:
+   13      </div>
+   14      <div>
+   15:       <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+   16      </div>
+   17      <% @course.course_days.each do |day| %>
+
+/Users/carlosrico/code/carg501/eloquent/Eloquent/app/views/users/show.html.erb:
+  104            <% if booking.review.nil? %>
+  105              <div class="course-date-review">
+  106:               <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
+  107                <div class="review-comment-2">
+  108                  <% if current_user == @user %>
+  ...
+  113            <% else %>
+  114              <div class="course-date-review">
+  115:               <p>Dates: <%= booking.course.start_date.strftime("%-d %B").downcase %> - <%= booking.course.end_date.strftime("%-d %B").downcase %></p>
+  116              </div>
+  117              <div class="review-comment-2">
+  ...
+  164              </div>
+  165              <div class="course-date-review">
+  166:               <p><%= course.start_date.strftime("%-d %B") %> - <%= course.end_date.strftime("%-d %B")%></p>
+  167              </div>
+  168              <div class="attendees">
+  ...
+  203          </div>
+  204          <div class="course-date-review">
+  205:           <p><%#= booking.course.start_date.strftime("%-d %B") %> - <%#= booking.course.end_date.strftime("%-d %B")%></p>
+  206          </div>
+  207        </div>
+
+22 matches across 7 files
