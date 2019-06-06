@@ -33,7 +33,7 @@ chris_teacher = User.new(name: 'Chris', biography: 'I was born in Chile and have
     nationality:   'Chilean'
    )
 
-chris_teacher.remote_photo_url = "https://static1.squarespace.com/static/592738c58419c2fe84fbdb81/t/5a89476ac83025f59a85e212/1518947873584/DwayneBrownStudio_Kevin_LinkedIn_Portrait.jpg"
+chris_teacher.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559814691/Cristobal_dl58f1.jpg"
 chris_teacher.save!
 
 
@@ -58,7 +58,7 @@ carlitos_student = User.new(name: 'Carlos',
     native_language: 'English',
     nationality:   'British')
 
-carlitos_student.remote_photo_url = "https://i.pinimg.com/474x/f5/5d/66/f55d6628eb1aeb93adb86fec22c13400--puerto-rican-men-adam-rodriguez.jpg"
+carlitos_student.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559815368/Carloslewagon_y2xx33.jpg"
 carlitos_student.save!
 
 
@@ -70,7 +70,7 @@ valentin_student = User.new(name: 'Valentin',
     native_language: 'French',
     nationality:   'French',)
 
-valentin_student.remote_photo_url = "https://i.pinimg.com/564x/cf/f2/e6/cff2e6ad6b5d6b0f57a6b66bbfe3babe.jpg"
+valentin_student.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559814957/Valentin_aqsniq.jpg"
 valentin_student.save!
 
 
@@ -82,7 +82,7 @@ leo_student = User.new(name: 'Leo',
     native_language: 'German',
     nationality:   'German',)
 
-leo_student.remote_photo_url = "https://ashwrightphotography.com/wp-content/uploads/2016/01/nashville-actor-actress-headshot-best-4.jpg"
+leo_student.remote_photo_url = "https://static1.squarespace.com/static/592738c58419c2fe84fbdb81/t/5a89476ac83025f59a85e212/1518947873584/DwayneBrownStudio_Kevin_LinkedIn_Portrait.jpg"
 leo_student.save!
 
 
@@ -110,10 +110,10 @@ curso_spanish_juanito = Course.create!(user: juanito_teacher,
     description:  'This is a course for beginners of spanish. We will walkthrough how to say fundamentals phrases and verbs to help you in your everyday encounters in barcelona',
     end_date:        Date.new(2019,04,19),
     start_date:     Date.new(2019,03,15),
-    level:    'Advanced level (C1)',
+    level:    'Elementary level (A1)',
     address: "Carrer de Torrijos, 26, 08012 Barcelona",
     area: "Gracia",
-    city: "Barcelona",
+    city: "Mama's Cafe",
     price: 100,
     video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 4
@@ -126,10 +126,10 @@ curso_spanish_jenny = Course.create!(user: jenny_teacher,
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
     end_date:        Date.new(2019,06,17),
     start_date:     Date.new(2019,03,15),
-    level:    'Advanced level (C1)',
+    level:    'Elementary level (A1)',
     address: "Carrer de Pelai, 11, 08001 Barcelona",
     area: "Joanic",
-    city: "Barcelona",
+    city: "Joan's large Cafe",
     price: 200,
     video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 4
@@ -140,15 +140,15 @@ curso_spanish_london_jaunito = Course.create!(user: juanito_teacher,
     language: lang1,
     title:'English Course for advance users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
-    end_date:        Date.new(2019,04,17),
-    start_date:     Date.new(2019,05,15),
+    end_date:        Date.new(2019,05,17),
+    start_date:     Date.new(2019,04,15),
     level:    'Advanced level (C1)',
     address: "London Bridge, City of London",
     area: "Whitechapel",
-    city: "London",
-    price: 200,
+    city: "Costa Coffee",
+    price: 100,
     video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
-    capacity: 6
+    capacity: 4
     )
 
 
@@ -161,54 +161,54 @@ curso_spanish_in_eixample_chris = Course.create!(user: chris_teacher,
     level:    'Advanced level (C1)',
     address: "Carrer de la Diputació, 231",
     area: "Eixample",
-    city: "Starbucks Barcelona",
+    city: "Starbucks",
     price: 150,
     video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
-    capacity: 6
+    capacity: 4
     )
 
 
 curso_spanish_days = CourseDay.create!(start_time: "19:00:00",
   end_time: "21:00:00",
-  working_day: "Wed",
+  working_day: "Tues, Wed, thurs",
   course: curso_spanish_juanito
   )
 
 
 curso_spanish_jenny_days = CourseDay.create!(start_time: "19:00:00",
   end_time: "21:00:00",
-  working_day: "Mon",
+  working_day: "Tues, Wed, thurs",
   course: curso_spanish_jenny
   )
 
 
 curso_english_london_days = CourseDay.create!(start_time: "19:00:00",
   end_time: "21:00:00",
-  working_day: "Mon",
+  working_day: "Tues, Wed, thurs",
   course: curso_spanish_london_jaunito
   )
 
 curso_spanish_in_london_days = CourseDay.create!(start_time: "20:00:00",
   end_time: "21:00:00",
-  working_day: "Tues",
+  working_day: "Tues, Wed, thurs",
   course: curso_spanish_in_eixample_chris
   )
 
 
 
-carlitos_student_booking = Booking.create!(total_price: 100, course: curso_spanish_juanito, user: carlitos_student)
+leo_student_booking = Booking.create!(total_price: 100, course: curso_spanish_juanito, user: leo_student)
 carlitos_student_booking2 = Booking.create!(total_price: 200, course: curso_spanish_jenny, user: carlitos_student)
 
-valentin_student_booking = Booking.create!(total_price: 100, course: curso_spanish_london_jaunito, user: valentin_student)
+valentin_student_booking = Booking.create!(total_price: 100, course: curso_spanish_juanito, user: valentin_student)
 valentin_student_booking2 = Booking.create!(total_price: 200, course: curso_spanish_in_eixample_chris, user: valentin_student)
 
 leo_student_booking = Booking.create!(total_price: 150, course: curso_spanish_jenny, user: leo_student)
-leo_student_booking2 = Booking.create!(total_price: 160, course: curso_spanish_in_eixample_chris, user: leo_student)
+# leo_student_booking2 = Booking.create!(total_price: 160, course: curso_spanish_in_eixample_chris, user: leo_student)
 
 
 
 
-carlitos_student_spanish_review_juanito = Review.create!(content: 'Juanito is a great teacher. Highly recommended', rating: 4, booking: carlitos_student_booking)
+leo_student_spanish_review_juanito = Review.create!(content: 'Juanito is a great teacher. Highly recommended', rating: 4, booking: leo_student_booking)
 
 carlitos_student_spanish_review_jenny = Review.create!(content: 'Jenny is amaaazing!', rating: 5, booking: carlitos_student_booking2)
 
@@ -240,7 +240,7 @@ p6 = InterestTag.create!(content: 'Creative', interest_category:personality)
 p7 = InterestTag.create!(content: 'Decisive', interest_category:personality)
 p8 = InterestTag.create!(content: 'easy going', interest_category:personality)
 p9 = InterestTag.create!(content: 'Emphatic', interest_category:personality)
-p10 = InterestTag.create!(content: 'Entusiastic', interest_category:personality)
+p10 = InterestTag.create!(content: 'Enthusiastic', interest_category:personality)
 p11 = InterestTag.create!(content: 'Flexible', interest_category:personality)
 p12 = InterestTag.create!(content: 'helpful', interest_category:personality)
 p13 = InterestTag.create!(content: 'fun', interest_category:personality)
@@ -350,6 +350,7 @@ s33 = InterestTag.create!(content: 'Tennis', interest_category:sports)
 s34 = InterestTag.create!(content: 'Beach volleyball', interest_category:sports)
 s35 = InterestTag.create!(content: 'Waterpolo', interest_category:sports)
 s36 = InterestTag.create!(content: 'Windsurfing', interest_category:sports)
+s37 = InterestTag.create!(content: 'Yoga', interest_category:sports)
 puts 'creating interest tags! <<< MOVIES'
 
 as1 = InterestTag.create!(content: 'Action', interest_category:movies)
@@ -361,7 +362,7 @@ as6 = InterestTag.create!(content: 'Documentaries', interest_category:movies)
 as7 = InterestTag.create!(content: 'Drama', interest_category:movies)
 as8 = InterestTag.create!(content: 'Fantasy', interest_category:movies)
 as9 = InterestTag.create!(content: 'Historial', interest_category:movies)
-as10 = InterestTag.create!(content: 'Terror', interest_category:movies)
+as10 = InterestTag.create!(content: 'Horror', interest_category:movies)
 as11 = InterestTag.create!(content: 'Mistery', interest_category:movies)
 as12 = InterestTag.create!(content: 'Politics', interest_category:movies)
 as13 = InterestTag.create!(content: 'Romantic', interest_category:movies)
@@ -380,7 +381,7 @@ as18 = InterestTag.create!(content: 'Western', interest_category:movies)
 
 
 juan_interest_link1 = UserInterest.create!(interest_tag: p8, user: juanito_teacher)
-juan_interest_link2 = UserInterest.create!(interest_tag: l7, user: juanito_teacher)
+juan_interest_link2 = UserInterest.create!(interest_tag: l25, user: juanito_teacher)
 juan_interest_link3 = UserInterest.create!(interest_tag: m14, user: juanito_teacher)
 juan_interest_link4 = UserInterest.create!(interest_tag: s33, user: juanito_teacher)
 juan_interest_link5 = UserInterest.create!(interest_tag: as1, user: juanito_teacher)
@@ -394,11 +395,11 @@ juan_interest_link5 = UserInterest.create!(interest_tag: as1, user: juanito_teac
 # interest_tag10 = InterestTag.create!(content: as2, interest_category: movies)
 
 
-chris_interest_link1 = UserInterest.create!(interest_tag: p9, user: chris_teacher)
-chris_interest_link2 = UserInterest.create!(interest_tag: l8, user: chris_teacher)
+chris_interest_link1 = UserInterest.create!(interest_tag: p4, user: chris_teacher)
+chris_interest_link2 = UserInterest.create!(interest_tag: l22, user: chris_teacher)
 chris_interest_link3 = UserInterest.create!(interest_tag: m15, user: chris_teacher)
-chris_interest_link4 = UserInterest.create!(interest_tag: s34, user: chris_teacher)
-chris_interest_link5 = UserInterest.create!(interest_tag: as2, user: chris_teacher)
+chris_interest_link4 = UserInterest.create!(interest_tag: s13, user: chris_teacher)
+chris_interest_link5 = UserInterest.create!(interest_tag: as10, user: chris_teacher)
 
 
 
@@ -410,10 +411,10 @@ chris_interest_link5 = UserInterest.create!(interest_tag: as2, user: chris_teach
 # interest_tag15 = InterestTag.create!(content: as3, interest_category: movies)
 
 
-jenny_interest_link1 = UserInterest.create!(interest_tag: p10, user: jenny_teacher)
-jenny_interest_link2 = UserInterest.create!(interest_tag: l9, user: jenny_teacher)
-jenny_interest_link3 = UserInterest.create!(interest_tag: m16, user: jenny_teacher)
-jenny_interest_link4 = UserInterest.create!(interest_tag: s35, user: jenny_teacher)
+jenny_interest_link1 = UserInterest.create!(interest_tag: p3, user: jenny_teacher)
+jenny_interest_link2 = UserInterest.create!(interest_tag: l12, user: jenny_teacher)
+jenny_interest_link3 = UserInterest.create!(interest_tag: m22, user: jenny_teacher)
+jenny_interest_link4 = UserInterest.create!(interest_tag: s37, user: jenny_teacher)
 jenny_interest_link5 = UserInterest.create!(interest_tag: as3, user: jenny_teacher)
 
 
@@ -426,10 +427,10 @@ jenny_interest_link5 = UserInterest.create!(interest_tag: as3, user: jenny_teach
 # interest_tag20 = InterestTag.create!(content: as4, interest_category: movies)
 
 
-carlitos_interest_link1 = UserInterest.create!(interest_tag: p11, user: carlitos_student)
-carlitos_interest_link2 = UserInterest.create!(interest_tag: l10, user: carlitos_student)
-carlitos_interest_link3 = UserInterest.create!(interest_tag: m17, user: carlitos_student)
-carlitos_interest_link4 = UserInterest.create!(interest_tag: s36, user: carlitos_student)
+carlitos_interest_link1 = UserInterest.create!(interest_tag: p23, user: carlitos_student)
+carlitos_interest_link2 = UserInterest.create!(interest_tag: l3, user: carlitos_student)
+carlitos_interest_link3 = UserInterest.create!(interest_tag: m15, user: carlitos_student)
+carlitos_interest_link4 = UserInterest.create!(interest_tag: s13, user: carlitos_student)
 carlitos_interest_link5 = UserInterest.create!(interest_tag: as4, user: carlitos_student)
 
 
@@ -441,11 +442,22 @@ carlitos_interest_link5 = UserInterest.create!(interest_tag: as4, user: carlitos
 # interest_tag25 = InterestTag.create!(content: as5, interest_category: movies)
 
 
-valentin_interest_link1 = UserInterest.create!(interest_tag: p12, user: valentin_student)
-valentin_interest_link2 = UserInterest.create!(interest_tag: l11, user: valentin_student)
-valentin_interest_link3 = UserInterest.create!(interest_tag: m18, user: valentin_student)
-valentin_interest_link4 = UserInterest.create!(interest_tag: s1, user: valentin_student)
-valentin_interest_link5 = UserInterest.create!(interest_tag: as5, user: valentin_student)
+valentin_interest_link1 = UserInterest.create!(interest_tag: p8, user: valentin_student)
+valentin_interest_link2 = UserInterest.create!(interest_tag: l16, user: valentin_student)
+valentin_interest_link3 = UserInterest.create!(interest_tag: m7, user: valentin_student)
+valentin_interest_link4 = UserInterest.create!(interest_tag: s13, user: valentin_student)
+valentin_interest_link5 = UserInterest.create!(interest_tag: as13, user: valentin_student)
+
+
+
+
+leo_interest_link1 = UserInterest.create!(interest_tag: p8, user: leo_student)
+leo_interest_link2 = UserInterest.create!(interest_tag: l3, user: leo_student)
+leo_interest_link3 = UserInterest.create!(interest_tag: m11, user: leo_student)
+leo_interest_link4 = UserInterest.create!(interest_tag: s17, user: leo_student)
+leo_interest_link5 = UserInterest.create!(interest_tag: as13, user: leo_student)
+
+
 
 
 puts 'Finished!'
