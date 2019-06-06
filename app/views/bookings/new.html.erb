@@ -11,7 +11,7 @@
           <span>Price: </span><p><%= @course.price.to_i %>€ per student</p>
     </div>
     <div>
-    <span>Dates: </span><p><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></p>
+    <span>Dates: </span><p><%= @course.start_date&.strftime("%-d %B") %> - <%= @course.end_date&.strftime("%-d %B") %></p>
     </div>
     <% @course.course_days.each do |day| %>
     <div>

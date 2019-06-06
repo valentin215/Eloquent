@@ -54,8 +54,8 @@
         <i class="far fa-calendar"></i>
         <div class="dates">
           <p><strong>Dates</strong></p>
-          <p>Start: <%= @course.start_date.strftime('%a, %B %e, %Y') %></p>
-          <p>End: <%= @course.end_date.strftime('%a, %B %e, %Y') %></p>
+          <p>Start: <%= @course.start_date&.strftime('%a, %B %e, %Y') %></p>
+          <p>End: <%= @course.end_date&.strftime('%a, %B %e, %Y') %></p>
         </div>
       </div>
     </div>
@@ -73,7 +73,6 @@
         <% @course.course_days.first(1).each do |x| %>
           <%= x.end_time.strftime('%I:%M%p') %>
           <span> (<%= @course.total_week_hours  %> hours per day)</span>
-
         <% end %>
         <div class="days">
           <% @course.course_days.each do |x| %>
