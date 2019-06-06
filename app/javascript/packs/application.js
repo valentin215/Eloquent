@@ -7,12 +7,10 @@ import { initAutocompleteCourse } from '../plugins/init_autocomplete'; // <-- yo
 
 import '../plugins/flatpickr';
 import { initMapbox } from '../plugins/init_mapbox';
-import { toggleFilter } from '../dropdown.js';
 
 
 // import { dropwdown } from 'dropwdown'
 
-toggleFilter();
 initMapbox();
 initAutocomplete();
 initAutocompleteCourse();
