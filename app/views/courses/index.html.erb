@@ -3,10 +3,14 @@
     <div>
       <h1 id="search-result"><%=@courses.count(:all)%> courses available <% if params[:query][:city].present? %> <%= "in #{ params[:query][:city].partition(',').first}"%> <% end  %></h1>
       </div>
+      <button class="dropwdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <%= icon('fas', 'bars') %>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= render 'query' %>
+    </div>
   </div>
 
-<%= render 'query' %>
   <div class="cards">
     <% @courses.each do |course| %>
     <div class="card-course">
