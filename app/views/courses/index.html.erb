@@ -11,9 +11,9 @@
       <h1 id="search-result"><%=@courses.count(:all)%> courses available <% if params[:query][:city].present? %> <%= "in #{ params[:query][:city].partition(',').first}"%> <% end  %></h1>
       </div>
       <!-- Button trigger modal -->
-        <button  class="dropwdown-toggle" data-toggle="modal" data-target="#exampleModal">
+        <a  class="dropwdown-toggle" data-toggle="modal" data-target="#exampleModal">
           <%= icon('fas', 'bars') %>
-        </button>
+        </a>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
