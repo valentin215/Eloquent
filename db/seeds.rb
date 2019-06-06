@@ -130,7 +130,7 @@ curso_spanish_jenny = Course.create!(user: jenny_teacher,
     address: "Carrer de Pelai, 11, 08001 Barcelona",
     area: "Joanic",
     city: "Joan's large Cafe",
-    price: 150,
+    price: 150  ,
     video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 4
     )
@@ -210,9 +210,9 @@ leo_student_booking = Booking.create!(total_price: 150, course: curso_spanish_je
 
 leo_student_spanish_review_juanito = Review.create!(content: 'Juanito is a great teacher. Highly recommended', rating: 4, booking: leo_student_booking_juan)
 
-carlitos_student_spanish_review_jenny = Review.create!(content: 'Jenny is amaaazing!', rating: 5, booking: carlitos_student_booking2)
+carlitos_student_spanish_review_jenny = Review.create!(content: 'Jenny is amaaazing!', rating: 4, booking: carlitos_student_booking2)
 
-valentin_student_spanish_review_juanito = Review.create!(content: 'Juanito is a good teacher, takes the time explain and correct my grammar', rating: 3, booking: valentin_student_booking)
+valentin_student_spanish_review_juanito = Review.create!(content: 'Juanito is a good teacher, takes the time explain and correct my grammar', rating: 4, booking: valentin_student_booking)
 valentin_student_spanish_review_chris = Review.create!(content: 'Chris is a good teacher, with excellent grammar', rating: 4, booking: valentin_student_booking2)
 
 
