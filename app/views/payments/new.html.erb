@@ -1,4 +1,15 @@
-<div class="content-container" style="text-align: center; margin-top: 40px; border-radius: 4px; padding-top: 10px; padding-bottom: 30px;">
+<div class="content-container" style="text-align: center; border-radius: 4px; padding-top: 10px">
+    <div class="course-info ">
+     <div>
+      <i class="far fa-check-circle"></i><h1><b>Almost there! </b></h1>
+    </div>
+      <h4>Please review carefully the details of your course before pay.</h4> <br>
+    </div>
+</div>
+<hr>
+
+<center>
+<div class="content-container" style="text-align: center border-radius: 4px; padding-bottom: 30px;">
   <div class="course-info">
     <div class="course-level">
       <%= @course.language.name.upcase %><span>, </span><%= @course.level.upcase %>
@@ -19,19 +30,23 @@
       <span>Days: </span><p><%= day.working_day %></p>
     </div>
     <% end %>
-    <div style="padding-top: 30px;">
+    <div >
       <p id="teacher-name-payment"> Your teacher will be:</p>
       <br>
       <p><strong><%= @course.user.name  %></strong></p>
     </div>
     </div>
       <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill, class: "teacher-photo-payment" %>
-      <%= form_tag course_payments_path(@course) do %>
-        <article>
-          <label class="amount">
-            <span>Total amount: <%= humanized_money_with_symbol(@course.price) %></span>
-          </label>
-        </article>
+      <hr>
+ </div>
+
+<div class="btn-show-course">
+  <div class="price">
+    <h4><strong>€<%= @course.price %></strong></h4>
+    <p><strong> per student </strong></p>
+  </div>
+  <div class="btn-book">
+    <%= form_tag course_payments_path(@course) do %>
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
         data-name="My Course"
@@ -40,4 +55,5 @@
         data-amount="<%= @course.price_cents %>"
         data-currency="<%= @course.price.currency %>"></script>
     <% end %>
+  </div>
 </div>
