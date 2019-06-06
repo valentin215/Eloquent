@@ -20,7 +20,7 @@
       <% if @user.photo.present? %>
       <div class="avatar-large">
         <%= link_to user_path(@course.user.id) do %>
-          <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill %>
+          <%= cl_image_tag @course.user.photo, class: "avatar-large" %>
         <% end %>
       </div>
       <% else %>
@@ -126,7 +126,7 @@
             <% if @user.photo.present? %>
               <div class="classmate-photo">
                 <%= link_to user_path(booking.user.id) do %>
-                  <%= cl_image_tag booking.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
+                  <%= cl_image_tag booking.user.photo, class: "avatar" %>
                 <% end %>
                 <p> <%= link_to "#{booking.user.name}", user_path(booking.user.id), :class => "user-profile-links" %></p>
               </div>
@@ -156,7 +156,7 @@
           <div class="review-detail">
             <% if @user.photo.present? %>
               <div class="">
-                <%= cl_image_tag review.try(:booking).try(:user).try(:photo), height: 40, width: 40, radius: 50, crop: :fill %>
+                <%= cl_image_tag review.try(:booking).try(:user).try(:photo), class: "avatar" %>
               </div>
             <% else %>
               <div class="">
