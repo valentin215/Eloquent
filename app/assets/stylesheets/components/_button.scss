@@ -141,3 +141,20 @@ button.stripe-button-el {
     }
 }
 
+
+button.ap-icon-pin svg {
+  fill: white;
+  vertical-align: baseline;
+  position: static;
+  margin-left: 10px !important;
+  &:hover {
+    fill: white;
+  }
+}
+
+.ap-input:hover ~ .ap-input-icon svg {
+  fill:white;
+}
+
+
+

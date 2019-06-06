@@ -26,13 +26,17 @@ class Course < ApplicationRecord
   def total_week_hours
     total = 0
     course_days.first(1).each do |course_day|
-      total += course_day.end_time&.strftime('%I:%M%p').to_i - course_day.start_time&.strftime('%I:%M%p').to_i
+      total += -course_day.start_time.strftime('%I:%M%p').to_f + course_day.end_time.strftime('%I:%M%p').to_f
     end
     return total
   end
 
   def self.levels
     self.all.pluck(:level).uniq
+  end
+
+  def self.interests
+    self.where(user: :user_interests).where(user_interests: :interest_tags).where(interest_tags: :interests_categories)
   end
   # def spaces_left
   #   Course.all.each do |course|
