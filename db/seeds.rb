@@ -108,8 +108,8 @@ curso_spanish_juanito = Course.create!(user: juanito_teacher,
     language: lang2,
     title:'Spanish Course for beginners',
     description:  'This is a course for beginners of spanish. We will walkthrough how to say fundamentals phrases and verbs to help you in your everyday encounters in barcelona',
-    end_date:        Date.new(2019,04,19),
-    start_date:     Date.new(2019,03,15),
+    end_date:        Date.new(2019,07,19),
+    start_date:     Date.new(2019,08,15),
     level:    'Elementary level (A1)',
     address: "Carrer de Torrijos, 26, 08012 Barcelona",
     area: "Gracia",
@@ -124,13 +124,13 @@ curso_spanish_jenny = Course.create!(user: jenny_teacher,
     language: lang2,
     title:'Spanish Course for advance users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
-    end_date:        Date.new(2019,06,17),
-    start_date:     Date.new(2019,03,15),
+    end_date:        Date.new(2019,07,17),
+    start_date:     Date.new(2019,08,15),
     level:    'Elementary level (A1)',
     address: "Carrer de Pelai, 11, 08001 Barcelona",
     area: "Joanic",
     city: "Joan's large Cafe",
-    price: 200,
+    price: 150  ,
     video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 4
     )
@@ -210,9 +210,9 @@ leo_student_booking = Booking.create!(total_price: 150, course: curso_spanish_je
 
 leo_student_spanish_review_juanito = Review.create!(content: 'Juanito is a great teacher. Highly recommended', rating: 4, booking: leo_student_booking_juan)
 
-carlitos_student_spanish_review_jenny = Review.create!(content: 'Jenny is amaaazing!', rating: 5, booking: carlitos_student_booking2)
+carlitos_student_spanish_review_jenny = Review.create!(content: 'Jenny is amaaazing!', rating: 4, booking: carlitos_student_booking2)
 
-valentin_student_spanish_review_juanito = Review.create!(content: 'Juanito is a good teacher, takes the time explain and correct my grammar', rating: 3, booking: valentin_student_booking)
+valentin_student_spanish_review_juanito = Review.create!(content: 'Juanito is a good teacher, takes the time explain and correct my grammar', rating: 4, booking: valentin_student_booking)
 valentin_student_spanish_review_chris = Review.create!(content: 'Chris is a good teacher, with excellent grammar', rating: 4, booking: valentin_student_booking2)
 
 
