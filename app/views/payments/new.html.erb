@@ -1,44 +1,49 @@
 <div class="content-container" style="text-align: center; border-radius: 4px; padding-top: 10px">
-    <div class="course-info ">
+    <!-- <div class="course-info ">
      <div>
       <i class="far fa-check-circle"></i><h1><b>Almost there! </b></h1>
     </div>
       <h4>Please review carefully the details of your course before pay.</h4> <br>
+    </div> -->
+    <div class="course-info2 ">
+    </div>
+      <h4>Check your order details</h4> <br>
+      <i class="fas fa-shopping-cart", style="font-size:34px; opacity:0.7"></i>
     </div>
 </div>
-<hr>
 
 <center>
-<div class="content-container" style="text-align: center border-radius: 4px; padding-bottom: 30px;">
-  <div class="course-info">
-    <div class="course-level">
-      <%= @course.language.name.upcase %><span>, </span><%= @course.level.upcase %>
+<div class="content-container2" style="text-align: center border-radius: 4px; padding-bottom: 30px;">
+  <div class="card-confirmation">
+    <div class="course-info">
+      <div class="course-level">
+        <%= @course.language.name.upcase %><span>, </span><%= @course.level.upcase %>
+      </div>
+      <%= link_to course_path(@course) do %>
+      <div class="course-title">
+        <%= @course.title %>
+      </div>
+      <% end %>
+      <div>
+        <span>Price: </span><p><%= @course.price.to_i %>€ per student</p>
+      </div>
+      <div>
+        <span>Dates: </span><p><%= @course.start_date&.strftime("%-d %B") %> - <%= @course.end_date&.strftime("%-d %B") %></p>
+      </div>
+      <% @course.course_days.each do |day| %>
+      <div>
+        <span>Days: </span><p><%= day.working_day %></p>
+      </div>
+      <% end %>
+      <div >
+        <p id="teacher-name-payment"> Your teacher will be:</p>
+        <br>
+        <p><strong><%= @course.user.name  %></strong></p>
+      </div>
     </div>
-    <%= link_to course_path(@course) do %>
-    <div class="course-title">
-      <%= @course.title %>
-    </div>
-    <% end %>
-    <div>
-      <span>Price: </span><p><%= @course.price.to_i %>€ per student</p>
-    </div>
-    <div>
-      <span>Dates: </span><p><%= @course.start_date&.strftime("%-d %B") %> - <%= @course.end_date&.strftime("%-d %B") %></p>
-    </div>
-    <% @course.course_days.each do |day| %>
-    <div>
-      <span>Days: </span><p><%= day.working_day %></p>
-    </div>
-    <% end %>
-    <div >
-      <p id="teacher-name-payment"> Your teacher will be:</p>
-      <br>
-      <p><strong><%= @course.user.name  %></strong></p>
-    </div>
-    </div>
-      <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill, class: "teacher-photo-payment" %>
-      <hr>
- </div>
+        <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill, class: "teacher-photo-payment2" %>
+  </div>
+</div>
 
 <div class="btn-show-course">
   <div class="price">

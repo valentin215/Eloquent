@@ -170,7 +170,7 @@
               <% course.bookings.each do |booking| %>
                 <% if @user.photo.present? %>
                     <div class="classmate-photo">
-                      <%= cl_image_tag booking.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
+                      <%= cl_image_tag booking.user.photo, class: "avatar" %>
                       <div>
                         <p> <%= link_to "#{booking.user.name}", user_path(booking.user.id), :class => "user-profile-links" %></p>
                       </div>
@@ -214,7 +214,7 @@
   <!--- profil reviews for teacher  --->
 
   <% if @user.teacher? %>
-  <hr style="margin-top: 20px;">
+ <!--  <hr style="margin-top: 50px;"> -->
   <div class="sections-course">
     <div class="teacher-reviews">
       <div id="title-category">
@@ -228,7 +228,7 @@
           <div class="review-detail">
             <% if @user.photo.present? %>
               <div class="">
-                <%= cl_image_tag review.try(:booking).try(:user).try(:photo), height: 40, width: 40, radius: 50, crop: :fill %>
+                <%= cl_image_tag review.try(:booking).try(:user).try(:photo), class: "avatar" %>
               </div>
             <% else %>
               <div class="">
