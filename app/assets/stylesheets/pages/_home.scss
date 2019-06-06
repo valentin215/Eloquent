@@ -37,15 +37,17 @@
   margin-bottom: 20px;
 }
 
-// .become-teacher {
-//   width: 90%;
-//   // justify:center;
-// }
+.become-teacher {
+  margin-top:0px;
+  width: 100%;
+  // justify:center;
+}
 
 .become-teacher-div {
-  width: 80%;
+  padding-left: 16px;
+  padding-right: 16px;
   margin: 0 auto;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 
@@ -125,7 +127,8 @@ margin-bottom: 100px;
 
 .home {
   margin-bottom: 50px;
-  height: 720px;
+  height: 780px;
+  overflow: scroll;
 }
 
 .how-works{
