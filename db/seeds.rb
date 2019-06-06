@@ -108,13 +108,8 @@ curso_spanish_juanito = Course.create!(user: juanito_teacher,
     language: lang2,
     title:'Spanish Course for beginners',
     description:  'This is a course for beginners of spanish. We will walkthrough how to say fundamentals phrases and verbs to help you in your everyday encounters in barcelona',
-<<<<<<< HEAD
     end_date:        Date.new(2019,7,19),
     start_date:     Date.new(2019,8,15),
-=======
-    end_date:        Date.new(2019,8,19),
-    start_date:     Date.new(2019,7,15),
->>>>>>> aa2db45b0c6179cd565d9cfa1800dae75908d822
     level:    'Elementary level (A1)',
     address: "Carrer de Torrijos, 26, 08012 Barcelona",
     area: "Gracia",
@@ -129,13 +124,8 @@ curso_spanish_jenny = Course.create!(user: jenny_teacher,
     language: lang2,
     title:'Spanish Course for advance users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
-<<<<<<< HEAD
-    end_date:        Date.new(2019,7,17),
-    start_date:     Date.new(2019,8,15),
-=======
     end_date:        Date.new(2019,8,17),
     start_date:     Date.new(2019,7,15),
->>>>>>> aa2db45b0c6179cd565d9cfa1800dae75908d822
     level:    'Elementary level (A1)',
     address: "Carrer de Pelai, 11, 08001 Barcelona",
     area: "Joanic",
@@ -150,13 +140,8 @@ curso_spanish_london_jaunito = Course.create!(user: juanito_teacher,
     language: lang1,
     title:'English Course for advance users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
-<<<<<<< HEAD
-    end_date:        Date.new(2019,5,17),
-    start_date:     Date.new(2019,4,15),
-=======
     end_date:        Date.new(2019,8,17),
     start_date:     Date.new(2019,7,15),
->>>>>>> aa2db45b0c6179cd565d9cfa1800dae75908d822
     level:    'Advanced level (C1)',
     address: "London Bridge, City of London",
     area: "Whitechapel",
@@ -171,13 +156,8 @@ curso_spanish_in_eixample_chris = Course.create!(user: chris_teacher,
     language: lang2,
     title:'Spanish Course for advance users',
     description:  'This course is aimed at intermediate users of Spanish who want to talk and be corrected in their use of spanish along with correction of their grammar',
-<<<<<<< HEAD
-    end_date:        Date.new(2019,5,17),
-    start_date:     Date.new(2019,3,15),
-=======
     end_date:        Date.new(2019,8,17),
     start_date:     Date.new(2019,7,15),
->>>>>>> aa2db45b0c6179cd565d9cfa1800dae75908d822
     level:    'Advanced level (C1)',
     address: "Carrer de la Diputació, 231",
     area: "Eixample",
