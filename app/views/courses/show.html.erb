@@ -214,9 +214,11 @@
     <p><strong> per student </strong></p>
   </div>
   <div class="btn-book">
-    <button type="button" class="btn-book-modal" data-toggle="modal" data-target="#exampleModal">
+    <%= link_to new_course_payment_path(@course) do%>
+    <button type="button" class="btn-book-modal" data-toggle="modal">
       Book Now
     </button>
+    <% end %>
   </div>
 </div>
 
