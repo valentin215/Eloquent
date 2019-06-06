@@ -246,13 +246,153 @@
   "Zimbabwe"
 ] %>
 
+
+<% spoken_lang = [
+"(Afan)/Oromoor/Oriya",
+"Abkhazian",
+"Afar",
+"Afrikaans",
+"Albanian",
+"Amharic",
+"Arabic",
+"Armenian",
+"Assamese",
+"Aymara",
+"Azerbaijani",
+"Bashkir",
+"Basque",
+"Bengali/Bangla",
+"Bhutani",
+"Bihari",
+"Bislama",
+"Breton",
+"Bulgarian",
+"Burmese",
+"Byelorussian",
+"Cambodian",
+"Catalan",
+"Chinese",
+"Corsican",
+"Croatian",
+"Czech",
+"Danish",
+"Dutch",
+"English",
+"Esperanto",
+"Estonian",
+"Faeroese",
+"Fiji",
+"Finnish",
+"French",
+"Frisian",
+"Galician",
+"Georgian",
+"German",
+"Greek",
+"Greenlandic",
+"Guarani",
+"Gujarati",
+"Hausa",
+"Hebrew",
+"Hindi",
+"Hungarian",
+"Icelandic",
+"Indonesian",
+"Interlingua",
+"Interlingue",
+"Inupiak",
+"Irish",
+"Italian",
+"Japanese",
+"Javanese",
+"Kannada",
+"Kashmiri",
+"Kazakh",
+"Kinyarwanda",
+"Kirghiz",
+"Kirundi",
+"Korean",
+"Kurdish",
+"Laothian",
+"Latin",
+"Latvian/Lettish",
+"Lingala",
+"Lithuanian",
+"Macedonian",
+"Malagasy",
+"Malay",
+"Malayalam",
+"Maltese",
+"Maori",
+"Marathi",
+"Moldavian",
+"Mongolian",
+"Nauru",
+"Nepali",
+"Norwegian",
+"Occitan",
+"Pashto/Pushto",
+"Persian",
+"Polish",
+"Portuguese",
+"Punjabi",
+"Quechua",
+"Rhaeto-Romance",
+"Romanian",
+"Russian",
+"Samoan",
+"Sangro",
+"Sanskrit",
+"Scots/Gaelic",
+"Serbian",
+"Serbo-Croatian",
+"Sesotho",
+"Setswana",
+"Shona",
+"Sindhi",
+"Singhalese",
+"Siswati",
+"Slovak",
+"Slovenian",
+"Somali",
+"Spanish",
+"Sundanese",
+"Swahili",
+"Swedish",
+"Tagalog",
+"Tajik",
+"Tamil",
+"Tatar",
+"Tegulu",
+"Thai",
+"Tibetan",
+"Tigrinya",
+"Tonga",
+"Tsonga",
+"Turkish",
+"Turkmen",
+"Twi",
+"Ukrainian",
+"Urdu",
+"Uzbek",
+"Vietnamese",
+"Volapuk",
+"Welsh",
+"Wolof",
+"Xhosa",
+"Yiddish",
+"Yoruba",
+"Zulu",
+] %>
+
 <div class="container">
 
       <div class="form-post">
-        <h1>Your profile</h1>
+        <h1>Complete your profile</h1>
           <%= simple_form_for current_user do |f| %>
 
             <div>
+
               <%= f.input :name, input_html: { class:'remove-bootstrap'},
               required: true, label: "Name", class: 'form-control', placeholder: "E.g. Mick Jagger" %>
             </div>
@@ -264,23 +404,32 @@
             <div>
               <%= f.input :native_language, input_html: { class:'remove-bootstrap'},
               hint: "leave it blank if you don't want to change it",
-              required: true %>
+              required: true, collection: spoken_lang %>
             </div>
             <div>
               <%= f.input :biography, input_html: { class:'remove-bootstrap'},
               hint: "leave it blank if you don't want to change it",
+
               required: true, label: "Tell us a little bit about you" %>
+
             </div>
             <div>
               <%= f.input :photo, input_html: { class:'remove-bootstrap'},
               hint: "leave it blank if you don't want to change it",
               required: true, label: "Upload your profile picture" %>
             </div>
+            <br>
+            <h1>What of the following tags describe you better</h1>
+            <p>Choose 3 per category</p>
             <% @tags_by_category.each do |category, taglist| %>
                 <div class="col-xs-12 col-sm-12">
                   <fieldset class="form-group">
                   <input type="hidden" name="user[interest_tag_ids][]" value="">
+
                   <span><b><%= category.content %></span></b>
+
+                  
+ 
                   <div class="category-choices">
                     <% taglist.each do |tag| %>
                       <% if current_user.user_interests.find_by(interest_tag: tag) %>

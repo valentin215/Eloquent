@@ -15,12 +15,13 @@
     <h3><strong><%= @course.title %></strong></h3>
   </div>
   <hr>
-
   <div class="teacher-content">
     <div class="teacher-photo">
       <% if @user.photo.present? %>
       <div class="avatar-large">
-        <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill %>
+        <%= link_to user_path(@course.user.id) do %>
+          <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill %>
+        <% end %>
       </div>
       <% else %>
         <i class="far fa-user fa-2x" style="margin-top: 3px;"></i>
@@ -67,7 +68,6 @@
         <% @course.course_days.first(1).each do |x| %>
           <% unless x.start_time.nil? %>
             <%= x.start_time.strftime('%I:%M%p') %>
-            <%= raise %>
           <% end  %>
         <% end %><span> - </span>
         <% @course.course_days.first(1).each do |x| %>
@@ -126,7 +126,9 @@
           <div>
             <% if @user.photo.present? %>
               <div class="classmate-photo">
-                <%= cl_image_tag booking.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
+                <%= link_to user_path(booking.user.id) do %>
+                  <%= cl_image_tag booking.user.photo, height: 40, width: 40, radius: 50, crop: :fill %>
+                <% end %>
                 <p> <%= link_to "#{booking.user.name}", user_path(booking.user.id), :class => "user-profile-links" %></p>
               </div>
             <% else %>

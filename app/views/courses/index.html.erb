@@ -14,6 +14,7 @@
       <div class="teacher-content">
         <div class="teacher-photo">
           <%= link_to course_path(course) do %>
+
           <%= cl_image_tag course.user.photo, class: "avatar-large" %>
           <% end %>
         </div>
