@@ -115,7 +115,7 @@ curso_spanish_juanito = Course.create!(user: juanito_teacher,
     area: "Gracia",
     city: "Mama's Cafe",
     price: 100,
-    video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
+    video_url: "https://www.youtube.com/watch?v=hIKJOpQ5CPs&feature=youtu.be",
     capacity: 4
     )
 
