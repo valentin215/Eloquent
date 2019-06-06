@@ -1,56 +1,50 @@
+<div class="content-container" style="text-align: center; margin-top: 40px; border-radius: 4px; padding-top: 10px; opacity: 0.8;">
 
-
-
-<div class="content-container" style="text-align: center; margin-top: 40px; border-radius: 4px; padding-top: 10px">
-  <div class="course-info ">
-   <div><i class="far fa-check-circle"></i><h1><b>That's all! Your booking is paid. </b></h1>
+   <div class='payment-title'>
+    <i class="far fa-check-circle" style="font-size: 70px; opacity: 0.85"></i>
+    <h1>Payment complete!</h1>
   </div>
-    <h4>You're now booked on the <%= @course.language.name %> <%= @course.level %> with <%= @course.user.name  %></h4> <br>
 
-<div class="content-container" style="display: flex; justify-content: space-around; align-items: center">
-    <%= cl_image_tag @course.user.photo, height: 80, width: 80, radius: 50, crop: :fill, class: "teacher-photo-payment" %>
-
-    <img src="https://visualpharm.com/assets/270/Sorting%20Arrows%20Horizontal-595b40b65ba036ed117d4b9d.svg" width="70" >
-
-    <%= cl_image_tag @current_user.photo, height: 80, width: 80, radius: 50, crop: :fill, class: "teacher-photo-payment" %>
-
-</div>
-
- </div>
+<hr>
 
 
-<div class="content-container" style="text-align: left; border-radius: 4px; padding-top: 10px; padding-bottom: 30px;">
-   <b><h4><center>Your course details:</center></h4></b> <br>
+<div class="content-container" style="text-align: left; border-radius: 4px; padding-top: 10px; padding-bottom: 30px; font-size: 10px;">
+  <div class="font-content">
+   <b><h4 style:><center>Your course details:</center></h4></b> <br>
 <h4>
-    <div>
-      <b>Teacher: </b><%= @course.user.name  %>
-    </div>
+
+      <b>Teacher: </b><span><%= @course.user.name  %></span>
+
       <div>
-      <b>Teacher Mail: </b><%= @course.user.email  %>
+      <b>Teacher Mail: </b><span><%= @course.user.email  %></span>
     </div>
     <div>
-      <b>Level: </b><%= @course.language.name %>, <%= @course.level %>
+      <b>Level: </b><span><%= @course.language.name %>, <%= @course.level %></span>
     </div>
 
     <div>
-     <b>Course: </b><%= @course.title %>
+     <b>Course: </b><span><%= @course.title %></span>
     </div>
     <div>
 
-      <b>Price paid: </b>€<%= @course.price.to_i %>
+      <b>Price paid: </b><span>€<%= @course.price.to_i %></span>
     </div>
     <div>
-      <b>Dates: </b><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %>
+      <b>Dates: </b><span><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></span>
 
     </div>
     <% @course.course_days.each do |day| %>
     <div>
-      <b>Days: </b><%= day.working_day %>
+      <b>Days: </b><span><%= day.working_day %></span>
     </div>
     <% end %>
 </h4>
 </div>
+</div>
 
 
 <p><br>
-    <%= link_to "My profile", user_path(@booking.user.id)%>
+  <div class="profile-link" style="padding-bottom: 30px; position: fixed; bottom: 0; text-align: center">
+    <%= link_to "Back to my profile", user_path(@booking.user.id)%>
+</div>
+</div>
