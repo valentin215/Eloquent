@@ -1,14 +1,22 @@
-<div class="content-container active">
+<div class="container-active active">
+<div class="content-container">
   <div class="filter">
     <div>
       <h1 id="search-result"><%=@courses.count(:all)%> courses available <% if params[:query][:city].present? %> <%= "in #{ params[:query][:city].partition(',').first}"%> <% end  %></h1>
       </div>
-      <button class="dropwdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= icon('fas', 'bars') %>
-      </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= render 'query' %>
-      </div>
+      <!-- Button trigger modal -->
+        <button  class="dropwdown-toggle" data-toggle="modal" data-target="#exampleModal">
+          <%= icon('fas', 'bars') %>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <%= render 'query' %>
+            </div>
+          </div>
+        </div>
   </div>
 
   <div class="cards">
@@ -90,4 +98,5 @@
   height: 300px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 </div>
