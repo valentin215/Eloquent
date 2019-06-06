@@ -5,14 +5,16 @@
     <%= f.hidden_field :language,
                        input_html: {value: params[:query].try(:[],:language)} %>
     <%= f.input :level,
-                label: "Choose a level: ",
+                label: "Choose a level:",
+                label_html: { class: "label-form" },
                 placeholder: "Intermediate",
                 required: false,
                 collection: Course.levels,
                 selected: params[:query].try(:[], :level) %>
 
     <%= f.input :interest_categories,
-                label: "Choose a category: ",
+                label: "Choose a category:",
+                label_html: { class: "label-form" },
                 placeholder: "Movies",
                 required: false,
                 collection: InterestCategory.all.pluck(:content, :id),selected: params[:query].try(:[], :interest_categories) %>
