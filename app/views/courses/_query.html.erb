@@ -1,9 +1,15 @@
+<%= simple_form_for :query, method: :get do |f| %>
+  <%= f.hidden_field :city,
+                      input_html: {value: params[:query].try(:[], :city)} %>
+  <%= f.hidden_field :language,
+                     input_html: {value: params[:query].try(:[],:language)} %>
+  <%= f.input :level,
+              required: false,
+              collection: Course.levels,
+              selected: params[:query].try(:[], :level) %>
 
-<%= simple_form_for :query, url: courses_index_path, method: :get do |f| %>
-  <%#= f.input :max_price, as: :integer, input_html: { value: params[:query].try(:[], :max_price) } %>
-  <%#= f.input :min_price, as: :integer, input_html: { value: params[:query].try(:[], :min_price) } %>
-  <%= f.input :level, collection: Course.levels, selected: params[:query].try(:[], :level) %>
-  <%#= f.input :name, input_html: { value: params[:query].try(:[], :name) } %>
-  <%#= f.input :material, collection: Product.materials, selected: params[:query].try(:[], :material) %>
-  <%= f.submit 'Query!' %>
+  <%= f.input :interest_categories,
+              required: false,
+              collection: InterestCategory.all.pluck(:content, :id),selected: params[:query].try(:[], :interest_categories)  %>
+  <%= f.submit 'filter' %>
 <% end %>

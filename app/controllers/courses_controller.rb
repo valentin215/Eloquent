@@ -1,22 +1,18 @@
 class CoursesController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @courses = Course.all
-
-
-    if params[:city].present?
-      @courses = Course.near(params[:city])
-    end
-
-    if params[:language].present?
-      @courses = @courses.joins(:language).where("languages.name ILIKE :language", language: params[:language] )
-    end
-
     if params[:query].present?
-      # @courses = @SearchCourses.new(params: params[:query]).call
-      @courses = @courses.where('level @@ ?', params[:query][:levels])
+      @courses = SearchCourses.new(params: params[:query]).call
+    end
+
+
+  @markers = @courses.map do |course|
+      {
+        lat: course.latitude,
+        lng: course.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { course: course })
+      }
     end
 
 
@@ -40,7 +36,7 @@ def show
       [{
         lat: @course.latitude,
         lng: @course.longitude,
-        # infoWindow: render_to_string(partial: "infowindow", locals: { course: @course })
+        infoWindow: render_to_string(partial: "infowindow", locals: { course: @course })
       }]
 end
 

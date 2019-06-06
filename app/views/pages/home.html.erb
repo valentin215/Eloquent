@@ -1,17 +1,20 @@
+
+<div class="home-container">
 <%= render 'shared/banner' %>
+
 <div class="content-container">
   <div class="search-form">
     <%= form_tag(courses_index_path, method: :get) do |f| %>
       <div class="flag">
-        <%= text_field_tag :language, params[:language], class: 'form-control', placeholder: "Spanish" %>
+        <%= text_field_tag :language, params[:language], name: "query[language]", class: 'form-control', placeholder: "Spanish" %>
         <div class="icon-flag">
           <%= icon('far', 'flag') %>
         </div>
       </div>
           <div class="location">
-            <%= text_field_tag :city, params[:city], class: 'form-control', placeholder: "Barcelona" %>
+            <%= text_field_tag :city, params[:city], name: "query[city]", class: 'form-control', placeholder: "Barcelona" %>
             <div class="icon-location">
-              <%#= icon('fas', 'map-marker-alt') %>
+              <%= icon('fas', 'map-marker-alt') %>
             </div>
           </div>
       <%= submit_tag 'Search', class: "button-search" %>
@@ -19,10 +22,11 @@
   </div>
 </div>
 
-
+</div>
 <!-- <div class="">
   <h3 class=""></h3>
 </div> -->
+
 
 <!--Carousel Wrapper-->
 <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
@@ -152,7 +156,4 @@
 <div class="end">
 <h1></h1>
 </div>
-
-
-
 
