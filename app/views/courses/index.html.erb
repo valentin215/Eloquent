@@ -1,4 +1,4 @@
-<div class="content-container">
+<div class="content-container active">
   <div class="filter">
     <div>
       <h1 id="search-result"><%=@courses.count(:all)%> courses available <% if params[:query][:city].present? %> <%= "in #{ params[:query][:city].partition(',').first}"%> <% end  %></h1>
@@ -6,9 +6,9 @@
       <button class="dropwdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <%= icon('fas', 'bars') %>
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <%= render 'query' %>
-    </div>
+      </div>
   </div>
 
   <div class="cards">
