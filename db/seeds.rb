@@ -168,28 +168,28 @@ curso_spanish_in_eixample_chris = Course.create!(user: chris_teacher,
     )
 
 
-curso_spanish_days = CourseDay.create!(start_time: 19,
-  end_time: 21,
+curso_spanish_days = CourseDay.create!(start_time: "19:00:00",
+  end_time: "21:00:00",
   working_day: "Wed",
   course: curso_spanish_juanito
   )
 
 
-curso_spanish_jenny_days = CourseDay.create!(start_time: 19,
-  end_time: 21,
+curso_spanish_jenny_days = CourseDay.create!(start_time: "19:00:00",
+  end_time: "21:00:00",
   working_day: "Mon",
   course: curso_spanish_jenny
   )
 
 
-curso_english_london_days = CourseDay.create!(start_time: 19,
-  end_time: 21,
+curso_english_london_days = CourseDay.create!(start_time: "19:00:00",
+  end_time: "21:00:00",
   working_day: "Mon",
   course: curso_spanish_london_jaunito
   )
 
-curso_spanish_in_london_days = CourseDay.create!(start_time: 20,
-  end_time: 21,
+curso_spanish_in_london_days = CourseDay.create!(start_time: "20:00:00",
+  end_time: "21:00:00",
   working_day: "Tues",
   course: curso_spanish_in_eixample_chris
   )
