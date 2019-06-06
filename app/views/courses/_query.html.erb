@@ -5,17 +5,17 @@
     <%= f.hidden_field :language,
                        input_html: {value: params[:query].try(:[],:language)} %>
     <%= f.input :level,
-                label: "Level",
+                label: "Choose a level: ",
+                placeholder: "Intermediate",
                 required: false,
                 collection: Course.levels,
-                selected: params[:query].try(:[], :level),
-                class: "query-form" %>
+                selected: params[:query].try(:[], :level) %>
 
     <%= f.input :interest_categories,
-                label: "Category",
+                label: "Choose a category: ",
+                placeholder: "Movies",
                 required: false,
-                collection: InterestCategory.all.pluck(:content, :id),selected: params[:query].try(:[], :interest_categories),
-                class: "query-form"   %>
-    <%= f.submit 'filter', class: 'button-search' %>
+                collection: InterestCategory.all.pluck(:content, :id),selected: params[:query].try(:[], :interest_categories) %>
+    <%= f.submit 'Search', class: 'button-search' %>
   <% end %>
 </div>
