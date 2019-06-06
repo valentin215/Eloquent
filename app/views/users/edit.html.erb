@@ -246,6 +246,7 @@
   "Zimbabwe"
 ] %>
 
+
 <% spoken_lang = [
 "(Afan)/Oromoor/Oriya",
 "Abkhazian",
@@ -384,7 +385,6 @@
 "Zulu",
 ] %>
 
-
 <div class="container">
 
       <div class="form-post">
@@ -392,12 +392,14 @@
           <%= simple_form_for current_user do |f| %>
 
             <div>
-              <%= f.input :name, required: true, label: "Full Name", class: 'form-control', placeholder: "E.g. Mick Jagger" %>
+
+              <%= f.input :name, input_html: { class:'remove-bootstrap'},
+              required: true, label: "Name", class: 'form-control', placeholder: "E.g. Mick Jagger" %>
             </div>
             <div >
-              <%= f.input :nationality, input_html: { class:'form-control'},
+              <%= f.input :nationality, collection: countries, input_html: { class:'remove-bootstrap'},
               hint: "leave it blank if you don't want to change it",
-              required: true, collection: countries, label: "What's your country?"  %>
+              required: true, label: "Country" %>
             </div>
             <div>
               <%= f.input :native_language, input_html: { class:'remove-bootstrap'},
@@ -407,12 +409,14 @@
             <div>
               <%= f.input :biography, input_html: { class:'remove-bootstrap'},
               hint: "leave it blank if you don't want to change it",
-              required: true, label: "Tell us a little bit about you?" %>
+
+              required: true, label: "Tell us a little bit about you" %>
+
             </div>
             <div>
               <%= f.input :photo, input_html: { class:'remove-bootstrap'},
               hint: "leave it blank if you don't want to change it",
-              required: true %>
+              required: true, label: "Upload your profile picture" %>
             </div>
             <br>
             <h1>What of the following tags describe you better</h1>
@@ -421,7 +425,11 @@
                 <div class="col-xs-12 col-sm-12">
                   <fieldset class="form-group">
                   <input type="hidden" name="user[interest_tag_ids][]" value="">
-                  <b><%= category.content %></b>
+
+                  <span><b><%= category.content %></span></b>
+
+                  
+ 
                   <div class="category-choices">
                     <% taglist.each do |tag| %>
                       <% if current_user.user_interests.find_by(interest_tag: tag) %>

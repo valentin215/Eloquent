@@ -8,8 +8,8 @@
 
           <div class="text-left">
             <div class="form-login-name">
-              <%= f.input :name,
-                          placeholder: 'Your Name',
+              <%= f.input :email,
+                          placeholder: 'Your Email',
                           label: false,
                           required: false,
                           autofocus: true,
@@ -20,8 +20,9 @@
               </div>
             </div>
             <div class="form-login-email" style="margin-top: 0px">
-              <%= f.input :email,
-                          placeholder: 'Your Email',
+
+              <%= f.input :name,
+                          placeholder: 'Your Name',
                           label: false,
                           required: false,
                           autofocus: true,
