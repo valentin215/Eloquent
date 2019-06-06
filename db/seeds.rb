@@ -196,7 +196,7 @@ curso_spanish_in_london_days = CourseDay.create!(start_time: "20:00:00",
 
 
 
-leo_student_booking = Booking.create!(total_price: 100, course: curso_spanish_juanito, user: leo_student)
+leo_student_booking_juan = Booking.create!(total_price: 100, course: curso_spanish_juanito, user: leo_student)
 carlitos_student_booking2 = Booking.create!(total_price: 200, course: curso_spanish_jenny, user: carlitos_student)
 
 valentin_student_booking = Booking.create!(total_price: 100, course: curso_spanish_juanito, user: valentin_student)
@@ -208,7 +208,7 @@ leo_student_booking = Booking.create!(total_price: 150, course: curso_spanish_je
 
 
 
-leo_student_spanish_review_juanito = Review.create!(content: 'Juanito is a great teacher. Highly recommended', rating: 4, booking: leo_student_booking)
+leo_student_spanish_review_juanito = Review.create!(content: 'Juanito is a great teacher. Highly recommended', rating: 4, booking: leo_student_booking_juan)
 
 carlitos_student_spanish_review_jenny = Review.create!(content: 'Jenny is amaaazing!', rating: 5, booking: carlitos_student_booking2)
 
