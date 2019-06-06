@@ -75,7 +75,7 @@
   border-left: 2px solid $purple;;
   object-fit: fill;
   padding-bottom: 36px;
-  display: flex;
+  // display: flex;
   padding-right: 0px;
   padding-left: 40px;
   padding-right: 10px;
@@ -85,23 +85,24 @@
     opacity: 0.8;
     font-size: 14px;
     font-weight: bolder;
-
+    text-align: left;
   }
 }
 
 .card-how-3 {
   object-fit: fill;
   padding-bottom: 36px;
-  display: flex;
+  // display: flex;
   padding-right: 0px;
   padding-left: 40px;
   padding-right: 10px;
   justify-content: center;
   // align-items: center;
   p {
-    opacity: 0.8;
+    // opacity: 0.8;
     font-size: 14px;
     font-weight: bolder;
+    text-align: left;
   }
 }
 
@@ -132,6 +133,19 @@ margin-bottom: 100px;
   // color: blue;
   margin: 0px auto;
 }
+
+.step {
+  margin-bottom: 0px;
+  color: gray;
+  font-weight: lighter;
+}
+
+
+
+
+
+
+
 
 
 
