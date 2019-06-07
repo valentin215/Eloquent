@@ -106,7 +106,7 @@ lang16 = Language.create!(name:'Arabic')
 
 curso_spanish_juanito = Course.create!(user: juanito_teacher,
     language: lang2,
-    title:'Spanish Course for beginners',
+    title:'Spanish course for beginners',
     description:  'This is a course for beginners of spanish. We will walkthrough how to say fundamentals phrases and verbs to help you in your everyday encounters in barcelona',
     end_date:        Date.new(2019,8,19),
     start_date:     Date.new(2019,7,15),
@@ -122,7 +122,7 @@ curso_spanish_juanito = Course.create!(user: juanito_teacher,
 
 curso_spanish_jenny = Course.create!(user: jenny_teacher,
     language: lang2,
-    title:'Spanish Course for advance users',
+    title:'Spanish course for advanced users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
     end_date:        Date.new(2019,8,17),
     start_date:     Date.new(2019,7,15),
@@ -138,7 +138,7 @@ curso_spanish_jenny = Course.create!(user: jenny_teacher,
 
 curso_spanish_london_jaunito = Course.create!(user: juanito_teacher,
     language: lang1,
-    title:'English Course for advance users',
+    title:'English course for advanced users',
     description:  'This course is aimed at more advanced users who want to talk and be corrected in their use of spanish along with correction of their grammar',
     end_date:        Date.new(2019,8,17),
     start_date:     Date.new(2019,7,15),
@@ -154,7 +154,7 @@ curso_spanish_london_jaunito = Course.create!(user: juanito_teacher,
 
 curso_spanish_in_eixample_chris = Course.create!(user: chris_teacher,
     language: lang2,
-    title:'Spanish Course for advance users',
+    title:'Spanish course for advanced users',
     description:  'This course is aimed at intermediate users of Spanish who want to talk and be corrected in their use of spanish along with correction of their grammar',
     end_date:        Date.new(2019,8,17),
     start_date:     Date.new(2019,7,15),
@@ -170,27 +170,27 @@ curso_spanish_in_eixample_chris = Course.create!(user: chris_teacher,
 
 curso_spanish_days = CourseDay.create!(start_time: "19:00:00",
   end_time: "21:00:00",
-  working_day: "Tues, Wed, thurs",
+  working_day: "Tues, Wed, Thurs",
   course: curso_spanish_juanito
   )
 
 
 curso_spanish_jenny_days = CourseDay.create!(start_time: "19:00:00",
   end_time: "21:00:00",
-  working_day: "Tues, Wed, thurs",
+  working_day: "Tues, Wed, Thurs",
   course: curso_spanish_jenny
   )
 
 
 curso_english_london_days = CourseDay.create!(start_time: "19:00:00",
   end_time: "21:00:00",
-  working_day: "Tues, Wed, thurs",
+  working_day: "Tues, Wed, Thurs",
   course: curso_spanish_london_jaunito
   )
 
 curso_spanish_in_london_days = CourseDay.create!(start_time: "20:00:00",
   end_time: "21:00:00",
-  working_day: "Tues, Wed, thurs",
+  working_day: "Tues, Wed, Thurs",
   course: curso_spanish_in_eixample_chris
   )
 
@@ -231,145 +231,145 @@ movies = InterestCategory.create!(content: 'Movies')
 puts 'creating interest tags!'
 puts 'creating interest tags! <<< PERSONALITY'
 
-p1 = InterestTag.create!(content: 'Active', interest_category:personality)
-p2 = InterestTag.create!(content: 'Calm', interest_category:personality)
-p3 = InterestTag.create!(content: 'Atentive', interest_category:personality)
+p1 = InterestTag.create!(content: 'active', interest_category:personality)
+p2 = InterestTag.create!(content: 'calm', interest_category:personality)
+p3 = InterestTag.create!(content: 'attentive', interest_category:personality)
 p4 = InterestTag.create!(content: 'happy', interest_category:personality)
-p5 = InterestTag.create!(content: 'Colaborative', interest_category:personality)
-p6 = InterestTag.create!(content: 'Creative', interest_category:personality)
-p7 = InterestTag.create!(content: 'Decisive', interest_category:personality)
+p5 = InterestTag.create!(content: 'collaborative', interest_category:personality)
+p6 = InterestTag.create!(content: 'creative', interest_category:personality)
+p7 = InterestTag.create!(content: 'decisive', interest_category:personality)
 p8 = InterestTag.create!(content: 'easy going', interest_category:personality)
-p9 = InterestTag.create!(content: 'Emphatic', interest_category:personality)
-p10 = InterestTag.create!(content: 'Enthusiastic', interest_category:personality)
-p11 = InterestTag.create!(content: 'Flexible', interest_category:personality)
+p9 = InterestTag.create!(content: 'emphatic', interest_category:personality)
+p10 = InterestTag.create!(content: 'enthusiastic', interest_category:personality)
+p11 = InterestTag.create!(content: 'flexible', interest_category:personality)
 p12 = InterestTag.create!(content: 'helpful', interest_category:personality)
 p13 = InterestTag.create!(content: 'fun', interest_category:personality)
-p14 = InterestTag.create!(content: 'Honest', interest_category:personality)
+p14 = InterestTag.create!(content: 'honest', interest_category:personality)
 p15 = InterestTag.create!(content: 'funny', interest_category:personality)
-p16 = InterestTag.create!(content: 'Optimist', interest_category:personality)
+p16 = InterestTag.create!(content: 'optimist', interest_category:personality)
 p17 = InterestTag.create!(content: 'tidy', interest_category:personality)
 p18 = InterestTag.create!(content: 'pasionate', interest_category:personality)
-p19 = InterestTag.create!(content: 'Practical', interest_category:personality)
-p20 = InterestTag.create!(content: 'Proactive', interest_category:personality)
-p21 = InterestTag.create!(content: 'Sensitive', interest_category:personality)
-p22 = InterestTag.create!(content: 'Relaxed', interest_category:personality)
-p23 = InterestTag.create!(content: 'Sociable', interest_category:personality)
-p24 = InterestTag.create!(content: 'Tolerant', interest_category:personality)
+p19 = InterestTag.create!(content: 'practical', interest_category:personality)
+p20 = InterestTag.create!(content: 'proactive', interest_category:personality)
+p21 = InterestTag.create!(content: 'sensitive', interest_category:personality)
+p22 = InterestTag.create!(content: 'relaxed', interest_category:personality)
+p23 = InterestTag.create!(content: 'sociable', interest_category:personality)
+p24 = InterestTag.create!(content: 'tolerant', interest_category:personality)
 
 puts 'creating interest tags! <<< LIFESTYLE'
 
-l1 = InterestTag.create!(content: 'Aventurer', interest_category:lifestyle)
-l2 = InterestTag.create!(content: 'Art lover', interest_category:lifestyle)
-l3 = InterestTag.create!(content: 'Sporty', interest_category:lifestyle)
-l4 = InterestTag.create!(content: 'Cook', interest_category:lifestyle)
-l5 = InterestTag.create!(content: 'Movie lover', interest_category:lifestyle)
-l6 = InterestTag.create!(content: 'Culture lover', interest_category:lifestyle)
-l7 = InterestTag.create!(content: 'Dancer', interest_category:lifestyle)
-l8 = InterestTag.create!(content: 'Early bird', interest_category:lifestyle)
-l9 = InterestTag.create!(content: 'Entrepreneur', interest_category:lifestyle)
-l10 = InterestTag.create!(content: 'Fashionista', interest_category:lifestyle)
-l11 = InterestTag.create!(content: 'Foodie', interest_category:lifestyle)
-l12 = InterestTag.create!(content: 'Gamer', interest_category:lifestyle)
-l13 = InterestTag.create!(content: 'Health concious', interest_category:lifestyle)
-l14 = InterestTag.create!(content: 'Homely', interest_category:lifestyle)
-l16 = InterestTag.create!(content: 'Music lover', interest_category:lifestyle)
-l17 = InterestTag.create!(content: 'Night bird', interest_category:lifestyle)
-l18 = InterestTag.create!(content: 'Party animal', interest_category:lifestyle)
-l19 = InterestTag.create!(content: 'Animal lover', interest_category:lifestyle)
-l20 = InterestTag.create!(content: 'Photograher', interest_category:lifestyle)
-l21 = InterestTag.create!(content: 'Singer', interest_category:lifestyle)
-l22 = InterestTag.create!(content: 'Tech enthusiast', interest_category:lifestyle)
-l23 = InterestTag.create!(content: 'Theathre lover', interest_category:lifestyle)
-l24 = InterestTag.create!(content: 'Travel addict', interest_category:lifestyle)
-l25 = InterestTag.create!(content: 'Vegan', interest_category:lifestyle)
-l26 = InterestTag.create!(content: 'Vegetarian', interest_category:lifestyle)
-l27 = InterestTag.create!(content: 'Day trip lover', interest_category:lifestyle)
-l28 = InterestTag.create!(content: 'Workaholic', interest_category:lifestyle)
+l1 = InterestTag.create!(content: 'aventurer', interest_category:lifestyle)
+l2 = InterestTag.create!(content: 'art lover', interest_category:lifestyle)
+l3 = InterestTag.create!(content: 'sporty', interest_category:lifestyle)
+l4 = InterestTag.create!(content: 'cook', interest_category:lifestyle)
+l5 = InterestTag.create!(content: 'movie lover', interest_category:lifestyle)
+l6 = InterestTag.create!(content: 'culture lover', interest_category:lifestyle)
+l7 = InterestTag.create!(content: 'dancer', interest_category:lifestyle)
+l8 = InterestTag.create!(content: 'early bird', interest_category:lifestyle)
+l9 = InterestTag.create!(content: 'entrepreneur', interest_category:lifestyle)
+l10 = InterestTag.create!(content: 'fashionista', interest_category:lifestyle)
+l11 = InterestTag.create!(content: 'foodie', interest_category:lifestyle)
+l12 = InterestTag.create!(content: 'gamer', interest_category:lifestyle)
+l13 = InterestTag.create!(content: 'health concious', interest_category:lifestyle)
+l14 = InterestTag.create!(content: 'homely', interest_category:lifestyle)
+l16 = InterestTag.create!(content: 'music lover', interest_category:lifestyle)
+l17 = InterestTag.create!(content: 'night bird', interest_category:lifestyle)
+l18 = InterestTag.create!(content: 'party animal', interest_category:lifestyle)
+l19 = InterestTag.create!(content: 'animal lover', interest_category:lifestyle)
+l20 = InterestTag.create!(content: 'photograher', interest_category:lifestyle)
+l21 = InterestTag.create!(content: 'singer', interest_category:lifestyle)
+l22 = InterestTag.create!(content: 'tech enthusiast', interest_category:lifestyle)
+l23 = InterestTag.create!(content: 'theathre lover', interest_category:lifestyle)
+l24 = InterestTag.create!(content: 'travel addict', interest_category:lifestyle)
+l25 = InterestTag.create!(content: 'vegan', interest_category:lifestyle)
+l26 = InterestTag.create!(content: 'vegetarian', interest_category:lifestyle)
+l27 = InterestTag.create!(content: 'day trip lover', interest_category:lifestyle)
+l28 = InterestTag.create!(content: 'workaholic', interest_category:lifestyle)
 puts 'creating interest tags! <<< MUSIC'
 
 m1 = InterestTag.create!(content: 'alternative Music', interest_category:music)
-m2 = InterestTag.create!(content: 'Asian Pop ', interest_category:music)
-m3 = InterestTag.create!(content: 'Blues', interest_category:music)
-m4 = InterestTag.create!(content: 'Clasical', interest_category:music)
-m5 = InterestTag.create!(content: 'Country', interest_category:music)
-m6 = InterestTag.create!(content: 'Dance', interest_category:music)
-m7 = InterestTag.create!(content: 'Electrónic', interest_category:music)
-m8 = InterestTag.create!(content: 'Folk', interest_category:music)
-m9 = InterestTag.create!(content: 'Funk', interest_category:music)
-m10 = InterestTag.create!(content: 'Gospel', interest_category:music)
-m11 = InterestTag.create!(content: 'Hip-Hop', interest_category:music)
-m12 = InterestTag.create!(content: 'Indie', interest_category:music)
-m13 = InterestTag.create!(content: 'Instrumental', interest_category:music)
-m14 = InterestTag.create!(content: 'Jazz', interest_category:music)
-m15 = InterestTag.create!(content: 'Latino', interest_category:music)
-m16 = InterestTag.create!(content: 'Lounge', interest_category:music)
-m17 = InterestTag.create!(content: 'Metal', interest_category:music)
-m18 = InterestTag.create!(content: 'New age', interest_category:music)
-m19 = InterestTag.create!(content: 'Opera', interest_category:music)
-m20 = InterestTag.create!(content: 'Pop', interest_category:music)
-m21 = InterestTag.create!(content: 'Punk', interest_category:music)
+m2 = InterestTag.create!(content: 'asian Pop ', interest_category:music)
+m3 = InterestTag.create!(content: 'blues', interest_category:music)
+m4 = InterestTag.create!(content: 'clasical', interest_category:music)
+m5 = InterestTag.create!(content: 'country', interest_category:music)
+m6 = InterestTag.create!(content: 'dance', interest_category:music)
+m7 = InterestTag.create!(content: 'electrónic', interest_category:music)
+m8 = InterestTag.create!(content: 'folk', interest_category:music)
+m9 = InterestTag.create!(content: 'funk', interest_category:music)
+m10 = InterestTag.create!(content: 'gospel', interest_category:music)
+m11 = InterestTag.create!(content: 'hip-Hop', interest_category:music)
+m12 = InterestTag.create!(content: 'indie', interest_category:music)
+m13 = InterestTag.create!(content: 'instrumental', interest_category:music)
+m14 = InterestTag.create!(content: 'jazz', interest_category:music)
+m15 = InterestTag.create!(content: 'latino', interest_category:music)
+m16 = InterestTag.create!(content: 'lounge', interest_category:music)
+m17 = InterestTag.create!(content: 'metal', interest_category:music)
+m18 = InterestTag.create!(content: 'new age', interest_category:music)
+m19 = InterestTag.create!(content: 'opera', interest_category:music)
+m20 = InterestTag.create!(content: 'pop', interest_category:music)
+m21 = InterestTag.create!(content: 'punk', interest_category:music)
 m22 = InterestTag.create!(content: 'R&B', interest_category:music)
-m23 = InterestTag.create!(content: 'Reggae', interest_category:music)
-m24 = InterestTag.create!(content: 'Rock', interest_category:music)
-m25 = InterestTag.create!(content: 'Ska', interest_category:music)
-m26 = InterestTag.create!(content: 'Soul', interest_category:music)
+m23 = InterestTag.create!(content: 'reggae', interest_category:music)
+m24 = InterestTag.create!(content: 'rock', interest_category:music)
+m25 = InterestTag.create!(content: 'ska', interest_category:music)
+m26 = InterestTag.create!(content: 'soul', interest_category:music)
 
 puts 'creating interest tags! <<< SPORTS'
-s1 = InterestTag.create!(content: 'American football', interest_category:sports)
-s2 = InterestTag.create!(content: 'Atletic', interest_category:sports)
-s3 = InterestTag.create!(content: 'Bádminton', interest_category:sports)
-s4 = InterestTag.create!(content: 'Baseball', interest_category:sports)
-s5 = InterestTag.create!(content: 'Basketball', interest_category:sports)
-s6 = InterestTag.create!(content: 'Bodyboarding', interest_category:sports)
-s7 = InterestTag.create!(content: 'Bowling', interest_category:sports)
-s8 = InterestTag.create!(content: 'Boxing', interest_category:sports)
-s9 = InterestTag.create!(content: 'Canoeing', interest_category:sports)
-s10 = InterestTag.create!(content: 'Climbing', interest_category:sports)
-s11 = InterestTag.create!(content: 'Cricket', interest_category:sports)
-s12 = InterestTag.create!(content: 'Scuba diving', interest_category:sports)
-s13 = InterestTag.create!(content: 'Football', interest_category:sports)
-s14 = InterestTag.create!(content: 'Golf', interest_category:sports)
-s16 = InterestTag.create!(content: 'Gymn lover', interest_category:sports)
-s17 = InterestTag.create!(content: 'Hockey', interest_category:sports)
-s18 = InterestTag.create!(content: 'Horse riding', interest_category:sports)
-s19 = InterestTag.create!(content: 'Go Karting', interest_category:sports)
-s20 = InterestTag.create!(content: 'Martial arts', interest_category:sports)
-s21 = InterestTag.create!(content: 'Motorcycling', interest_category:sports)
-s22 = InterestTag.create!(content: 'Padel', interest_category:sports)
-s23 = InterestTag.create!(content: 'Pole dancing', interest_category:sports)
-s24 = InterestTag.create!(content: 'Rowing', interest_category:sports)
-s25 = InterestTag.create!(content: 'Rugby', interest_category:sports)
-s26 = InterestTag.create!(content: 'Running', interest_category:sports)
-s27 = InterestTag.create!(content: 'Skateboarding', interest_category:sports)
-s28 = InterestTag.create!(content: 'Skating', interest_category:sports)
-s29 = InterestTag.create!(content: 'Skiing', interest_category:sports)
-s30 = InterestTag.create!(content: 'Snowboarding', interest_category:sports)
-s31 = InterestTag.create!(content: 'Squash', interest_category:sports)
-s32 = InterestTag.create!(content: 'Table tennis', interest_category:sports)
-s33 = InterestTag.create!(content: 'Tennis', interest_category:sports)
-s34 = InterestTag.create!(content: 'Beach volleyball', interest_category:sports)
-s35 = InterestTag.create!(content: 'Waterpolo', interest_category:sports)
-s36 = InterestTag.create!(content: 'Windsurfing', interest_category:sports)
-s37 = InterestTag.create!(content: 'Yoga', interest_category:sports)
+s1 = InterestTag.create!(content: 'american football', interest_category:sports)
+s2 = InterestTag.create!(content: 'atletic', interest_category:sports)
+s3 = InterestTag.create!(content: 'bádminton', interest_category:sports)
+s4 = InterestTag.create!(content: 'baseball', interest_category:sports)
+s5 = InterestTag.create!(content: 'basketball', interest_category:sports)
+s6 = InterestTag.create!(content: 'bodyboarding', interest_category:sports)
+s7 = InterestTag.create!(content: 'bowling', interest_category:sports)
+s8 = InterestTag.create!(content: 'boxing', interest_category:sports)
+s9 = InterestTag.create!(content: 'canoeing', interest_category:sports)
+s10 = InterestTag.create!(content: 'climbing', interest_category:sports)
+s11 = InterestTag.create!(content: 'cricket', interest_category:sports)
+s12 = InterestTag.create!(content: 'scuba diving', interest_category:sports)
+s13 = InterestTag.create!(content: 'football', interest_category:sports)
+s14 = InterestTag.create!(content: 'golf', interest_category:sports)
+s16 = InterestTag.create!(content: 'gymn lover', interest_category:sports)
+s17 = InterestTag.create!(content: 'hockey', interest_category:sports)
+s18 = InterestTag.create!(content: 'horse riding', interest_category:sports)
+s19 = InterestTag.create!(content: 'go Karting', interest_category:sports)
+s20 = InterestTag.create!(content: 'martial arts', interest_category:sports)
+s21 = InterestTag.create!(content: 'motorcycling', interest_category:sports)
+s22 = InterestTag.create!(content: 'padel', interest_category:sports)
+s23 = InterestTag.create!(content: 'pole dancing', interest_category:sports)
+s24 = InterestTag.create!(content: 'rowing', interest_category:sports)
+s25 = InterestTag.create!(content: 'rugby', interest_category:sports)
+s26 = InterestTag.create!(content: 'running', interest_category:sports)
+s27 = InterestTag.create!(content: 'skateboarding', interest_category:sports)
+s28 = InterestTag.create!(content: 'skating', interest_category:sports)
+s29 = InterestTag.create!(content: 'skiing', interest_category:sports)
+s30 = InterestTag.create!(content: 'snowboarding', interest_category:sports)
+s31 = InterestTag.create!(content: 'squash', interest_category:sports)
+s32 = InterestTag.create!(content: 'table tennis', interest_category:sports)
+s33 = InterestTag.create!(content: 'tennis', interest_category:sports)
+s34 = InterestTag.create!(content: 'beach volleyball', interest_category:sports)
+s35 = InterestTag.create!(content: 'waterpolo', interest_category:sports)
+s36 = InterestTag.create!(content: 'windsurfing', interest_category:sports)
+s37 = InterestTag.create!(content: 'yoga', interest_category:sports)
 puts 'creating interest tags! <<< MOVIES'
 
-as1 = InterestTag.create!(content: 'Action', interest_category:movies)
-as2 = InterestTag.create!(content: 'Aventure', interest_category:movies)
-as3 = InterestTag.create!(content: 'Animation ', interest_category:movies)
-as4 = InterestTag.create!(content: 'Comedy', interest_category:movies)
-as5 = InterestTag.create!(content: 'Crime', interest_category:movies)
-as6 = InterestTag.create!(content: 'Documentaries', interest_category:movies)
-as7 = InterestTag.create!(content: 'Drama', interest_category:movies)
-as8 = InterestTag.create!(content: 'Fantasy', interest_category:movies)
-as9 = InterestTag.create!(content: 'Historial', interest_category:movies)
-as10 = InterestTag.create!(content: 'Horror', interest_category:movies)
-as11 = InterestTag.create!(content: 'Mistery', interest_category:movies)
-as12 = InterestTag.create!(content: 'Politics', interest_category:movies)
-as13 = InterestTag.create!(content: 'Romantic', interest_category:movies)
-as14 = InterestTag.create!(content: 'Sagas', interest_category:movies)
-as16 = InterestTag.create!(content: 'Satirical', interest_category:movies)
-as17 = InterestTag.create!(content: 'Science fiction', interest_category:movies)
-as18 = InterestTag.create!(content: 'Western', interest_category:movies)
+as1 = InterestTag.create!(content: 'action', interest_category:movies)
+as2 = InterestTag.create!(content: 'aventure', interest_category:movies)
+as3 = InterestTag.create!(content: 'animation ', interest_category:movies)
+as4 = InterestTag.create!(content: 'comedy', interest_category:movies)
+as5 = InterestTag.create!(content: 'crime', interest_category:movies)
+as6 = InterestTag.create!(content: 'documentaries', interest_category:movies)
+as7 = InterestTag.create!(content: 'drama', interest_category:movies)
+as8 = InterestTag.create!(content: 'fantasy', interest_category:movies)
+as9 = InterestTag.create!(content: 'historial', interest_category:movies)
+as10 = InterestTag.create!(content: 'horror', interest_category:movies)
+as11 = InterestTag.create!(content: 'mistery', interest_category:movies)
+as12 = InterestTag.create!(content: 'politics', interest_category:movies)
+as13 = InterestTag.create!(content: 'romantic', interest_category:movies)
+as14 = InterestTag.create!(content: 'sagas', interest_category:movies)
+as16 = InterestTag.create!(content: 'satirical', interest_category:movies)
+as17 = InterestTag.create!(content: 'science fiction', interest_category:movies)
+as18 = InterestTag.create!(content: 'western', interest_category:movies)
 
 
 
