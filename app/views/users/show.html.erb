@@ -83,7 +83,7 @@
 
   <div class="profil-bookings">
     <% if @user.student? %>
-      <h2 style="padding-bottom: 8px;"> <%= @user.name %> Courses & Reviews</h2>
+      <h2 style="padding-bottom: 8px;"> Courses & Reviews</h2>
       <% @bookings.each do |booking| %>
       <div class="course-info-student" style="margin-bottom: 12px;">
         <div class="course-booking-review">
@@ -146,7 +146,7 @@
     <%# end %>
     <% elsif @user.teacher? %>
       <div class="new-course">
-        <h2><%= @user.name %> Courses</h2>
+        <h2>Courses</h2>
         <div class="course-review">
           <% if current_user == @user %>
             <%= link_to " + new Course", new_course_path(@user) %>

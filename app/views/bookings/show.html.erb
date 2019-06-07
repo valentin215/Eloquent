@@ -1,9 +1,9 @@
 <div class="content-container" style="text-align: center; margin-top: 40px; border-radius: 4px; padding-top: 10px; opacity: 0.8;">
 
-   <div class='payment-title'>
-    <i class="far fa-check-circle" style="font-size: 70px; opacity: 0.85"></i>
-    <h1>Payment complete!</h1>
-  </div>
+ <div class='payment-title'>
+  <i class="far fa-check-circle" style="font-size: 70px; opacity: 0.85"></i>
+  <h1>Payment complete!</h1>
+</div>
 
 <hr>
 
@@ -11,11 +11,11 @@
 <div class="content-container" style="text-align: left; border-radius: 4px; padding-top: 10px; padding-bottom: 30px; font-size: 10px;">
   <div class="font-content">
    <b><h4 style:><center>Your course details:</center></h4></b> <br>
-<h4>
+   <h4>
 
-      <b>Teacher: </b><span><%= @course.user.name  %></span>
+    <b>Teacher: </b><span><%= @course.user.name  %></span>
 
-      <div>
+    <div>
       <b>Teacher Mail: </b><span><%= @course.user.email  %></span>
     </div>
     <div>
@@ -24,20 +24,20 @@
 
     <div>
      <b>Course: </b><span><%= @course.title %></span>
-    </div>
-    <div>
+   </div>
+   <div>
 
-      <b>Price paid: </b><span>€<%= @course.price.to_i %></span>
-    </div>
-    <div>
-      <b>Dates: </b><span><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></span>
+    <b>Price paid: </b><span>€<%= @course.price.to_i %></span>
+  </div>
+  <div>
+    <b>Dates: </b><span><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></span>
 
-    </div>
-    <% @course.course_days.each do |day| %>
-    <div>
-      <b>Days: </b><span><%= day.working_day %></span>
-    </div>
-    <% end %>
+  </div>
+  <% @course.course_days.each do |day| %>
+  <div>
+    <b>Days: </b><span><%= day.working_day %></span>
+  </div>
+  <% end %>
 </h4>
 </div>
 </div>
@@ -46,5 +46,5 @@
 <p><br>
   <div class="profile-link" style="padding-bottom: 30px; bottom: 20px; text-align: center">
     <%= link_to "Back to my profile", user_path(@booking.user.id)%>
-</div>
+  </div>
 </div>

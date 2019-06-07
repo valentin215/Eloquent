@@ -97,6 +97,7 @@
 
 .course-info-student {
   display: flex;
+  justify-content: space-between;
   margin-bottom: 8px;
   margin-top: 20px;
   background-color: #F6F6F6;
@@ -115,7 +116,6 @@
     opacity: 1;
     font-size: 13px;
     margin-top: 10px;
-    margin-left: 20px;
     margin-bottom: 10px;
   }
 }
