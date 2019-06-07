@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Wants to learn a new language? Now you can book a group languages courses with expert teachers and find classmates with common interests in your city.">
-    <meta property="og:title" content="Eloqnt - Learn new languages face to face in cool places">
-    <meta property="og:image" content="/images/facebook-card.png">
-    <meta property="og:description" content="Eloqnt is a plataform which connects students with language teachers to learn in groups in cool places.">
-    <meta property="og:site_name" content="Eloqnt"/>
-    <meta property='og:locale' content='en_ES'/>
-    <meta property="og:url" content="http://www.eloqntapp.com">
+
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <%= favicon_link_tag asset_path('https://img.icons8.com/dusk/64/000000/language.png'), :rel => 'icon', :type =>  'image/png' %>
-   <title>Eloqnt - Book group language courses in cool locations</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
