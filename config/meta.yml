@@ -1,5 +1,5 @@
 meta_product_name: "Eloqnt"
 meta_title: "Eloqnt - Learn new languages face to face in cool places"
 meta_description: "Wants to learn a new language? Now you can book a group languages courses with expert teachers and find classmates with common interests in your city."
-meta_image: "facebook-card" # should exist in `app/assets/images/`
+meta_image: "facebook-card.png" # should exist in `app/assets/images/`
 #twitter_account: "@product_twitter_account"   # required for Twitter Cards
