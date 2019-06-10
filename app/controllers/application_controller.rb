@@ -11,9 +11,6 @@ def after_sign_in_path_for(resource)
   stored_location_for(resource) || edit_user_path(current_user)
 end
 
-
-
-
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
