@@ -9,12 +9,13 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
 
-gem 'sassc-rails'
+gem 'sass-rails'
+gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem 'autoprefixer-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'font-awesome-rails'
 gem 'omniauth-facebook'
 
 group :development do
