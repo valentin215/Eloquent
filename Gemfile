@@ -31,7 +31,7 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem 'cloudinary', '~> 1.9.1'
+gem 'cloudinary', '~> 1.12.O'
 gem 'carrierwave', '~> 1.2'
 
 gem 'geocoder'
