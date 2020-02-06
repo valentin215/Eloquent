@@ -458,11 +458,7 @@ leo_interest_link4 = UserInterest.create!(interest_tag: s17, user: leo_student)
 leo_interest_link5 = UserInterest.create!(interest_tag: as13, user: leo_student)
 
 
-
-
 puts 'Finished!'
-
-
 
 
 
