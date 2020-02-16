@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'courses/show'
   get 'courses/new'
   get 'courses/edit'
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: 'pages#home'
   resources :courses do
     resources :bookings, only: [:new, :create, :update]
