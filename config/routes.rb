@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   get 'courses/new'
   get 'courses/edit'
 
-  devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks"
-  }
+  devise_for :users, :controllers => { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  # get 'auth/facebook/callback', to: 'users#create'
-  # get 'auth/failure', to: redirect('/')
+  devise_scope :user do
+    get '/auth/facebook/callback', to: 'devise/sessions#new'
+    get '/auth/failure', to: 'devise/sessions#new'
+  end
 
   resources :courses do
     resources :bookings, only: [:new, :create, :update]
