@@ -2,14 +2,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
 
-def default_url_options
-  { host: ENV["DOMAIN"] || "localhost:3000" }
-end
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 
-# this to redirect to make profile after signing up
-def after_sign_in_path_for(resource)
-  stored_location_for(resource) || edit_user_path(current_user)
-end
+  # this to redirect to make profile after signing up
+  def after_sign_in_path_for(resource)
+    root_path(current_user)
+  end
+
+  def after_sign_up_path_for(resource)
+    edit_user_path(current_user)
+  end
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
