@@ -130,7 +130,7 @@ curso_spanish_jenny = Course.create!(user: jenny_teacher,
     address: "Carrer de Pelai, 11, 08001 Barcelona",
     area: "Joanic",
     city: "Joan's large Cafe",
-    price: 150  ,
+    price: 150,
     video_url: "https://www.youtube.com/embed/_WZoYmWzBBg",
     capacity: 4
     )
