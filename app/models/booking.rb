@@ -3,7 +3,6 @@ class Booking < ApplicationRecord
   has_one :review
   belongs_to :user
   has_one :teacher, through: :course, source: :user
-  monetize :amount_cents
 
 
   # def reviewed?
