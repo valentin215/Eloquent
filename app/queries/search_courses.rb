@@ -15,37 +15,36 @@ class SearchCourses
     @scope = filter_by_teacher_rating(@scope, params[:teacher_rating]) if params [:teacher_rating].present?
     @scope = filter_by_price(@scope, params[:price]) if params[:price].present?
     @scope = filter_by_time(@scope, params[:time]) if params[:time].present?
+    @scope = filter_by_day(@scope, params[:day]) if params[:day].present?
+    @scope = filter_by_date(@scope, params[:date]) if params[:date].present?
     @scope
   end
 
   private
 
-  # def filter_by_categories(scope, content)
-  #   @scope_category.where('content @@ ?', content)
-  # end
-
-  # def filter_by_tags(scope, tags)
-  #   scope.where('tags @@ ?', tags)
-  # end
-
   def filter_by_categories(scope, category_id)
     scope.joins(user: { user_interests: :interest_tag}).where(interest_tags: {interest_category_id: category_id} )
   end
 
-  def filter_by_teacher_rating
-    scope.joins(user: )
+  def filter_by_teacher_rating(scope, teacher_rating)
+    scope.joins(:user).where("teacher_rating = ?", teacher_rating)
   end
 
-  def filter_by_price
+  def filter_by_price(scope, price)
+    scope.where("price <= ?", price)
   end
 
   def filter_by_time
+    scope.left_outer_joins(:course_day).where("start_time >= ? and end_time <= ?", start_time, end_time)
   end
 
+  def filter_by_date
+    scope.where("start_date >= ? and end_date <= ?", start_date, end_date)
+  end
 
-# where('content @@ ?', content)
-  #scope.joins(:user).pluck(:user_interests).joins(:interest_tag).joins(:interest_category).where('content @@ ?', content)
-  #( :suburbs => {:households => {:people => :employers }})
+  def filter_by_day
+    scope.left_outer_joins(:course_day).where("start_time >= ? and end_time <= ?", start_time, end_time)
+  end
 
   def filter_by_city(scope, city)
     scope.near(city)
