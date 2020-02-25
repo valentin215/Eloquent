@@ -18,6 +18,7 @@
                 placeholder: "Movies",
                 required: false,
                 collection: InterestCategory.all.pluck(:content, :id),selected: params[:query].try(:[], :interest_categories) %>
+
     <%= f.submit 'Search', class: 'button-search' %>
   <% end %>
 </div>
