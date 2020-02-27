@@ -17,7 +17,16 @@
                 label_html: { class: "label-form" },
                 placeholder: "Movies",
                 required: false,
-                collection: InterestCategory.all.pluck(:content, :id),selected: params[:query].try(:[], :interest_categories) %>
+                collection: InterestCategory.all.pluck(:content, :id),
+                selected: params[:query].try(:[], :interest_categories) %>
+
+    <%= f.input :time,
+              label: "Choose a time:",
+              label_html: { class: "label-form" },
+              placeholder: "evening",
+              required: false,
+              collection: ["Morning", "Afternoon", "Evening"],
+              selected: params[:query].try(:[], :time) %>            
 
     <%= f.submit 'Search', class: 'button-search' %>
   <% end %>

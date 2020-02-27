@@ -64,6 +64,9 @@
               </div>
               <% end %>
                 <div>
+                  <span>Time: </span><p><%= course.course_days.first.start_time.strftime("%H:%M") + ' ' + 'to' + ' ' + course.course_days.first.end_time.strftime("%H:%M") %></p>
+                </div>
+                <div>
                   <span>Price: </span><p><%= course.price.to_i %>€ per student</p>
                 </div>
                 <div>

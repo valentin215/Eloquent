@@ -21,7 +21,6 @@ class Course < ApplicationRecord
 
   attr_accessor :start_time, :end_time
 
-
   def total_week_hours
     total = 0
     course_days.first(1).each do |course_day|
