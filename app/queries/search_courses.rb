@@ -36,11 +36,11 @@ class SearchCourses
 
   def filter_by_time(scope, time)
     if time == 'morning'
-      scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "00:00", "12:00")
+      scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "00:01", "12:00")
     elsif time == 'afternoon'
       scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "12:00", "18:00")
     else
-      scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "18:00", "00:00")
+      scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "18:00", "23:59")
     end 
   end
 
