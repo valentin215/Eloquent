@@ -1,13 +1,17 @@
  <div class="query-form">
   <%= simple_form_for :query, method: :get do |f| %>
+
     <%= f.hidden_field :city,
                         input_html: {value: params[:query].try(:[], :city)} %>
+
     <%= f.hidden_field :language,
                        input_html: {value: params[:query].try(:[],:language)} %>
     <%= f.input :level,
                 label: "Choose a level:",
                 label_html: { class: "label-form" },
                 required: false,
+                include_blank: "-------",
+                value_method: "first",
                 collection: Course.levels,
                 selected: params[:query].try(:[], :level) %>
 
@@ -15,6 +19,8 @@
                 label: "Choose a category:",
                 label_html: { class: "label-form" },
                 required: false,
+                include_blank: "-------",
+                value_method: "first",
                 collection: InterestCategory.all.pluck(:content, :id),
                 selected: params[:query].try(:[], :interest_categories) %>
 
@@ -22,8 +28,27 @@
               label: "Choose a time:",
               label_html: { class: "label-form" },
               required: false,
+              include_blank: "-------",
+              value_method: "first",
               collection: ["Morning", "Afternoon", "Evening"],
-              selected: params[:query].try(:[], :time) %>            
+              selected: params[:query].try(:[], :time) %>          
+
+     <%= f.input :teacher_rating,
+              label: "Choose a rating:",
+              label_html: { class: "label-form" },
+              required: false,
+              include_blank: "-------",
+              value_method: "first",
+              collection: ["1", "2", "3", "4", "5"],
+              selected: params[:query].try(:[], :teacher_rating) %>            
+
+    <%= f.input :price,
+              label: "Choose a price:",
+              label_html: { class: "label-form" },
+              required: false,
+              include_blank: "-------",
+              collection: ["0-50", "50-100", "100-150", "150-200", "200+"],
+              selected: params[:query].try(:[], :price) %>  
 
     <%= f.submit 'Search', class: 'button-search' %>
   <% end %>
