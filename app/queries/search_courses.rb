@@ -64,8 +64,6 @@ class SearchCourses
     end 
   end
 
-  ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-
   def filter_by_city(scope, city)
     scope.near(city)
   end
