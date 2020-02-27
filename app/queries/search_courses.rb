@@ -30,21 +30,27 @@ class SearchCourses
     scope.joins(:user).where("teacher_rating = ?", teacher_rating)
   end
 
-  def filter_by_price(scope, price)
-    scope.where("price <= ?", price)
+  # def filter_by_price(scope, price)
+  #   scope.where("price <= ?", price)
+  # end
+
+  def filter_by_time(scope, time)
+    if time == 'morning'
+      scope.left_outer_joins(:course_day).where("start_time >= ? and end_time <= ?", 00:00, 12:00)
+    elsif time == 'afternoon'
+      scope.left_outer_joins(:course_day).where("start_time >= ? and end_time <= ?", 12:00, 18:00)
+    else
+      scope.left_outer_joins(:course_day).where("start_time >= ? and end_time <= ?", 18:00, 00:00)
+    end 
   end
 
-  def filter_by_time
-    scope.left_outer_joins(:course_day).where("start_time >= ? and end_time <= ?", start_time, end_time)
-  end
+  # def filter_by_date
+  #   scope.where("start_date >= ? and end_date <= ?", start_date, end_date)
+  # end
 
-  def filter_by_date
-    scope.where("start_date >= ? and end_date <= ?", start_date, end_date)
-  end
-
-  def filter_by_day
-    scope.left_outer_joins(:course_day).where("start_time >= ? and end_time <= ?", start_time, end_time)
-  end
+  # def filter_by_day
+  #   scope.left_outer_joins(:course_day).where("start_time >= ? and end_time <= ?", start_time, end_time)
+  # end
 
   def filter_by_city(scope, city)
     scope.near(city)
