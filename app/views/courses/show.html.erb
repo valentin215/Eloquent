@@ -77,7 +77,7 @@
           <% end  %>
         <% end %><span> - </span>
         <% @course.course_days.first(1).each do |x| %>
-          <%= x.end_time.strftime('%I:%M%p') %>
+          <%= x.end_time&.strftime('%I:%M%p') %>
           <span> (<%= @course.total_week_hours  %> hours per day)</span>
         <% end %>
         <div class="days">
@@ -155,8 +155,8 @@
   <div class="teacher-reviews">
     <h4><strong>Teacher experience</strong></h4>
     <div class="u-flex">
-      <p class="mr1"><%= @user.teacher_experience %></p>
-      <% if @user.teacher_experience < 2 %>
+      <p class="mr1"><%= @user&.teacher_experience %></p>
+      <% if @user&.teacher_experience < 2 %>
         <p class="ml2">year</p>
       <% else %>
         <p class="ml2">years</p>

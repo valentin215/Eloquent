@@ -24,7 +24,7 @@ class Course < ApplicationRecord
   def total_week_hours
     total = 0
     course_days.first(1).each do |course_day|
-      total += -course_day.start_time.strftime('%I:%M%p').to_f + course_day.end_time.strftime('%I:%M%p').to_f
+      total += -course_day.start_time&.strftime('%I:%M%p').to_f + course_day.end_time&.strftime('%I:%M%p').to_f
     end
     return total
   end

@@ -48,7 +48,15 @@
               required: false,
               include_blank: "-------",
               collection: ["0-50", "50-100", "100-150", "150-200", "200+"],
-              selected: params[:query].try(:[], :price) %>  
+              selected: params[:query].try(:[], :price) %>
+
+    <%= f.input :day,
+              label: "Choose a day:",
+              label_html: { class: "label-form" },
+              required: false,
+              include_blank: "-------",
+              collection: ["0-50", "50-100", "100-150", "150-200", "200+"],
+              selected: params[:query].try(:[], :day) %>   
 
     <%= f.submit 'Search', class: 'button-search' %>
   <% end %>

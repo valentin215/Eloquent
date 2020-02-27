@@ -15,7 +15,6 @@ class SearchCourses
     @scope = filter_by_price(@scope, params[:price]) if params[:price].present?
     @scope = filter_by_time(@scope, params[:time]) if params[:time].present?
     @scope = filter_by_day(@scope, params[:day]) if params[:day].present?
-    @scope = filter_by_date(@scope, params[:date]) if params[:date].present?
     @scope = filter_by_teacher_rating(@scope, params[:teacher_rating]) if params[:teacher_rating].present?
     @scope
   end
@@ -55,13 +54,17 @@ class SearchCourses
     scope.joins(:user).where("teacher_rating = ?", teacher_rating)
   end
 
-  def filter_by_date
-    scope.where("start_date >= ? and end_date <= ?", start_date, end_date)
+  def filter_by_date(scope, day)
+    if day = "weekdays"
+      scope.left_outer_joins(:course_days).where.not('working_day = ?', 'Sunday').where.not('working_day = ?', 'Saturday')
+    elsif day = "weekends"
+      scope.left_outer_joins(:course_days).where.('working_day = ?', 'Sunday').where.('working_day = ?', 'Saturday')
+    else
+      scope.left_outer_joins(:course_days)
+    end 
   end
 
-  def filter_by_day
-    scope.left_outer_joins(:course_day).where("start_time >= ? and end_time <= ?", start_time, end_time)
-  end
+  ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
   def filter_by_city(scope, city)
     scope.near(city)
