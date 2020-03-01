@@ -55,13 +55,13 @@ class SearchCourses
   end
 
   def filter_by_day(scope, day)
-    if day = "weekdays"
-      scope.left_outer_joins(:course_days).where.not('working_day = ?', 'Sunday').where.not('working_day = ?', 'Saturday')
-    elsif day = "weekends"
-      scope.left_outer_joins(:course_days).where.('working_day = ?', 'Sunday').or(scope.left_outer_joins(:course_days).where('working_day = ?', 'Saturday'))
+    if day = "Weekdays"
+      scope.left_outer_joins(:course_days).where.not('working_day = ?', 'Sunday').where.not('working_day = ?', 'Saturday').uniq
+    elsif day = "Weekends"
+      scope.left_outer_joins(:course_days).where.('working_day = ?', 'Saturday').uniq
     else
       scope
-    end 
+    end
   end
 
   def filter_by_city(scope, city)

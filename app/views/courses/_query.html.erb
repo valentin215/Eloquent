@@ -6,6 +6,7 @@
 
     <%= f.hidden_field :language,
                        input_html: {value: params[:query].try(:[],:language)} %>
+                       
     <%= f.input :level,
                 label: "Choose a level:",
                 label_html: { class: "label-form" },
@@ -55,7 +56,7 @@
               label_html: { class: "label-form" },
               required: false,
               include_blank: "-------",
-              collection: ["Weekend", "Weekdays", "All week"],
+              collection: ["Weekends", "Weekdays", "All week"],
               selected: params[:query].try(:[], :day) %>   
 
     <%= f.submit 'Search', class: 'button-search' %>
