@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
@@ -16,7 +17,10 @@ gem 'autoprefixer-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

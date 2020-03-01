@@ -1,7 +1,7 @@
 Cloudinary.config do |config|
   config.cloud_name = 'dytrrl7hj'
-  config.api_key = '566782717476522'
-  config.api_secret = 'T3cZeEdzTW8ozBU65fJWWojwUzk'
+  config.api_key = ENV['CLOUDINARY_API']
+  config.api_secret = ENV['CLOUDINARY_API_SECRET']
   config.secure = true
   config.cdn_subdomain = true
 end
