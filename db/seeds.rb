@@ -168,32 +168,59 @@ curso_spanish_in_eixample_chris = Course.create!(user: chris_teacher,
     )
 
 
-curso_spanish_days = CourseDay.create!(start_time: "19:00:00",
+CourseDay.create!(start_time: "19:00:00",
   end_time: "21:00:00",
-  working_day: "Tues, Wed, Thurs",
+  working_day: "Tuesday",
   course: curso_spanish_juanito
-  )
+)
 
+CourseDay.create!(start_time: "19:00:00",
+end_time: "21:00:00",
+working_day: "Wednesday",
+course: curso_spanish_juanito
+)
 
-curso_spanish_jenny_days = CourseDay.create!(start_time: "19:00:00",
-  end_time: "21:00:00",
-  working_day: "Tues, Wed, Thurs",
+CourseDay.create!(start_time: "19:00:00",
+end_time: "21:00:00",
+working_day: "Thursday",
+course: curso_spanish_juanito
+)
+
+CourseDay.create!(start_time: "19:00:00",
+  end_time: "16:00:00",
+  working_day: "Saturday",
   course: curso_spanish_jenny
   )
 
+  CourseDay.create!(start_time: "19:00:00",
+    end_time: "16:00:00",
+    working_day: "Sunday",
+    course: curso_spanish_jenny
+    )
 
-curso_english_london_days = CourseDay.create!(start_time: "19:00:00",
-  end_time: "21:00:00",
-  working_day: "Tues, Wed, Thurs",
+CourseDay.create!(start_time: "19:00:00",
+  end_time: "14:00:00",
+  working_day: "Monday",
   course: curso_spanish_london_jaunito
   )
 
-curso_spanish_in_london_days = CourseDay.create!(start_time: "20:00:00",
-  end_time: "21:00:00",
-  working_day: "Tues, Wed, Thurs",
+  CourseDay.create!(start_time: "19:00:00",
+    end_time: "14:00:00",
+    working_day: "Saturday",
+    course: curso_spanish_london_jaunito
+    )
+
+CourseDay.create!(start_time: "20:00:00",
+  end_time: "20:00:00",
+  working_day: "Friday",
   course: curso_spanish_in_eixample_chris
   )
 
+  CourseDay.create!(start_time: "20:00:00",
+    end_time: "20:00:00",
+    working_day: "Monday",
+    course: curso_spanish_in_eixample_chris
+    )
 
 
 leo_student_booking_juan = Booking.create!(total_price: 100, course: curso_spanish_juanito, user: leo_student)

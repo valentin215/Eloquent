@@ -54,13 +54,13 @@ class SearchCourses
     scope.joins(:user).where("teacher_rating = ?", teacher_rating)
   end
 
-  def filter_by_date(scope, day)
+  def filter_by_day(scope, day)
     if day = "weekdays"
       scope.left_outer_joins(:course_days).where.not('working_day = ?', 'Sunday').where.not('working_day = ?', 'Saturday')
     elsif day = "weekends"
-      scope.left_outer_joins(:course_days).where.('working_day = ?', 'Sunday').where.('working_day = ?', 'Saturday')
+      scope.left_outer_joins(:course_days).where.('working_day = ?', 'Sunday').or(scope.left_outer_joins(:course_days).where('working_day = ?', 'Saturday'))
     else
-      scope.left_outer_joins(:course_days)
+      scope
     end 
   end
 

@@ -20,6 +20,12 @@ class Course < ApplicationRecord
   validates :language_id, presence: true
 
   attr_accessor :start_time, :end_time
+  
+  def arr_working_days
+    arr_course_days = []
+    course_days.each { |c| arr_course_days << c.working_day }
+    arr_course_days
+  end
 
   def total_week_hours
     total = 0
