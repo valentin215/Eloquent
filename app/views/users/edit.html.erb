@@ -406,6 +406,15 @@
               hint: "leave it blank if you don't want to change it",
               required: true, collection: spoken_lang %>
             </div>
+            <% if current_user.teacher? %>
+              <div>
+                <%= f.input :teacher_experience, input_html: { class:'remove-bootstrap'},
+                as: :integer,
+                hint: "leave it blank if you don't want to change it",
+                required: true,
+                label: "Your experience as a teacher" %>
+              </div>
+            <% end %>
             <div>
               <%= f.input :biography, input_html: { class:'remove-bootstrap'},
               hint: "leave it blank if you don't want to change it",
@@ -428,8 +437,8 @@
 
                   <span><b><%= category.content %></span></b>
 
-                  
- 
+
+
                   <div class="category-choices">
                     <% taglist.each do |tag| %>
                       <% if current_user.user_interests.find_by(interest_tag: tag) %>

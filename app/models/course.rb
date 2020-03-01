@@ -7,7 +7,6 @@ class Course < ApplicationRecord
   mount_uploader :picture, PhotoUploader
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  monetize :price_cents
   validates :title, presence: true, length: { minimum: 5 }
   validates :description, presence: true, length: { minimum: 10 }
   validates :end_date, presence: true
@@ -21,12 +20,17 @@ class Course < ApplicationRecord
   validates :language_id, presence: true
 
   attr_accessor :start_time, :end_time
-
+  
+  def arr_working_days
+    arr_course_days = []
+    course_days.each { |c| arr_course_days << c.working_day }
+    arr_course_days
+  end
 
   def total_week_hours
     total = 0
     course_days.first(1).each do |course_day|
-      total += -course_day.start_time.strftime('%I:%M%p').to_f + course_day.end_time.strftime('%I:%M%p').to_f
+      total += -course_day.start_time&.strftime('%I:%M%p').to_f + course_day.end_time&.strftime('%I:%M%p').to_f
     end
     return total
   end

@@ -84,7 +84,7 @@ def destroy
     redirect_to course_path(@course)
   end
 
-  private
+  private 
 
   def create_course_days
     params[:course][:course_day_ids].each do |day|

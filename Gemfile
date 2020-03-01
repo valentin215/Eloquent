@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+
+gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
@@ -18,7 +20,7 @@ gem 'webpacker'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'bootsnap'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -35,8 +37,4 @@ end
 
 gem 'cloudinary', '~> 1.12.O'
 gem 'carrierwave', '~> 1.2'
-
 gem 'geocoder'
-gem 'money-rails'
-gem 'stripe'
-

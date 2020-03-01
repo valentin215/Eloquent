@@ -64,15 +64,19 @@
               </div>
               <% end %>
                 <div>
+                  <span>Time: </span><p><%= course.course_days.first&.start_time&.strftime("%H:%M") + ' ' + 'to' + ' ' + course.course_days.first&.end_time&.strftime("%H:%M") %></p>
+                </div>
+                <div>
                   <span>Price: </span><p><%= course.price.to_i %>€ per student</p>
                 </div>
                 <div>
                   <span>Dates: </span><p><%= course.start_date&.strftime("%-d %B") %> - <%= course.end_date&.strftime("%-d %B") %></p>
                 </div>
                   <span>Days: </span>
-                  <% course.course_days.each do |day| %>
+                  <% arr = course.arr_working_days %>
+                  <% arr.each_with_index do |day, index| %>
 
-                  <p><%= day.working_day %>,</p>
+                  <p><%= day %></p><span><% "," if index != arr.size - 1 %></span>
 
                 <% end %>
             </div>

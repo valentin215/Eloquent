@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def update
     create_user_interests
-    current_user.update(user_params)
+    current_user.update!(user_params)
     redirect_to user_path(current_user)
   end
 
@@ -76,6 +76,7 @@ class UsersController < ApplicationController
       :nationality,
       :content,
       :rating,
+      :teacher_experience,
       interest_tag_ids: []
     )
   end
