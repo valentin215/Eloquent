@@ -4,28 +4,12 @@ class CoursesController < ApplicationController
   def index
     if params[:query].present?
       @courses = SearchCourses.new(params: params[:query]).call
+      @language = params[:query][:language]
+      @city = params[:query][:city]
     else
       @courses = Course.all
     end
-
-
-  @markers = @courses.map do |course|
-      {
-        lat: course.latitude,
-        lng: course.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { course: course })
-      }
-    end
-
-
-    @markers = @courses.map do |course|
-      {
-        lat: course.latitude,
-        lng: course.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { course: course })
-      }
-    end
-
+    geocoder_map(@courses)
   end
 
 def show
@@ -33,13 +17,7 @@ def show
   @booking = Booking.new
   @user = @course.user
   @reviews_teacher_for_course = @course.user.teacher_reviews_for_show
-
-  @markers =
-      [{
-        lat: @course.latitude,
-        lng: @course.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { course: @course })
-      }]
+  geocoder_map(@course)
 end
 
 def new
@@ -87,6 +65,34 @@ def destroy
   end
 
   private 
+
+  def geocoder_map(course)
+    if course.size != 1
+      courses = course
+      @markers = courses.map do |course|
+        {
+          lat: course.latitude,
+          lng: course.longitude,
+          infoWindow: render_to_string(partial: "infowindow", locals: { course: course })
+        }
+      end
+
+      @markers = courses.map do |course|
+        {
+          lat: course.latitude,
+          lng: course.longitude,
+          infoWindow: render_to_string(partial: "infowindow", locals: { course: course })
+        }
+      end
+    elsif course = 1
+      @markers =
+      [{
+        lat: @course.latitude,
+        lng: @course.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { course: course })
+      }]
+    end
+  end 
 
   def create_course_days
     params[:course][:course_day_ids].each do |day|
