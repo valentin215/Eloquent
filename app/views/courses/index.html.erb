@@ -1,9 +1,8 @@
 
 <div id="allcourses">
-<a href="#map">
-  <%= image_tag "button-map.png", class:"feedback", height: 40, width: 40 %>
-</a>
-
+  <a href="#map">
+    <%= image_tag "button-map.png", class:"feedback", height: 40, width: 40 %>
+  </a>
 </div>
 <div class="container-active active">
 <div class="content-container">
@@ -20,7 +19,9 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <%= render 'query' %>
+              <% language =  params[:query][:language] %>
+              <% city =  params[:query][:city] %>
+              <%= render 'query'  %>
             </div>
           </div>
         </div>

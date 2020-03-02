@@ -1,11 +1,13 @@
  <div class="query-form">
   <%= simple_form_for :query, method: :get do |f| %>
 
-    <%= f.hidden_field :city,
-                        selected: {value: @city} %>
+    <%= f.input :city,
+                as: :hidden,
+                input_html: {value: params[:query][:city]} %>
 
-    <%= f.hidden_field :language,
-                       selected: {value: @language} %>
+    <%= f.input :language,
+                as: :hidden,
+                input_html: {value: params[:query][:language]} %>
                        
     <%= f.input :level,
                 label: "Choose a level:",
