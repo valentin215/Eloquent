@@ -4,6 +4,8 @@ class CoursesController < ApplicationController
   def index
     if params[:query].present?
       @courses = SearchCourses.new(params: params[:query]).call
+    else
+      @courses = Course.all
     end
 
 
