@@ -20,7 +20,8 @@ juanito_teacher = User.new(name: 'Juan', biography: 'Spanish teacher with 5 year
     password:    '123456',
     native_language: 'Spanish',
     nationality:   'Spanish',
-    teacher_rating: 3
+    teacher_rating: 3,
+    teacher_experience: 4
     )
 
 juanito_teacher.remote_photo_url = "http://tedxudeusto.com/wp-content/uploads/2018/12/Juan-Barbed.png"
@@ -32,7 +33,8 @@ chris_teacher = User.new(name: 'Chris', biography: 'I was born in Chile and have
     password:    '123456',
     native_language: 'Spanish',
     nationality:   'Chilean',
-    teacher_rating: 4
+    teacher_rating: 4,
+    teacher_experience: 5
     )
 
 chris_teacher.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559814691/Cristobal_dl58f1.jpg"
@@ -46,7 +48,8 @@ jenny_teacher = User.new(name: 'Jenny', biography: 'I was born in Spain on and I
     password:    '123456',
     native_language: 'Spanish',
     nationality:   'Spanish',
-    teacher_rating: 7
+    teacher_rating: 7,
+    teacher_experience: 8
     )
 
 

@@ -230,13 +230,13 @@
 </div>
 
 <!-- Booking button -->
-<div class="btn-show-course">
+<div class="btn-show-course bonjour">
   <div class="price">
     <h4><strong>€<%= @course.price %></strong></h4>
     <p><strong> per student </strong></p>
   </div>
   <div class="btn-book">
-    <%= link_to new_course_payment_path(@course) do%>
+    <%= link_to new_course_booking_path(@course) do%>
     <button type="button" class="btn-book-modal" data-toggle="modal">
       Book Now
     </button>
@@ -260,7 +260,7 @@
       </div>
       <div class="modal-footer">
         <div class="button-payment" style="border-radius: 3px; padding-top: 8px;">
-          <%= link_to "Go to payment", new_course_payment_path(@course) %>
+          <%= link_to "Go to payment", new_course_booking_path(@course) %>
         </div>
       </div>
     </div>

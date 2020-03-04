@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
   resources :courses do
     resources :bookings, only: [:new, :create, :update]
-    resources :payments, only: [:new, :create]
   end
 
   resources :users, only: [:edit, :update, :show]

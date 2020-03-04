@@ -21,15 +21,14 @@
   </div>
 
   <!-- payment -->
-    <%#= form_tag new_course_booking_path([@course, @booking, @payment]) do %>
-     <!--  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" method="post"
-        data-key="<%#= Rails.configuration.stripe[:publishable_key] %>"
-        data-name="<%#= @course.title%>"
-        data-email="<%#= current_user.email %>"
-        data-description="<%#= @course.language.name %> - <%#= @course.level%>"
+    <%= form_tag new_course_booking_path([@course, @booking, @payment]) do %>
+     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" method="post"
+        data-name="<%= @course.title%>"
+        data-email="<%= current_user.email %>"
+        data-description="<%= @course.language.name %> - <%= @course.level%>"
         data-amount="<%#= @booking.amount %>"
         data-currency="<%#= @booking.amount.currency %>"></script>
-    <@% end %> -->
+    <% end %>
 </div>
 
 
