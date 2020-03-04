@@ -22,7 +22,7 @@
 
   <!-- payment -->
     <%= form_tag new_course_booking_path([@course, @booking, @payment]) do %>
-     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" method="post"
+     <script class="booking-button" method="post"
         data-name="<%= @course.title%>"
         data-email="<%= current_user.email %>"
         data-description="<%= @course.language.name %> - <%= @course.level%>"
