@@ -4,14 +4,13 @@
       <%= @course.language.name.upcase %><span>, </span><%= @course.level.upcase %>
        </div>
          <%= link_to course_path(@course) do %>
-         <div class="course-title"><%= @course.title %>
-         </div>
+          <div class="course-title"><%= @course.title %> </div>
          <% end %>
          <hr>
         <div class="teacher-content">
           <div class="teacher-photo">
             <% if @user.photo.present? %>
-            <div class="avatar-large">
+              <div class="avatar-large">
               <%= link_to user_path(@course.user.id) do %>
                 <%= cl_image_tag @course.user.photo, class: "avatar-large" %>
               <% end %>
@@ -32,36 +31,84 @@
               <% unless @course.user.teacher_rating.nil? %>
                 <% rating = @course.user.teacher_rating %>
                 <% rating.round.times do %>
-                <i class="fa fa-star"></i>
-              <% end %>
+                  <i class="fa fa-star"></i>
+                <% end %>
               <% end %>
             </div>
           </div>
         </div>
         <hr>
-        <div>
-          <span>Price: </span><p><%= @course.price.to_i %>€ per student</p>
-    </div>
-    <div>
-    <span>Dates: </span><p><%= @course.start_date&.strftime("%-d %B") %> - <%= @course.end_date&.strftime("%-d %B") %></p>
-    </div>
-    <% @course.course_days.each do |day| %>
-    <div>
-      <span>Days: </span><p><%= day.working_day %></p>
-    </div>
-    <% end %>
+        <!-- Dates Section -->
+      <div class="sections-course">
+        <div class="main-info-course">
+          <div class="dates-pic">
+            <i class="far fa-calendar"></i>
+            <div class="dates">
+              <p><strong>Dates</strong></p>
+              <p>Start: <%= @course.start_date&.strftime('%a, %B %e, %Y') %></p>
+              <p>End: <%= @course.end_date&.strftime('%a, %B %e, %Y') %></p>
+            </div>
+          </div>
+        </div>
+        <div class="dates-pic">
+          <i class="far fa-clock"></i>
+          <div class="dates">
+            <p><strong>Weekly Schedule</strong></p>
+            <% @course.course_days.first(1).each do |x| %>
+              <% unless x.start_time.nil? %>
+                <%= x.start_time.strftime('%I:%M%p') %>
+              <% end  %>
+            <% end %><span> - </span>
+            <% @course.course_days.first(1).each do |x| %>
+              <%= x.end_time&.strftime('%I:%M%p') %>
+              <span> (<%= @course.total_week_hours  %> hours per day)</span>
+            <% end %>
+            <div class="days">
+              <% @course.course_days.each do |x| %>
+                <%= x.working_day %>,
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="dates-pic">
+          <i class="fas fa-euro-sign"></i>
+          <div class="dates">
+            <p><strong>Price per student</strong></p>
+            <p>€ <%= @course.price %> </p>
+          </div>
+        </div>
+        <div class="dates-pic">
+          <%= icon('fas', 'map-marker-alt') %>
+          <div class="dates">
+            <p><strong>Meeting point</strong></p>
+              <p><%= @course.city %></p>
+              <p><%= @course.address %></p>
+          </div>
+        </div>
+      </div>
+    <hr>
   </div>
 
-  <!-- payment -->
-    <%= form_tag new_course_booking_path([@course, @booking, @payment]) do %>
-     <script class="booking-button" method="post"
-        data-name="<%= @course.title%>"
-        data-email="<%= current_user.email %>"
-        data-description="<%= @course.language.name %> - <%= @course.level%>"
-        data-amount="<%#= @booking.amount %>"
-        data-currency="<%#= @booking.amount.currency %>"></script>
+  <div class="course-title">Teacher will contact you !</div>
+  <p class="u-font-p">By clicking on <strong>Apply</strong> we will give your  phone number to the teacher so that he/she can confirm you’re the right level for the course & agree payment terms</p>
+
+  <input type="checkbox" id="legal-terms">
+  <label class="u-font-p" for="legal-terms">I agree to the terms & conditions</label><br>
+
+    <div class="btn-book u-unclickable">
+      <%= link_to course_bookings_path(@course.id) do%>
+      <button type="button" class="btn-book-modal">Apply</button>
     <% end %>
+  </div>
 </div>
+
+<script>
+input = document.querySelector('#legal-terms')
+button = document.querySelector('.btn-book')
+input.addEventListener('click', function(e) {
+  button.classList.remove('u-unclickable');
+});
+</script>
 
 
 

@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @course = Course.find(params[:course_id])
+    @user = User.find(@course.user_id)
     # @payment = Payment.new
   end
 
@@ -20,6 +21,7 @@ class BookingsController < ApplicationController
     @course = @booking.course
 
   end
+
 
 #----------> Params empty we don't need a permission for bookings controller
   # private
