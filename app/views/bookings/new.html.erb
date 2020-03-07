@@ -96,18 +96,19 @@
   <label class="u-font-p" for="legal-terms">I agree to the terms & conditions</label><br>
 
     <div class="btn-book u-unclickable">
-      <%= link_to course_bookings_path(@course.id) do%>
-      <button type="button" class="btn-book-modal">Apply</button>
-    <% end %>
-  </div>
+      <%= link_to course_bookings_path(@course), method: :post do %>
+        <button type="button" class="btn-book-modal">Apply</button>
+      <% end %>
+    </div>
 </div>
 
 <script>
-input = document.querySelector('#legal-terms')
-button = document.querySelector('.btn-book')
-input.addEventListener('click', function(e) {
-  button.classList.remove('u-unclickable');
-});
+  input = document.querySelector('#legal-terms')
+  button = document.querySelector('.btn-book')
+
+  input.addEventListener('click', function(e) {
+    button.classList.remove('u-unclickable');
+  });
 </script>
 
 
