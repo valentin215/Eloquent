@@ -92,12 +92,12 @@
   <div class="course-title">Teacher will contact you !</div>
   <p class="u-font-p">By clicking on <strong>Apply</strong> we will give your  phone number to the teacher so that he/she can confirm you’re the right level for the course & agree payment terms</p>
 
-  <div class="u-vertical-align-middle mb3">
-    <input type="checkbox" id="legal-terms">
-    <label class="u-font-p" for="legal-terms">I agree to the terms & conditions</label>
+  <div class="u-vertical-align-middle mb3 input__legal-terms">
+    <input class="checkbox_legal" type="checkbox" id="legal-terms">
+    <label class="u-font-p label_legal" for="legal-terms">I agree to the terms & conditions</label>
   </div>
 
-    <div class="u-unclickable">
+    <div class="btn-book u-unclickable">
       <%= link_to course_bookings_path(@course), method: :post do %>
         <button type="button" class="button-search">Apply</button>
       <% end %>
