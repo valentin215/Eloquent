@@ -11,7 +11,7 @@
           <div class="teacher-photo">
             <% if @user.photo.present? %>
               <div class="avatar-large">
-              <%= link_to user_path(@course.user.id) do %>
+              <%= link_to user_path(@course.user.id), { class: "u-no-opacity" } do %>
                 <%= cl_image_tag @course.user.photo, class: "avatar-large" %>
               <% end %>
             </div>
@@ -20,7 +20,7 @@
             <% end %>
           </div>
           <div class="teacher-info">
-            <div id="name-teacher"><%= link_to "#{@course.user.name}", user_path(@course.user.id), :class => "user-profile-links" %>
+            <div id="name-teacher"><%= link_to "#{@course.user.name}", user_path(@course.user.id), :class => "user-profile-links u-no-opacity" %>
             </div>
             <% @course.user.interest_tags.first(8).each do |interest| %>
             <div class="interest-content">
@@ -92,12 +92,14 @@
   <div class="course-title">Teacher will contact you !</div>
   <p class="u-font-p">By clicking on <strong>Apply</strong> we will give your  phone number to the teacher so that he/she can confirm you’re the right level for the course & agree payment terms</p>
 
-  <input type="checkbox" id="legal-terms">
-  <label class="u-font-p" for="legal-terms">I agree to the terms & conditions</label><br>
+  <div class="u-vertical-align-middle mb3">
+    <input type="checkbox" id="legal-terms">
+    <label class="u-font-p" for="legal-terms">I agree to the terms & conditions</label>
+  </div>
 
-    <div class="btn-book u-unclickable">
+    <div class="u-unclickable">
       <%= link_to course_bookings_path(@course), method: :post do %>
-        <button type="button" class="btn-book-modal">Apply</button>
+        <button type="button" class="button-search">Apply</button>
       <% end %>
     </div>
 </div>
