@@ -1,0 +1,35 @@
+<div class="content-container" style="text-align: center; margin-top: 40px; border-radius: 4px; padding-top: 10px; opacity: 0.8;">
+
+<div class='payment-title'>
+  <i class="far fa-check-circle" style="font-size: 70px; opacity: 0.85"></i>
+  <h1>Thanks for applying to this course ! </h1>
+</div>
+
+<hr>
+
+<div class="content-container" style="text-align: left; border-radius: 4px; padding-bottom: 30px; font-size: 10px;">
+  <div class="font-content">
+   <b><p style:><center>Your application to the course has been sent to the teacher and <%= @course.user.name %> will review it and contact you in the next days to verify your level.
+   Here are the details:</center></p></b> <br>
+   <h4>
+    <b>Teacher: </b><span><%= @course.user.name  %></span>
+    <div>
+      <b>Teacher Mail: </b><span><%= @course.user.email  %></span>
+    </div>
+    <div>
+     <b>Course: </b><span><%= @course.title %></span>
+   </div>
+  <div>
+    <b>Dates: </b><span><%= @course.start_date.strftime("%-d %B") %> - <%= @course.end_date.strftime("%-d %B") %></span>
+  </div>
+
+    </h4>
+    </div>
+  </div>
+<p>We sent you an email with the details of the course.</p>
+
+<p><br>
+  <div class="profile-link" style="padding-bottom: 30px; bottom: 20px; text-align: center">
+    <%= link_to "Back to my profile", user_path(@booking.user.id)%>
+  </div>
+</div>
