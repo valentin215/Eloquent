@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_195321) do
 
   create_table "bookings", force: :cascade do |t|
     t.float "total_price"
+    t.string "state"
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
