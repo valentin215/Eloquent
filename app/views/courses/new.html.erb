@@ -2,34 +2,32 @@
 
     <div class="search-form">
       <h2>Let's create a new course</h2>
-<%= simple_form_for @course do |f| %>
+      
+    <%= simple_form_for @course do |f| %>
 
-<div class="profil-description">
-    <h2>Step 1: Language and Level</h2>
-    <%#= f.input :start_time %>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-md-6">
-
-      <p>What’s language would you like to offer?</p>
-      <%= f.input :language_id, collection: Language.all,
-       label_method: :name, label: false,
-       value_method: :id, class: 'form-control' %>
-
-    </div>
-    <div class="form-group col-md-6">
-      <p>What’s the level of this course?</p>
-      <%= f.input :level, :collection => ['No knowledge',
-        'Elementary level (A1)',
-        'Low intermediate level (B1)',
-        'High intermediate level (B2)',
-        'Advanced level (C1)',
-        'Proficient (C2)',
-        'Test Preparation',
-        ], label: false, class: 'form-control' %>
-    </div>
-  </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+        <p>What’s language would you like to offer?</p>
+          <%= f.input :language_id, 
+          collection: Language.all,
+          label_method: :name, 
+          label: false,
+          value_method: :id, 
+          include_blank: "",
+          class: 'form-control' %>
+        </div>
+        <div class="form-group col-md-6">
+          <p>What’s the level of this course?</p>
+          <%= f.input :level, :collection => ['No knowledge',
+            'Elementary level (A1)',
+            'Low intermediate level (B1)',
+            'High intermediate level (B2)',
+            'Advanced level (C1)',
+            'Proficient (C2)',
+            'Test Preparation',
+            ], label: false, class: 'form-control' %>
+        </div>
+      </div>
 
 
   <div class="profil-description">

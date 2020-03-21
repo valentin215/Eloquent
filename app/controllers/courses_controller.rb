@@ -120,6 +120,9 @@ def destroy
       :picture_cache,
       :capacity,
       :price,
+      :years_of_experience,
+      :qualifications,
+      :teacher_description
     )
   end
 end
