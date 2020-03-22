@@ -20,7 +20,9 @@ juanito_teacher = User.new(name: 'Juan', biography: 'Spanish teacher with 5 year
     password:    '123456',
     native_language: 'Spanish',
     nationality:   'Spanish',
-   )
+    teacher_rating: 3,
+    teacher_experience: 4
+    )
 
 juanito_teacher.remote_photo_url = "http://tedxudeusto.com/wp-content/uploads/2018/12/Juan-Barbed.png"
 juanito_teacher.save!
@@ -30,8 +32,10 @@ chris_teacher = User.new(name: 'Chris', biography: 'I was born in Chile and have
     email:        'chris@mail.com',
     password:    '123456',
     native_language: 'Spanish',
-    nationality:   'Chilean'
-   )
+    nationality:   'Chilean',
+    teacher_rating: 4,
+    teacher_experience: 5
+    )
 
 chris_teacher.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559814691/Cristobal_dl58f1.jpg"
 chris_teacher.save!
@@ -43,8 +47,10 @@ jenny_teacher = User.new(name: 'Jenny', biography: 'I was born in Spain on and I
     email:        'jenny@mail.com',
     password:    '123456',
     native_language: 'Spanish',
-    nationality:   'Spanish'
-   )
+    nationality:   'Spanish',
+    teacher_rating: 7,
+    teacher_experience: 8
+    )
 
 
 jenny_teacher.remote_photo_url = "https://www.hardypedoortho.com/wp-content/uploads/StraightSmileKid2-300x300.jpg"
@@ -68,7 +74,7 @@ valentin_student = User.new(name: 'Valentin',
     email:        'valentin@mail.com',
     password:    '123456',
     native_language: 'French',
-    nationality:   'French',)
+    nationality:   'French')
 
 valentin_student.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559814957/Valentin_aqsniq.jpg"
 valentin_student.save!
@@ -80,7 +86,7 @@ leo_student = User.new(name: 'Leo',
     email:        'leo@mail.com',
     password:    '123456',
     native_language: 'German',
-    nationality:   'German',)
+    nationality:   'German')
 
 leo_student.remote_photo_url = "https://static1.squarespace.com/static/592738c58419c2fe84fbdb81/t/5a89476ac83025f59a85e212/1518947873584/DwayneBrownStudio_Kevin_LinkedIn_Portrait.jpg"
 leo_student.save!

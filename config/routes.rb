@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'courses/new'
   get 'courses/edit'
 
+  get 'bookings/thanks_page_booking'
+
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   # devise_scope :user do
@@ -16,8 +18,8 @@ Rails.application.routes.draw do
 
   resources :courses do
     resources :bookings, only: [:new, :create, :update]
-    resources :payments, only: [:new, :create]
   end
+
 
   resources :users, only: [:edit, :update, :show]
 

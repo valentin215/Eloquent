@@ -5,6 +5,9 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.string :description
       t.date :end_date
       t.date :start_date
+      t.text :teacher_description
+      t.string :years_of_experience
+      t.string :qualifications
       t.string :level
       t.string :address
       t.string :area

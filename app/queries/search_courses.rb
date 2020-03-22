@@ -26,13 +26,13 @@ class SearchCourses
   end
 
   def filter_by_price(scope, price)
-    if price = "0-50"
+    if price == "0-50"
       scope.where("price <= ?", "50")
-    elsif price = "50-100"
+    elsif price == "50-100"
       scope.where("price >= ? and price <= ?", "50", "100")
-    elsif price = "100-150"
+    elsif price == "100-150"
       scope.where("price >= ? and price <= ?", "100", "150")
-    elsif price = "150-200"
+    elsif price == "150-200"
       scope.where("price >= ? and price <= ?", "150", "200")
     else
       scope.where("price >= ?", "200")
@@ -41,24 +41,24 @@ class SearchCourses
   
   def filter_by_time(scope, time)
     if time == 'M'
-      scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "00:01", "12:00")
+      scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "00:01", "12:00").uniq
     elsif time == 'A'
-      scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "12:00", "18:00")
+      scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "12:00", "18:00").uniq
     else
-      scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "18:00", "23:59")
+      scope.left_outer_joins(:course_days).where("start_time >= ? and end_time <= ?", "18:00", "23:59").uniq
     end 
   end
-  
+
   def filter_by_teacher_rating(scope, teacher_rating)
     teacher_rating = teacher_rating.to_f
     scope.joins(:user).where("teacher_rating = ?", teacher_rating)
   end
 
   def filter_by_day(scope, day)
-    if day = "Weekdays"
-      scope.left_outer_joins(:course_days).where.not('working_day = ?', 'Sunday').where.not('working_day = ?', 'Saturday').uniq
-    elsif day = "Weekends"
-      scope.left_outer_joins(:course_days).where.('working_day = ?', 'Saturday').uniq
+    if day == "Weekdays"
+      scope.where(id: arr_ids_courses_not)
+    elsif day == "Weekends"
+      scope.where(id: arr_ids_courses)
     else
       scope
     end
@@ -74,5 +74,15 @@ class SearchCourses
 
   def filter_by_level(scope, level)
     scope.where('level @@ ?', level)
+  end
+
+  private
+
+  def arr_ids_courses_not
+    ids = CourseDay.where.not('working_day = ? or working_day = ?', 'Saturday', 'Sunday').pluck(:course_id)
+  end 
+
+  def arr_ids_courses
+    ids = CourseDay.where('working_day = ? or working_day = ?', 'Saturday', 'Sunday').pluck(:course_id)
   end
 end

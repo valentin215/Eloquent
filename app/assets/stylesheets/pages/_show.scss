@@ -1,159 +1,153 @@
-
 .sections-course {
-  font-size: 14px;
-  margin-top: 24px;
+	font-size: 14px;
+	margin-top: 24px;
 }
 
 .sections-course {
-  h4 {
-  margin-bottom: 24px;
-  }
+	h4 {
+		margin-bottom: 24px;
+	}
 }
 
 .classmates {
-  display: flex;
+	display: flex;
 }
 
 .classmate-photo {
-  margin-right: 20px;
-  justify-content: center;
+	margin-right: 20px;
+	justify-content: center;
 }
 
 .classmate-photo .fa-star {
-  margin-right: 20px;
-  justify-content: center;
+	margin-right: 20px;
+	justify-content: center;
 }
 
 .review-detail {
-  margin-bottom: 8px;
-  margin-top: 8px;
-  display: flex;
+	margin-bottom: 8px;
+	margin-top: 8px;
+	display: flex;
 }
 
 .review-comment {
-  margin-left: 14px;
+	margin-left: 14px;
 }
 
 .all-reviews {
-   p {
-  text-decoration: underline;
-  margin-top: 16px;
-  }
+	p {
+		text-decoration: underline;
+		margin-top: 16px;
+	}
 }
 
 .course-level-user {
-  padding-bottom: 0px;
-  align-items: center;
-  opacity: 0.8;
-  font-size: 13px;
+	padding-bottom: 0px;
+	align-items: center;
+	opacity: 0.8;
+	font-size: 13px;
 }
 
 .course-level-user img {
-  padding-bottom: 1px;
-  padding-left: 3px;
+	padding-bottom: 1px;
+	padding-left: 3px;
 }
 
 .course-title-user {
-  font-weight: bold;
-  opacity: 0.8;
-  margin-bottom: 6px;
+	font-weight: bold;
+	opacity: 0.8;
+	margin-bottom: 6px;
 }
 
 .course-title-user p {
-  font-size: 16px;
+	font-size: 16px;
 }
 
 .user-profile-links {
-  text-decoration: none;
-  color: black;
+	text-decoration: none;
+	color: black;
 }
 
 .user-profile-links:hover {
-  text-decoration: none;
-  color: black;
+	text-decoration: none;
+	color: black;
 }
 
 .courses-reservations {
-  margin-bottom: 8px;
-  margin-top: 20px;
-  background-color: #F6F6F6;
-  padding: 10px 20px;
-  padding-bottom: 2px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px -1px rgba(186,186,186,0.74);
+	margin-bottom: 8px;
+	margin-top: 20px;
+	background-color: #f6f6f6;
+	padding: 10px 20px;
+	padding-bottom: 2px;
+	border-radius: 5px;
+	box-shadow: 0px 2px 5px -1px rgba(186, 186, 186, 0.74);
 
-  // border: 1px solid gray;
+	// border: 1px solid gray;
 }
 
 .attendees > .classmates {
- margin-top: 16px;
- // margin-bottom: 0px;
+	margin-top: 16px;
+	// margin-bottom: 0px;
 }
 
 .new-course {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .course-info-student {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  margin-top: 20px;
-  background-color: #F6F6F6;
-  padding: 10px 20px;
-  padding-bottom: 2px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px -1px rgba(186,186,186,0.74);
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 8px;
+	margin-top: 20px;
+	background-color: #f6f6f6;
+	padding: 10px 20px;
+	padding-bottom: 2px;
+	border-radius: 5px;
+	box-shadow: 0px 2px 5px -1px rgba(186, 186, 186, 0.74);
 }
 
 .course-booking-review {
-  p {
-    margin-bottom: 0px;
-    margin-top: 6px;
-  }
-  .review-comment-2 {
-    opacity: 1;
-    font-size: 13px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+	p {
+		margin-bottom: 0px;
+		margin-top: 6px;
+	}
+	.review-comment-2 {
+		opacity: 1;
+		font-size: 13px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
 }
 
-
 .course-date-review {
-  margin-top: -2px;
-  // display: flex;
-  // justify-content: space-between;
-  // align-items: center;
+	margin-top: -2px;
+	// display: flex;
+	// justify-content: space-between;
+	// align-items: center;
 }
 
 .course-date-review p {
-  opacity: 0.7;
-  font-size: 13px;
-  text-align: justify;
-  margin-bottom: 0px;
+	opacity: 0.7;
+	font-size: 13px;
+	text-align: justify;
+	margin-bottom: 0px;
 }
 
 .course-review a {
-  opacity: 0.8;
-  color: black;
-  font-size: 13px;
-  &:hover {
-  opacity: 1;
-  }
+	opacity: 0.8;
+	color: black;
+	font-size: 13px;
+	&:hover {
+		opacity: 1;
+	}
 }
 
 .review-comment {
-  opacity: 0.8;
-  font-size: 14px;
-  margin-bottom: 0px;
+	opacity: 0.8;
+	font-size: 14px;
+	margin-bottom: 0px;
 }
 
-
-
-
-
-
-
-
+#legal-terms {
+	margin-right: 4px;
+}

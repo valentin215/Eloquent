@@ -88,7 +88,7 @@
   opacity: 1;
 }
 
-button.stripe-button-el>span {
+button.booking-button-el>span {
   background-color: $purple !important;
   background-image: none;
   border-radius: 4px;
@@ -99,7 +99,7 @@ button.stripe-button-el>span {
   box-shadow: 0px 2px 5px -1px rgba(186,186,186,0.74);
 }
 
-button.stripe-button-el {
+button.booking-button-el {
     background-color: $purple !important;
     background-image: none;
     opacity: 0.8;
@@ -108,7 +108,7 @@ button.stripe-button-el {
     }
 }
 
-.button-payment a {
+.button-booking a {
     background-color: $purple;
     color: white;
     padding: 8px;
@@ -124,7 +124,7 @@ button.stripe-button-el {
     }
 }
 
-.button-payment-stripe {
+.button-booking {
    background-color: $purple;
     color: white;
     padding: 10px;
