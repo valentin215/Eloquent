@@ -24,7 +24,7 @@ juanito_teacher = User.new(name: 'Juan', biography: 'Spanish teacher with 5 year
     teacher_experience: 4
     )
 
-juanito_teacher.remote_photo_url = "http://tedxudeusto.com/wp-content/uploads/2018/12/Juan-Barbed.png"
+# juanito_teacher.remote_photo_url = "http://tedxudeusto.com/wp-content/uploads/2018/12/Juan-Barbed.png"
 juanito_teacher.save!
 
 
@@ -37,7 +37,7 @@ chris_teacher = User.new(name: 'Chris', biography: 'I was born in Chile and have
     teacher_experience: 5
     )
 
-chris_teacher.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559814691/Cristobal_dl58f1.jpg"
+# chris_teacher.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559814691/Cristobal_dl58f1.jpg"
 chris_teacher.save!
 
 
@@ -53,7 +53,7 @@ jenny_teacher = User.new(name: 'Jenny', biography: 'I was born in Spain on and I
     )
 
 
-jenny_teacher.remote_photo_url = "https://www.hardypedoortho.com/wp-content/uploads/StraightSmileKid2-300x300.jpg"
+# jenny_teacher.remote_photo_url = "https://www.hardypedoortho.com/wp-content/uploads/StraightSmileKid2-300x300.jpg"
 jenny_teacher.save!
 
 
@@ -64,7 +64,7 @@ carlitos_student = User.new(name: 'Carlos',
     native_language: 'English',
     nationality:   'British')
 
-carlitos_student.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559815368/Carloslewagon_y2xx33.jpg"
+# carlitos_student.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559815368/Carloslewagon_y2xx33.jpg"
 carlitos_student.save!
 
 
@@ -76,7 +76,7 @@ valentin_student = User.new(name: 'Valentin',
     native_language: 'French',
     nationality:   'French')
 
-valentin_student.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559814957/Valentin_aqsniq.jpg"
+# valentin_student.remote_photo_url = "https://res.cloudinary.com/dswrt2l60/image/upload/v1559814957/Valentin_aqsniq.jpg"
 valentin_student.save!
 
 
@@ -88,7 +88,7 @@ leo_student = User.new(name: 'Leo',
     native_language: 'German',
     nationality:   'German')
 
-leo_student.remote_photo_url = "https://static1.squarespace.com/static/592738c58419c2fe84fbdb81/t/5a89476ac83025f59a85e212/1518947873584/DwayneBrownStudio_Kevin_LinkedIn_Portrait.jpg"
+# leo_student.remote_photo_url = "https://static1.squarespace.com/static/592738c58419c2fe84fbdb81/t/5a89476ac83025f59a85e212/1518947873584/DwayneBrownStudio_Kevin_LinkedIn_Portrait.jpg"
 leo_student.save!
 
 
