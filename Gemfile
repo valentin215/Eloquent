@@ -34,5 +34,5 @@ group :development, :test do
 end
 
 gem 'cloudinary', '~> 1.13.2'
-gem 'carrierwave', '~> 2.1.0'
+gem 'carrierwave', '~> 2.1.1'
 gem 'geocoder'
